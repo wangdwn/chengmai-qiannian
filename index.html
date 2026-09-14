@@ -1,0 +1,2421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数字广州 · 城脉千年 | 数字人文交互平台</title>
+<!-- 海洋系列设计系统 · 直链线上 CSS（SITES.md 约定：兄弟仓库不复制 tokens） -->
+<link rel="stylesheet" href="//wangdw.xyz/design-system/tokens.css">
+<link rel="stylesheet" href="//wangdw.xyz/design-system/nav.css">
+<style>
+/* ════════ 设计令牌 ════════ */
+:root{
+  --ink:#1c1b19; --ink2:#3d3a35; --ink3:#6f6a61; --ink4:#9a948a;
+  --paper:#f7f4ee; --card:#ffffff; --line:#e5dfd4; --line2:#f0ece4;
+  --zhu:#a8302a; --zhu-l:#f7ecea;
+  --dai:#2f6b6b; --dai-l:#eaf2f2;
+  --jin:#a8791b; --jin-l:#fbf3e0;
+  --lv:#4a7c3f; --lv-l:#eef4ec;
+  --zi:#7a5c9e; --zi-l:#f2edf8;
+  --serif:"Songti SC","SimSun","Source Han Serif SC","Noto Serif CJK SC",Georgia,serif;
+  --sans:ui-sans-serif,"PingFang SC","Microsoft YaHei",-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;padding:0 34px}
+.narrow{max-width:940px;margin:0 auto}
+
+/* ════════ 滚动进度 ════════ */
+#prog{position:fixed;top:var(--nav-h,56px);left:0;height:3px;background:var(--zhu);width:0;z-index:300;transition:width .1s linear}
+
+/* ════════ 导航 ════════ */
+header.nav{position:sticky;top:var(--nav-h,56px);z-index:150;background:rgba(247,244,238,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1240px;margin:0 auto;padding:12px 34px;display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.brand{font-size:17px;font-weight:700;letter-spacing:.06em;color:var(--zhu);white-space:nowrap}
+.brand em{font-style:normal;font-size:11px;letter-spacing:.24em;color:var(--ink3);display:block;font-family:var(--sans);margin-top:-2px}
+.nav-links{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.nav-links a{
+  font-family:var(--sans);font-size:12.8px;color:var(--ink2);text-decoration:none;
+  padding:6px 11px;border-radius:3px;transition:.18s;white-space:nowrap;letter-spacing:.02em;
+}
+.nav-links a:hover{background:#ece7dd;color:var(--zhu)}
+.nav-links a.on{background:var(--zhu);color:#fff}
+.nav-links a b{font-weight:600;opacity:.55;margin-right:4px;font-size:10.5px}
+
+/* ════════ HERO ════════ */
+.hero{padding:76px 0 54px;text-align:center;border-bottom:3px double var(--line);position:relative;overflow:hidden}
+.hero .kicker{font-family:var(--sans);font-size:11.5px;letter-spacing:.4em;color:var(--zhu);font-weight:700;margin-bottom:22px}
+.hero h1{font-size:clamp(38px,6.4vw,68px);line-height:1.16;letter-spacing:.1em;font-weight:700}
+.hero h1 span{color:var(--zhu)}
+.hero .sub{font-size:16px;color:var(--ink3);margin-top:20px;letter-spacing:.22em;font-family:var(--sans);font-size:13px}
+.hero .desc{max-width:800px;margin:26px auto 0;color:var(--ink2);font-size:15.5px;line-height:2}
+
+.big3{display:flex;justify-content:center;gap:0;margin:42px auto 8px;flex-wrap:wrap;max-width:820px}
+.big3 div{flex:1;min-width:170px;padding:0 22px;border-right:1px solid var(--line)}
+.big3 div:last-child{border:none}
+.big3 .n{font-size:44px;font-weight:700;color:var(--zhu);font-family:var(--sans);line-height:1}
+.big3 .n i{font-size:16px;font-style:normal;color:var(--ink3);margin-left:5px;font-weight:400}
+.big3 .l{font-size:13px;color:var(--ink3);margin-top:8px;letter-spacing:.1em}
+
+/* 方法论链条 */
+.chain{display:flex;align-items:stretch;justify-content:center;gap:0;margin:44px auto 0;flex-wrap:wrap;max-width:960px}
+.chain .node{
+  background:var(--card);border:1px solid var(--line);padding:16px 26px;min-width:210px;
+  position:relative;
+}
+.chain .node h5{font-size:15px;font-weight:700;margin-bottom:5px}
+.chain .node p{font-size:12.5px;color:var(--ink3);line-height:1.7;font-family:var(--sans)}
+.chain .arw{display:flex;align-items:center;padding:0 12px;color:var(--ink4);font-size:20px}
+.chain .node:nth-child(1) h5{color:var(--jin)}
+.chain .node:nth-child(3) h5{color:var(--dai)}
+.chain .node:nth-child(5) h5{color:var(--zhu)}
+
+/* 同期古城 */
+.worldcities{background:var(--card);border:1px solid var(--line);padding:26px 30px;margin:44px auto 0;max-width:1000px}
+.worldcities h4{font-size:14px;font-family:var(--sans);letter-spacing:.14em;color:var(--ink3);font-weight:700;margin-bottom:4px}
+.worldcities .note{font-size:12.5px;color:var(--ink4);margin-bottom:22px;font-family:var(--sans)}
+.wc-row{display:grid;grid-template-columns:112px 1fr;gap:14px;align-items:center;margin:9px 0}
+.wc-name{font-size:14px;font-weight:700;text-align:right;color:var(--ink2)}
+.wc-name em{font-style:normal;font-size:11px;color:var(--ink4);display:block;font-weight:400}
+.wc-bar{height:24px;background:#f0ece4;position:relative;border-radius:2px}
+.wc-bar i{position:absolute;top:0;bottom:0;border-radius:2px}
+.wc-bar b{position:absolute;right:8px;top:0;line-height:24px;font-size:11.5px;font-family:var(--sans);color:var(--ink2);font-weight:600}
+.wc-gz i{background:linear-gradient(90deg,#a8302a,#c25a52)}
+.wc-other i{background:linear-gradient(90deg,#9aa8a8,#c3cdcd)}
+
+/* ════════ 通用版块 ════════ */
+section.mod{padding:80px 0 20px;border-top:1px solid var(--line)}
+section.mod:first-of-type{border-top:none}
+.mod-head{margin-bottom:38px}
+.mod-tag{font-family:var(--sans);font-size:11.5px;letter-spacing:.3em;color:var(--zhu);font-weight:700}
+.mod-head h2{font-size:31px;letter-spacing:.05em;margin:8px 0 0;font-weight:700}
+.mod-head .en{font-family:var(--sans);font-size:11px;letter-spacing:.24em;color:var(--ink4);margin-top:6px}
+.mod-head .abs{max-width:860px;margin-top:16px;color:var(--ink2);font-size:15.5px;border-left:3px solid var(--zhu);padding-left:16px;line-height:1.95}
+h3.sec{font-size:20px;margin:44px 0 6px;font-weight:700;letter-spacing:.03em}
+h3.sec .sub{font-size:13px;color:var(--ink3);font-weight:400;margin-left:10px;font-family:var(--sans);letter-spacing:.06em}
+p.para{color:var(--ink2);font-size:15.5px;margin:14px 0;line-height:2}
+p.para b{color:var(--ink)}
+
+/* 徽章 */
+.tag{display:inline-block;font-family:var(--sans);font-size:11px;padding:2px 8px;border-radius:2px;font-weight:700;letter-spacing:.03em;vertical-align:1px;white-space:nowrap}
+.t-ok{background:var(--lv-l);color:var(--lv);border:1px solid #cfe0c9}
+.t-warn{background:var(--jin-l);color:#8a6500;border:1px solid #ecd9a6}
+.t-add{background:var(--dai-l);color:var(--dai);border:1px solid #c5dcdc}
+.t-ext{background:var(--zi-l);color:var(--zi);border:1px solid #ddd0ec}
+.t-err{background:var(--zhu-l);color:var(--zhu);border:1px solid #e6c5c1}
+.src{display:inline-block;font-family:var(--sans);font-size:11px;color:var(--ink3);background:#f2efe8;padding:0 6px;border-radius:2px;margin-left:5px}
+
+/* 卡片网格 */
+.grid{display:grid;gap:18px;margin:22px 0}
+.g2{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(258px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(196px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);padding:24px 26px;position:relative}
+.card h4{font-size:17px;margin-bottom:10px;font-weight:700;letter-spacing:.02em}
+.card p{font-size:14.2px;color:var(--ink2);line-height:1.9}
+.card .yr{font-family:var(--sans);font-size:11.5px;letter-spacing:.14em;color:var(--zhu);font-weight:700;margin-bottom:6px}
+.card.k-geo{border-top:3px solid var(--jin)}
+.card.k-pow{border-top:3px solid var(--zhu)}
+.card.k-tr{border-top:3px solid var(--dai)}
+.card.k-mod{border-top:3px solid var(--zi)}
+.card.k-fut{border-top:3px solid var(--lv)}
+
+/* 引文 */
+.quote{
+  background:#fdfbf7;border:1px solid var(--line);border-left:4px solid var(--zhu);
+  padding:20px 26px;margin:20px 0;
+}
+.quote .txt{font-size:19px;line-height:2;letter-spacing:.06em;color:var(--ink)}
+.quote .by{font-size:12.5px;color:var(--ink3);margin-top:10px;font-family:var(--sans);letter-spacing:.06em}
+
+/* 表格 */
+table{width:100%;border-collapse:collapse;margin:18px 0;background:var(--card);font-size:14px}
+th{background:#f4f0e8;text-align:left;padding:11px 14px;font-weight:700;border:1px solid var(--line);font-size:13px;white-space:nowrap}
+td{padding:10px 14px;border:1px solid var(--line);color:var(--ink2);line-height:1.75;vertical-align:top}
+td.k{font-weight:700;color:var(--ink);white-space:nowrap}
+tbody tr:nth-child(even){background:#fdfcfa}
+
+/* ════════ 时空卷轴 ════════ */
+.scroll-wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;position:relative}
+.steps{position:relative;padding-left:30px}
+.steps::before{content:"";position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:var(--line)}
+.step{padding:0 0 46px 0;position:relative;opacity:.34;transition:opacity .45s,transform .45s}
+.step .dot{position:absolute;left:-28px;top:9px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--ink4);transition:.35s}
+.step.on{opacity:1}
+.step.on .dot{background:var(--zhu);border-color:var(--zhu);box-shadow:0 0 0 5px rgba(168,48,42,.13)}
+.step .y{font-family:var(--sans);font-size:12px;letter-spacing:.16em;color:var(--zhu);font-weight:700}
+.step h4{font-size:19px;margin:4px 0 6px;font-weight:700}
+.step p{font-size:14.2px;color:var(--ink2);line-height:1.9}
+.step .mini{font-family:var(--sans);font-size:11.5px;color:var(--ink4);margin-top:8px;letter-spacing:.04em}
+.sticky{position:sticky;top:88px}
+.mapbox{background:var(--card);border:1px solid var(--line);padding:14px}
+.mapbox svg{width:100%;height:auto;display:block}
+.maplegend{display:flex;flex-wrap:wrap;gap:12px;font-family:var(--sans);font-size:11.5px;color:var(--ink3);margin-top:12px;padding-top:12px;border-top:1px solid var(--line2)}
+.maplegend span i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.layer{transition:opacity .6s}
+.era{opacity:0;transition:opacity .7s, stroke-dashoffset 1.2s}
+.era.on{opacity:1}
+.harbor{opacity:.16;transition:opacity .5s}
+.harbor.on{opacity:1}
+
+/* ════════ 图层对比滑块 ════════ */
+.compare{background:var(--card);border:1px solid var(--line);overflow:hidden;position:relative;user-select:none}
+.compare .cv{position:relative;width:100%;aspect-ratio:16/10;background:#f3efe6;overflow:hidden}
+.compare .cv>.base,.compare .cv>.top{position:absolute;inset:0}
+.compare .cv>.base{z-index:1}
+.compare .cv>.top{z-index:2}
+.compare .cv svg{width:100%;height:100%;display:block}
+.compare .clip{clip-path:inset(0 0 0 50%)}
+.compare .handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--zhu);cursor:ew-resize;z-index:5}
+.compare .handle::after{content:"◀ ▶";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--zhu);color:#fff;font-size:11px;padding:9px 6px;border-radius:3px;letter-spacing:-1px;font-family:var(--sans);white-space:nowrap}
+.compare .lbl{position:absolute;top:12px;font-family:var(--sans);font-size:11.5px;background:rgba(255,255,255,.92);padding:5px 11px;border:1px solid var(--line);letter-spacing:.08em;font-weight:700;z-index:4}
+.compare .lbl.l{left:12px;color:var(--dai)}
+.compare .lbl.r{right:12px;color:var(--zhu)}
+.compare-legend{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:12px;
+  padding:11px 14px;background:var(--card);border:1px solid var(--line);
+  font-family:var(--sans);font-size:12.5px;color:var(--ink3)}
+.compare-legend .hint{color:var(--ink4)}
+.compare-legend .sw{display:inline-flex;align-items:center;gap:5px}
+.compare-legend .sw i{display:inline-block;width:15px;height:10px;border:2px solid;border-radius:50%}
+
+/* ════════ 控件 ════════ */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:20px 0 16px}
+.tab{font-family:var(--sans);font-size:13px;padding:8px 17px;border:1px solid var(--line);background:var(--card);cursor:pointer;transition:.18s;color:var(--ink2);letter-spacing:.04em}
+.tab:hover{border-color:var(--zhu);color:var(--zhu)}
+.tab.on{background:var(--zhu);color:#fff;border-color:var(--zhu)}
+.panel{display:none}
+.panel.on{display:block;animation:fade .4s}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* 时间轴播放 */
+.tlbar{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);padding:14px 20px;margin:18px 0;flex-wrap:wrap}
+.tlbar button{font-family:var(--sans);font-size:12.5px;padding:7px 16px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--ink2);transition:.18s}
+.tlbar button:hover{border-color:var(--dai);color:var(--dai)}
+.tlbar .track{flex:1;min-width:180px;height:4px;background:#eae5da;position:relative;border-radius:2px}
+.tlbar .track i{position:absolute;left:0;top:0;bottom:0;background:var(--dai);border-radius:2px;transition:width .35s}
+.tlbar .cur{font-family:var(--sans);font-size:13px;font-weight:700;color:var(--dai);min-width:150px}
+
+/* 八景轮盘 */
+.bajing{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:10px;margin-top:18px}
+.bj{background:var(--card);border:1px solid var(--line);padding:14px 12px;text-align:center;transition:.3s}
+.bj:hover{border-color:var(--jin);transform:translateY(-2px)}
+.bj .nm{font-size:16px;font-weight:700;letter-spacing:.08em}
+.bj .pl{font-size:11.5px;color:var(--ink3);margin-top:6px;font-family:var(--sans);line-height:1.6}
+
+/* 数据条 */
+.datalist{background:var(--card);border:1px solid var(--line)}
+.dl-row{display:grid;grid-template-columns:1fr auto;gap:14px;padding:11px 20px;border-bottom:1px solid var(--line2);align-items:baseline}
+.dl-row:last-child{border:none}
+.dl-row .lb{font-size:14.2px;color:var(--ink2)}
+.dl-row .vl{font-family:var(--sans);font-size:15px;font-weight:700;color:var(--dai);white-space:nowrap}
+
+/* 档案馆 */
+.arch-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);padding:14px 18px;margin:20px 0;position:sticky;top:60px;z-index:60}
+.arch-bar input{flex:1;min-width:180px;font-family:var(--sans);font-size:13.5px;padding:8px 13px;border:1px solid var(--line);background:#fdfcfa;color:var(--ink);outline:none}
+.arch-bar input:focus{border-color:var(--zhu)}
+.arch-bar .cnt{font-family:var(--sans);font-size:12px;color:var(--ink3);white-space:nowrap}
+.arch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(292px,1fr));gap:16px}
+.arch-card{background:var(--card);border:1px solid var(--line);padding:20px 22px;border-left:3px solid var(--ink4)}
+.arch-card.ok{border-left-color:var(--lv)}
+.arch-card.warn{border-left-color:var(--jin)}
+.arch-card.ext{border-left-color:var(--zi)}
+.arch-card h5{font-size:15.5px;margin-bottom:8px;font-weight:700;line-height:1.6}
+.arch-card .body{font-size:13.6px;color:var(--ink2);line-height:1.85}
+.arch-card .foot{font-family:var(--sans);font-size:11.5px;color:var(--ink4);margin-top:12px;padding-top:10px;border-top:1px dotted var(--line);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.arch-card.hide{display:none}
+
+/* ── 信源分级图例 ── */
+.arch-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(236px,1fr));gap:14px;margin:28px 0 0}
+.al-card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--ink4);padding:16px 18px 15px}
+.al-card.ok{border-top-color:var(--lv)}
+.al-card.warn{border-top-color:var(--jin)}
+.al-card.add{border-top-color:var(--dai)}
+.al-card.img{border-top-color:#0f766e}
+.al-card .al-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+.al-card .al-n{font-family:var(--sans);font-size:25px;font-weight:700;line-height:1;color:var(--ink);white-space:nowrap}
+.al-card .al-n i{font-style:normal;font-size:11.5px;color:var(--ink4);margin-left:3px;font-weight:400}
+.al-card p{margin:0;font-size:12.5px;color:var(--ink3);line-height:1.75}
+.al-card p b{color:var(--ink2);font-weight:600}
+
+/* ── 档案概览指标条 ── */
+.arch-stat{display:grid;grid-template-columns:repeat(auto-fit,minmax(146px,1fr));background:var(--card);border:1px solid var(--line);margin:16px 0 0}
+.arch-stat .as-i{padding:16px 20px 15px;border-right:1px solid var(--line2)}
+.arch-stat .as-i:last-child{border-right:0}
+.arch-stat .as-n{font-family:var(--sans);font-size:23px;font-weight:700;color:var(--zhu);line-height:1.1}
+.arch-stat .as-n i{font-style:normal;font-size:11.5px;color:var(--ink3);margin-left:3px;font-weight:400}
+.arch-stat .as-l{font-size:12.1px;color:var(--ink3);margin-top:5px;line-height:1.6}
+
+/* ── 馆藏与征引说明（可折叠）── */
+.arch-note{background:#f2efe8;border:1px solid var(--line);border-left:3px solid var(--ink4);margin:18px 0 0}
+.arch-note summary{cursor:pointer;padding:12px 18px;font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--ink2);letter-spacing:.04em;list-style:none}
+.arch-note summary::-webkit-details-marker{display:none}
+.arch-note summary::before{content:"▸";display:inline-block;width:16px;color:var(--zhu)}
+.arch-note[open] summary::before{content:"▾"}
+.arch-note .an-body{padding:2px 20px 16px 34px;font-size:13px;color:var(--ink3);line-height:1.9}
+.arch-note .an-body p{margin:0 0 10px}
+.arch-note .an-body p:last-child{margin-bottom:0}
+
+/* ── 分类说明脚注 ── */
+.arch-keys{margin:10px 0 0;font-size:12.2px;color:var(--ink4);line-height:1.8;font-family:var(--sans)}
+.arch-keys b{color:var(--ink3);font-weight:700}
+
+footer.foot{margin-top:80px;border-top:3px double var(--line);padding:40px 0 70px;font-size:13px;color:var(--ink3);line-height:2}
+footer.foot b{color:var(--ink2)}
+
+@media(max-width:900px){
+  .scroll-wrap{grid-template-columns:1fr}
+  .sticky{position:relative;top:0}
+  .wrap{padding:0 18px}
+  .nav-in{padding:10px 18px}
+  .chain .arw{display:none}
+  .chain .node{width:100%}
+}
+
+/* ===== 真图佐证（v1.1 新增） ===== */
+.evd-block{margin:34px 0 6px}
+.evd-h{font-size:15px;color:#5b4a32;letter-spacing:.04em;margin:0 0 14px;border-left:3px solid #c0392b;padding-left:10px;font-weight:700}
+.evd-row{display:flex;flex-wrap:wrap;gap:14px}
+figure.evd{flex:1 1 250px;margin:0;background:#fff;border:1px solid #e7e2d6;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(60,40,20,.06);cursor:zoom-in;transition:.22s;position:relative}
+figure.evd:hover{box-shadow:0 6px 20px rgba(60,40,20,.14);border-color:#d9cfbb}
+figure.evd::after{content:"⤢ 点图放大";position:absolute;top:8px;right:8px;font-family:var(--sans);font-size:10.5px;letter-spacing:.05em;color:#6b6155;background:rgba(255,255,255,.9);border:1px solid #e2dac9;border-radius:3px;padding:2px 7px;opacity:0;transition:.22s;pointer-events:none}
+figure.evd:hover::after{opacity:1}
+figure.evd img{width:100%;height:200px;object-fit:contain;background:#f5f2ea;display:block}
+figure.evd figcaption{font-size:12.5px;color:#6b6155;padding:10px 12px;line-height:1.5}
+.t-img{background:#0f766e!important;color:#fff!important}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:18px}
+.gal-card{background:#fff;border:1px solid #e7e2d6;border-radius:10px;overflow:hidden;cursor:zoom-in;transition:.2s}
+.gal-card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(60,40,20,.12)}
+.gal-card img{width:100%;height:168px;object-fit:contain;background:#f5f2ea}
+.gal-card .gc-cap{padding:8px 10px;line-height:1.45}
+.gal-card .gc-t{font-weight:600;color:#4a3d28;font-size:12.5px;margin-bottom:2px}
+.gal-card .gc-m{font-size:11.5px;color:#8a7f70}
+.lightbox{position:fixed;inset:0;background:rgba(20,15,10,.94);display:none;z-index:9999;padding:66px 30px 84px;overflow:auto}
+.lightbox.on{display:flex;align-items:center;justify-content:center}
+.lightbox img{flex:0 0 auto;margin:auto;max-width:94vw;max-height:78vh;box-shadow:0 10px 40px rgba(0,0,0,.5);background:#fff;cursor:zoom-in;transition:max-width .18s,max-height .18s}
+.lightbox img.raw{max-width:none;max-height:none;cursor:zoom-out}
+.lightbox .lb-cap{position:absolute;bottom:20px;left:0;right:0;text-align:center;padding:0 90px;pointer-events:none}
+.lightbox .lb-cap .c1{font-size:14.5px;font-weight:600;color:#f4ede1;text-shadow:0 1px 6px rgba(0,0,0,.8)}
+.lightbox .lb-cap .c2{font-size:12px;color:#bdb2a0;margin-top:5px;line-height:1.7;font-family:var(--sans);text-shadow:0 1px 6px rgba(0,0,0,.8)}
+.lightbox .lb-x{position:absolute;top:14px;right:22px;color:#fff;font-size:30px;cursor:pointer;line-height:1;z-index:3;opacity:.85}
+.lightbox .lb-x:hover{opacity:1}
+.lightbox .lb-idx{position:absolute;top:20px;left:26px;color:#c9bfae;font-family:var(--sans);font-size:12.5px;letter-spacing:.1em}
+.lightbox .lb-tools{position:absolute;top:15px;right:66px;display:flex;gap:7px;z-index:3}
+.lightbox .lb-btn{font-family:var(--sans);font-size:12px;color:#f3ece0;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.24);padding:5px 11px;border-radius:3px;cursor:pointer;user-select:none;white-space:nowrap}
+.lightbox .lb-btn:hover{background:rgba(255,255,255,.24)}
+.lightbox .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:96px;display:flex;align-items:center;justify-content:center;color:#f0e8db;font-size:30px;cursor:pointer;background:rgba(255,255,255,.06);border-radius:4px;user-select:none;transition:.18s;z-index:3}
+.lightbox .lb-nav:hover{background:rgba(255,255,255,.2)}
+.lightbox .lb-prev{left:16px}
+.lightbox .lb-next{right:16px}
+.lightbox .lb-nav.off{opacity:.18;pointer-events:none}
+
+/* ── v1.5 新增：工程地质编年 / 地租梯度 / 法权转轨 / 海洋跃迁链 ── */
+.engtl{display:grid;gap:10px;margin:18px 0}
+.engtl .row{display:grid;grid-template-columns:138px 1fr;gap:14px;background:#fff;border:1px solid #e6dfd2;border-left:4px solid #a8302a;border-radius:8px;padding:12px 16px}
+.engtl .era{font-weight:700;color:#a8302a;font-size:13.4px;line-height:1.75;letter-spacing:.3px}
+.engtl .txt{font-size:14px;line-height:1.9;color:#2b2b2b}
+.engtl .txt b{color:#1a1a1a}
+.thesis{margin:16px 0;padding:15px 18px;background:#f6f2e9;border-left:4px solid #2f6b6b;border-radius:8px;font-size:14.2px;line-height:1.95;color:#26302f}
+.thesis b{color:#1f2b2a}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:16px 0}
+.chain .node{background:#fff;border:1px solid #ddd4c4;border-radius:20px;padding:7px 14px;font-size:13.2px;color:#333}
+.chain .node.hi{border-color:#a8302a;color:#a8302a;font-weight:700}
+.chain .arw{color:#a8302a;font-weight:700}
+.rentfig{margin:18px 0;background:#fff;border:1px solid #e6dfd2;border-radius:10px;padding:14px 16px}
+.rentfig figcaption{font-size:12.8px;color:#666;line-height:1.8;margin-top:6px}
+.lead2{font-size:15px;line-height:2;color:#333;margin:10px 0 4px}
+@media (max-width:720px){.engtl .row{grid-template-columns:1fr}.engtl .era{font-size:12.8px}}
+
+/* ── v1.6 新增：模块六 · 城脉共创 ── */
+.co-wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;margin:20px 0;align-items:start}
+.co-map{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;box-shadow:0 2px 10px rgba(60,40,20,.05)}
+.co-map svg{width:100%;height:auto;display:block}
+.co-note{font-family:var(--sans);font-size:11.5px;color:var(--ink4);line-height:1.7;padding:9px 4px 2px;border-top:1px dotted var(--line);margin-top:8px}
+.co-pin{cursor:pointer}
+.co-pin circle{fill:#fff;stroke:#a8302a;stroke-width:2;transition:.25s}
+.co-pin text{font-family:var(--sans);font-size:11.5px;font-weight:700;fill:#a8302a;text-anchor:middle;pointer-events:none}
+.co-pin:hover circle{fill:#f7ecea;stroke-width:3}
+.co-pin.on circle{fill:#a8302a;stroke:#7d201c}
+.co-pin.on text{fill:#fff}
+.co-side{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.co-prog{font-family:var(--sans);font-size:14px;color:var(--ink2)}
+.co-prog b{font-size:23px;color:var(--zhu);margin:0 2px}
+.co-bar{height:7px;background:#efe9de;border-radius:4px;overflow:hidden;margin:9px 0 14px}
+.co-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#a8302a,#c25a52);transition:width .45s}
+.co-list{display:grid;gap:7px;max-height:330px;overflow:auto;padding-right:4px}
+.co-item{display:grid;grid-template-columns:22px 1fr;gap:9px;align-items:start;cursor:pointer;padding:7px 9px;border:1px solid var(--line2);border-radius:8px;transition:.18s}
+.co-item:hover{border-color:#d8cdb8;background:#fdfbf7}
+.co-item.on{background:#f7ecea;border-color:#e6c5c1}
+.co-item .no{font-family:var(--sans);font-size:11.5px;font-weight:700;color:#fff;background:#c3b9a7;width:19px;height:19px;line-height:19px;text-align:center;border-radius:50%;margin-top:2px}
+.co-item.on .no{background:var(--zhu)}
+.co-item .nm{display:block;font-size:13.4px;font-weight:700;color:var(--ink);line-height:1.5}
+.co-item .mt{display:block;font-size:11.6px;color:var(--ink4);font-family:var(--sans);line-height:1.6;margin-top:1px}
+.co-reset{margin-top:14px;font-family:var(--sans);font-size:12px;padding:7px 14px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--ink3);border-radius:6px}
+.co-reset:hover{border-color:var(--zhu);color:var(--zhu)}
+.co-hint{margin-top:12px;font-size:12.6px;color:var(--ink3);font-family:var(--sans);line-height:1.75}
+
+.quiz{display:grid;gap:14px;margin:18px 0}
+.qz{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 20px}
+.qz .q{font-size:15px;font-weight:700;margin-bottom:11px;line-height:1.7}
+.qz .q em{font-family:var(--sans);font-style:normal;font-size:12.5px;color:var(--zhu);margin-right:8px}
+.qz .opts{display:grid;gap:8px}
+.qz .op{font-size:14px;padding:9px 14px;border:1px solid var(--line);border-radius:7px;cursor:pointer;transition:.16s;color:var(--ink2);background:#fdfcfa}
+.qz .op:hover{border-color:#c9bda6}
+.qz .op.right{background:#eef4ec;border-color:#a9c79f;color:#2f5c26;font-weight:700}
+.qz .op.wrong{background:#f7ecea;border-color:#e0b6b1;color:#8e2620}
+.qz .op.dis{pointer-events:none;opacity:.74}
+.qz .exp{display:none;margin-top:11px;padding-top:10px;border-top:1px dotted var(--line);font-size:13px;color:var(--ink2);line-height:1.85}
+.qz .exp.on{display:block}
+.quiz-res{background:#f6f2e9;border-left:4px solid var(--dai);border-radius:8px;padding:16px 20px;font-size:14.2px;line-height:1.95;color:#26302f}
+.quiz-res b{font-size:20px;color:var(--dai)}
+
+.cardgen{display:grid;grid-template-columns:1fr 340px;gap:24px;margin:20px 0;align-items:start}
+.cg-form{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+.cg-form label{display:block;font-family:var(--sans);font-size:12.5px;color:var(--ink3);margin:0 0 6px;letter-spacing:.04em}
+.cg-form select,.cg-form input{width:100%;font-family:var(--sans);font-size:13.5px;padding:9px 12px;border:1px solid var(--line);border-radius:7px;background:#fdfcfa;color:var(--ink);outline:none;margin-bottom:14px}
+.cg-form select:focus,.cg-form input:focus{border-color:var(--zhu)}
+.cg-btns{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.cg-btns button,.cg-dl{font-family:var(--sans);font-size:13px;padding:9px 18px;border-radius:7px;cursor:pointer;border:1px solid var(--zhu);background:var(--zhu);color:#fff;text-decoration:none;display:inline-block;transition:.18s}
+.cg-btns button:hover{background:#8e2620}
+.cg-dl{background:#fff;color:var(--zhu)}
+.cg-dl:hover{background:#f7ecea}
+.cg-dl.off{opacity:.45;pointer-events:none}
+.cg-note{font-size:12px;color:var(--ink4);font-family:var(--sans);margin-top:13px;line-height:1.75}
+.cg-prev{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
+.cg-prev canvas{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 3px 14px rgba(60,40,20,.1)}
+@media(max-width:900px){.co-wrap,.cardgen{grid-template-columns:1fr}.co-list{max-height:none}}
+</style>
+</head>
+<body>
+<!-- 站点矩阵共用顶栏（chrome，非目录卡片）· markup 依 design-system/nav.css 约定 -->
+<nav class="os-nav" aria-label="站点矩阵">
+  <div class="os-nav__inner">
+    <a class="os-nav__brand" href="http://wangdw.xyz/">
+      <span class="os-nav__mark" aria-hidden="true"></span>
+      <span class="os-nav__brand-text">数字人文</span>
+    </a>
+    <div class="os-nav__pills">
+      <a class="os-nav__pill os-nav__pill--a" href="http://wangdw.xyz/guangzhou-marine-enterprises/">A 家底</a>
+      <a class="os-nav__pill os-nav__pill--b" href="http://wangdw.xyz/marine-monitor/">B 经营</a>
+      <a class="os-nav__pill os-nav__pill--c" href="http://wangdw.xyz/guangzhou-ocean-dashboard/">C 质量</a>
+      <a class="os-nav__pill os-nav__pill--d" href="http://wangdw.xyz/marine-weekly/">D 底座</a>
+    </div>
+    <a class="os-nav__ds" href="/design-system/">设计系统</a>
+  </div>
+</nav>
+<div id="prog"></div>
+
+<header class="nav">
+  <div class="nav-in">
+    <div class="brand">城脉千年<em>DIGITAL GUANGZHOU</em></div>
+    <nav class="nav-links">
+      <a href="#home" class="on"><b>00</b>卷首</a>
+      <a href="#geo"><b>01</b>地质底本</a>
+      <a href="#power"><b>02</b>权力与资本</a>
+      <a href="#trade"><b>03</b>通海达邦</a>
+      <a href="#modern"><b>04</b>近代转型</a>
+      <a href="#future"><b>05</b>面向2049</a>
+      <a href="#co"><b>06</b>城脉共创</a>
+      <a href="#archive"><b>07</b>考据档案</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════ 卷首 ═══════════════ -->
+<div class="wrap">
+<section id="home" class="hero" style="border-bottom:none">
+  <div class="kicker">历 史 唯 物 主 义 · 数 字 人 文 交 互 平 台</div>
+  <h1>城脉千年</h1>
+  <div class="sub">广 州 的 营 城 智 慧 与 精 神</div>
+  <p class="desc">
+    城址未变，城心不移。本平台以<b>历史唯物主义与辩证唯物主义</b>为唯一方法论，
+    沿「<b>地质地理底本为基 → 海洋商贸资本为动 → 上层建筑因应调整为法</b>」的链条，
+    将广州建城 2240 年的空间演进，还原为一部可检索、可叠合、可量化的城市生命史。
+  </p>
+
+  <div class="big3">
+    <div><div class="n">2240<i>年</i></div><div class="l">建城 · 公元前214年</div></div>
+    <div><div class="n">1800<i>年</i></div><div class="l">得名 · 公元226年</div></div>
+    <div><div class="n">0<i>位移</i></div><div class="l">城心原点从未迁移</div></div>
+  </div>
+
+  <div class="chain">
+    <div class="node"><h5>① 地质底本</h5><p>白垩纪红层残丘台地 · 全新世海退与冲积 · 珠江咸潮，构成城市选址的硬约束</p></div>
+    <div class="arw">▶</div>
+    <div class="node"><h5>② 商贸资本</h5><p>海丝航线 · 双层港口 · 市舶制度 · 全球白银，生产力与交换关系的持续扩张</p></div>
+    <div class="arw">▶</div>
+    <div class="node"><h5>③ 上层建筑</h5><p>城垣形制 · 蕃坊设治 · 一口通商 · 土地分区，权力因应经济基础反复调整</p></div>
+  </div>
+
+  <div class="worldcities">
+    <h4>同 期 世 界 古 城 对 照</h4>
+    <div class="note">广州与罗马、伦敦、亚历山大城、安条克城同期建城 —— </div>
+    <div class="wc-row"><div class="wc-name">意大利·罗马<em>公元前390年</em></div><div class="wc-bar wc-other"><i style="width:100%"></i><b>2416 年</b></div></div>
+    <div class="wc-row"><div class="wc-name">埃及·亚历山大<em>公元前332年</em></div><div class="wc-bar wc-other"><i style="width:97.6%"></i><b>2358 年</b></div></div>
+    <div class="wc-row"><div class="wc-name">塞琉古·安条克<em>公元前300年</em></div><div class="wc-bar wc-other"><i style="width:96.3%"></i><b>2326 年</b></div></div>
+    <div class="wc-row"><div class="wc-name" style="color:var(--zhu)">中国·广州<em>公元前214年</em></div><div class="wc-bar wc-gz"><i style="width:92.7%"></i><b>2240 年</b></div></div>
+    <div class="wc-row"><div class="wc-name">英国·伦敦<em>公元50年</em></div><div class="wc-bar wc-other"><i style="width:81.7%"></i><b>1976 年</b></div></div>
+  </div>
+  <p style="font-size:12.5px;color:var(--ink4);margin-top:16px;font-family:var(--sans)">
+    注：条形长度按城龄相对比例绘制。四座世界古城中，唯广州「城址未变、城心不移」延续至今。
+  </p>
+</section>
+
+<!-- ═══════════════ 时空卷轴 ═══════════════ -->
+<section id="scroll" class="mod" style="padding-top:0">
+  <div class="mod-head">
+    <div class="mod-tag">时 空 卷 轴 · SCROLLYTELLING</div>
+    <h2>向下滚动，看一座城如何生长</h2>
+    <div class="en">公元前 214 年 → 公元 2049 年 · 城廓叠合与码头南迁</div>
+  </div>
+
+  <div class="scroll-wrap">
+    <div class="steps" id="steps">
+
+      <div class="step" data-era="0">
+        <div class="dot"></div>
+        <div class="y">公元前 214 年 · 秦</div>
+        <h4>任嚣城：负山险，阻南海</h4>
+        <p>秦统一岭南设南海郡，郡尉任嚣在番山、禺山高地修筑番禺城。这并非随意的驻军点，而是对地质与水文的精确顺应——背靠越秀、白云余脉，前临珠江，地处西江、北江、东江三江汇流之处，兼具山险、海阻、淡水与航运四利。</p>
+        <div class="mini">唯物史观：据险设治，使前沿军事据点转化为可持续治理节点</div>
+      </div>
+
+      <div class="step" data-era="1">
+        <div class="dot"></div>
+        <div class="y">公元前 204 年 · 南越</div>
+        <h4>赵佗城：西城东郭，以西为尊</h4>
+        <p>赵佗立南越国，广州第一次明确「都城化」。宫城区在西北面，东面与南面为越人生活居住区，街道呈丁字形——中原宗法礼制与百越本土社会这对矛盾，被空间隔离辩证地统一在同一座城里。</p>
+        <div class="mini">唯物史观：外来政权与本土社会在空间上达成辩证统一</div>
+      </div>
+
+      <div class="step" data-era="2">
+        <div class="dot"></div>
+        <div class="y">217 / 226 年 · 三国吴</div>
+        <h4>步骘迁治，「广州」得名</h4>
+        <p>东吴交州刺史步骘将州治从广信迁至番禺，见土地形体之法，乃曰：「斯诚海岛膏腴之地，宜为都邑。」226 年孙权分交州置广州，州、郡、县三治同城，岭南行政中心确立。陆胤疏甘溪引白云山泉水入城，最早的海绵城市雏形。</p>
+        <div class="mini">唯物史观：交通与淡水供给决定行政中心的可持续性</div>
+      </div>
+
+      <div class="step" data-era="3">
+        <div class="dot"></div>
+        <div class="y">594 / 714 / 716 年 · 隋唐</div>
+        <h4>北政南商，蕃坊惊艳</h4>
+        <p>隋设南海镇外港、建南海神庙；唐设市舶使，为中国首个专职外贸管理机构。<b>唐开元四年（716年）</b>张九龄开凿大庾岭通道——最早的「京广快线」，岭南正式接入大一统帝国的经济大循环。城西辟蕃坊，是中国最早的外侨聚居地。</p>
+        <div class="mini">唯物史观：交通基础设施升级降低时空阻力，制度供给为外贸资本提供庇护</div>
+      </div>
+
+      <div class="step" data-era="4">
+        <div class="dot"></div>
+        <div class="y">906 / 917 年 · 南汉</div>
+        <h4>兴王府：第二次都城化，中轴被反复确认</h4>
+        <p>刘隐凿平番、禺二山，城市首次拓展至珠江边；917 年刘䶮称帝，广州升兴王府。城周各建 7 寺共 28 寺应天上 28 星宿，凿西湖约 500 丈，并于二山上建双阙以强化南北轴线。</p>
+        <div class="mini">唯物史观：南越奠基城址，南汉强化中轴——同一根基被两朝反复叠合加固</div>
+      </div>
+
+      <div class="step" data-era="5">
+        <div class="dot"></div>
+        <div class="y">971 年 · 宋</div>
+        <h4>三城并立：城墙第一次拥抱商业</h4>
+        <p>子城置官署、东城为民市、西城容纳蕃坊与市舶司，砖石筑城是广州古代城建高峰。在珠江淤泥滩涂上以「填高成台」技术克服低洼淤积；疏浚六脉渠统筹排污、防洪、防火。南宋筑东西雁翅城护沿江港市——「城防」与「市场」首次合一。</p>
+        <div class="mini">唯物史观：海外贸易的巨额财政收益，强力倒逼上层建筑打破坊市隔离</div>
+      </div>
+
+      <div class="step" data-era="6">
+        <div class="dot"></div>
+        <div class="y">1380 / 1566 年 · 明</div>
+        <h4>三城合一，青山半入城</h4>
+        <p>洪武三年填塞城间濠池，宋三城合并贯通；洪武十三年向北扩城至越秀山，修筑镇海楼，借山为城防。嘉靖四十五年沿用宋雁翅城筑新城，纳入城南商区以御海寇。明后期城外自发形成西关十八甫。</p>
+        <div class="mini">唯物史观：军事压力与商贸扩张共同改写城垣边界</div>
+      </div>
+
+      <div class="step" data-era="7">
+        <div class="dot"></div>
+        <div class="y">1591 / 1757 年 · 明清</div>
+        <h4>一口通商：全球白银的汇聚与隐忧</h4>
+        <p>万历十九年起设春秋两季定期市，洋商仅可在开市期入城交易——广交会的原始范式。万历年间沿珠江修建莲花塔、琶洲塔、赤岗塔，与海珠石、海印石、浮丘石三处天然江心礁石共同「锁水口」，既保障航道安全，又充当商船航标。</p>
+        <div class="mini">唯物史观：繁华被锁死在封建特许与朝贡体系的藩篱之内</div>
+      </div>
+
+      <div class="step" data-era="8">
+        <div class="dot"></div>
+        <div class="y">1918 / 1921 年 · 民国</div>
+        <h4>拆城筑路：两千年城门羁绊被打破</h4>
+        <p>1918 年市政公所成立，拆城墙筑马路，引入大型开敞空间与公共建筑；1919 年孙科推动行政中枢与轴线建设，形成「镇海楼—中山纪念碑—中山纪念堂—市府合署—中央公园—海珠桥」近代中轴。1921 年 2 月 15 日广州正式设市，为中国近代史上第一个设市城市。</p>
+        <div class="mini">唯物史观：生产力（汽车交通）冲决旧城垣，上层建筑以规划法令重新组织空间</div>
+      </div>
+
+      <div class="step" data-era="9">
+        <div class="dot"></div>
+        <div class="y">2026 / 2049 年 · 当代与未来</div>
+        <h4>从国家门户到海洋创新之都</h4>
+        <p>「两洋南拓、两江东进、老城提质、极点示范」——以三脉（城脉·文脉·商脉）、三轴（老中轴·新中轴·活力创新轴）、三核（历史文化核·现代活力核·未来发展核）承载，建设百里海洋科技创新走廊，全面承载国家大南海战略。</p>
+        <div class="mini">唯物史观：从内河商贸文明走向深海科创文明，是生产力跃迁的必然</div>
+      </div>
+
+    </div>
+
+    <div class="sticky">
+      <div class="mapbox">
+        <svg viewBox="0 0 800 580" id="citymap">
+          <defs>
+            <linearGradient id="gzjg" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#c7dde3"/><stop offset="50%" stop-color="#dcecef"/><stop offset="100%" stop-color="#c7dde3"/>
+            </linearGradient>
+            <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+              <path d="M0,0 L7,3 L0,6 z" fill="#2f6b6b"/>
+            </marker>
+          </defs>
+
+          <!-- 珠江 -->
+          <path d="M40,436 Q240,492 470,448 T790,390" stroke="url(#gzjg)" stroke-width="52" fill="none" stroke-linecap="round"/>
+          <path d="M40,436 Q240,492 470,448 T790,390" stroke="#b9d5dc" stroke-width="2" fill="none" stroke-dasharray="6 6"/>
+          <text x="56" y="470" font-size="15" fill="#5d8b96" font-family="sans-serif" letter-spacing="4">珠　江</text>
+
+          <!-- 越秀山 / 白云余脉 -->
+          <path d="M262,150 Q330,74 404,150 Z" fill="#e6ebe2" stroke="#cfd8c8" stroke-width="1.5"/>
+          <text x="333" y="140" font-size="12" fill="#7d8c74" text-anchor="middle" font-family="sans-serif">越秀山</text>
+          <path d="M120,132 Q186,58 258,132 Z" fill="#eef0ea" stroke="#dde1d8" stroke-width="1.2"/>
+          <text x="189" y="122" font-size="11" fill="#939c8b" text-anchor="middle" font-family="sans-serif">白云余脉</text>
+
+          <!-- 历代城廓（由内向外） -->
+          <g fill="none" stroke-width="2.2">
+            <ellipse class="era e0" cx="400" cy="292" rx="38" ry="27" stroke="#a8302a" fill="rgba(168,48,42,.14)"/>
+            <ellipse class="era e1" cx="400" cy="292" rx="64" ry="45" stroke="#b8860b"/>
+            <ellipse class="era e2" cx="400" cy="292" rx="94" ry="65" stroke="#2f6b6b"/>
+            <ellipse class="era e3" cx="400" cy="292" rx="126" ry="86" stroke="#4a7c3f"/>
+            <ellipse class="era e4" cx="400" cy="292" rx="162" ry="106" stroke="#7a5c9e"/>
+            <ellipse class="era e5" cx="400" cy="292" rx="202" ry="126" stroke="#5c7f9e"/>
+            <ellipse class="era e6" cx="400" cy="292" rx="244" ry="146" stroke="#9a948a" stroke-dasharray="7 5"/>
+          </g>
+
+          <!-- 城心原点 -->
+          <circle cx="400" cy="292" r="5.5" fill="#a8302a"/>
+          <circle cx="400" cy="292" r="12" fill="none" stroke="#a8302a" stroke-width="1" opacity=".45"/>
+          <text x="418" y="288" font-size="13" fill="#a8302a" font-family="sans-serif" font-weight="700">城心原点</text>
+          <text x="418" y="305" font-size="11" fill="#6f6a61" font-family="sans-serif">北京路—中山四路一带</text>
+
+          <!-- 码头序列 -->
+          <g class="harbors" font-size="11" font-family="sans-serif" fill="#2f6b6b">
+            <g class="harbor h0"><circle cx="372" cy="330" r="4"/><text x="330" y="352">兰湖（秦汉）</text></g>
+            <g class="harbor h1"><circle cx="398" cy="342" r="4"/><text x="356" y="368">坡子（两晋）</text></g>
+            <g class="harbor h2"><circle cx="356" cy="358" r="4"/><text x="286" y="382">光塔（唐）</text></g>
+            <g class="harbor h3"><circle cx="432" cy="382" r="4"/><text x="392" y="404">东澳·东堤（宋）</text></g>
+            <g class="harbor h4"><circle cx="512" cy="404" r="4"/><text x="472" y="426">砚子步（明）</text></g>
+            <g class="harbor h5"><circle cx="612" cy="418" r="4"/><text x="556" y="440">十三行·黄埔古港（清）</text></g>
+          </g>
+          <path class="harbor h5" d="M372,330 L398,342 L356,358 L432,382 L512,404 L612,418" fill="none" stroke="#2f6b6b" stroke-width="1.3" stroke-dasharray="5 4" opacity=".5" marker-end="url(#arrow)"/>
+          <text class="harbor h5" x="612" y="392" font-size="11.5" fill="#6f6a61" font-family="sans-serif">码头随岸线南迁 ▶</text>
+
+          <!-- 标注 -->
+          <text x="640" y="150" font-size="12" fill="#9a948a" font-family="sans-serif">↑ 北</text>
+          <text x="640" y="168" font-size="12" fill="#9a948a" font-family="sans-serif">历代城廓同</text>
+          <text x="640" y="186" font-size="12" fill="#9a948a" font-family="sans-serif">心叠合，圆心</text>
+          <text x="640" y="204" font-size="12" fill="#9a948a" font-family="sans-serif">即今日北京路</text>
+        </svg>
+        <div class="maplegend">
+          <span><i style="background:#a8302a"></i>秦·番禺城</span>
+          <span><i style="background:#b8860b"></i>南越·赵佗城</span>
+          <span><i style="background:#2f6b6b"></i>三国·唐州城</span>
+          <span><i style="background:#4a7c3f"></i>宋·三城</span>
+          <span><i style="background:#7a5c9e"></i>明·三城合一</span>
+          <span><i style="background:#5c7f9e"></i>清·新老两城</span>
+          <span><i style="background:#9a948a"></i>民国·市域</span>
+          <span><i style="background:#2f6b6b;border-radius:50%"></i>码头序列</span>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--ink4);margin-top:12px;font-family:var(--sans);line-height:1.8">
+        图版来源：历史地图（广州城址演变图、港商城融合体系图等）矢量化重绘。
+        城廓范围为示意性复原，非精确测绘边界。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 模块一 ═══════════════ -->
+<section id="geo" class="mod">
+  <div class="mod-head">
+    <div class="mod-tag">模 块 一 · MODULE 01</div>
+    <h2>地质底本与自然演变</h2>
+    <div class="en">GEOLOGICAL SUBSTRATE &amp; ENVIRONMENTAL HISTORY</div>
+    <p class="abs">
+      城市的第一重约束不是人的意志，而是脚下的岩层与水文的节律。本模块追问：在全新世海退与珠江三角洲冲积的漫长演变中，
+      为什么偏偏是这片高地，托住了此后 2240 年不动的城心？
+    </p>
+  </div>
+
+  <h3 class="sec">硬底座：白垩纪红层残丘台地<span class="sub">▲ 外部考据</span></h3>
+  <div class="grid g2">
+    <div class="card k-geo">
+      <div class="yr">距今约 1 亿—6600 万年</div>
+      <h4>上白垩纪红色砂岩构成的「硬底座」</h4>
+      <p>
+        番山、禺山并非普通土丘，而是由<b>上白垩纪红色砂岩</b>构成的台地残留丘陵。广州台地按剥蚀面高程分三级，
+        第一级高程 <b>15–25 米</b>（即文献所称「20 米台地」），番山海拔约 20 米；坡山（今五仙观）同属红岩，
+        高出珠江平原面仅 <b>5–8 米</b>。
+      </p>
+      <p style="margin-top:12px">
+        在四周尽是淤泥滩涂与周期性咸潮的三角洲环境里，这片红层残丘是唯一<u>不必年年与洪水谈判</u>的硬地。
+        任嚣「负山险，阻南海」的选址，本质是对客观地质条件的精确顺应——<b>物质条件决定了意识的第一个选项</b>。
+      </p>
+      <p style="margin-top:14px;font-size:12.5px;color:var(--ink3);font-family:var(--sans);line-height:1.8">
+        <span class="tag t-warn">▲ 外部考据</span>　所据史料通篇未出现地质年代术语，仅作「积沙成田、连涌成岛、聚丘成围」的定性描述。
+        本条为依据《番禺县志·舆地》「番山……上白垩纪红色砂岩」及广州市地貌资料所作的学术延伸，
+        <b>不代表原著作者观点</b>。
+      </p>
+    </div>
+    <div class="card k-geo">
+      <div class="yr">每年秋冬枯水期</div>
+      <h4>咸潮：被反复克服的生存危机</h4>
+      <p>
+        珠江水量减少时海水倒灌，形成周期性<b>咸潮</b>。这构成了广州营城史上最持久的生存压力，也催生了三条技术路线：
+      </p>
+      <p style="margin-top:10px">
+        <b>① 凿井利民</b>　南越时期挖设越王井，以滤水构造获取淡水；<br>
+        <b>② 水闸御潮</b>　城内建设木构水闸，兼具防洪、排水与防御功能；<br>
+        <b>③ 引水造园</b>　南越宫苑依山借水，设蕃池、曲流石渠，同时作为城市风景区与应急淡水库。
+      </p>
+      <p style="margin-top:14px">
+        东吴黄武年间，交州刺史陆胤疏通城北甘溪，引白云山脉泉水入城并建水塘蓄水——<b>中国最早的海绵城市雏形</b>。
+      </p>
+      <p style="margin-top:14px;font-size:12.5px;color:var(--ink3);font-family:var(--sans);line-height:1.8">
+        <span class="tag t-ok">✓ 文献载明</span>　注：所据文献仅载「获取过滤淡水」，未述「三层防护结构」，
+        本站采用「滤水构造」表述。
+      </p>
+    </div>
+  </div>
+
+  <h3 class="sec">陆与海：海岸线南移的四次定格<span class="sub">点击切换时期</span></h3>
+  <p class="para">
+    广州城的空间史，一半写在水上。「<b>冲击成陆，积沙成田，连涌成岛，聚丘成围</b>」——十六个字，
+    是珠江三角洲两千年人地关系最精炼的唯物主义概括。岸线每南推一次，码头就跟着南迁一次，城市边界就跟着外扩一次。
+  </p>
+  <div class="tabs" data-tabs="coast">
+    <div class="tab on" data-p="c0">秦汉（公元前2世纪）</div>
+    <div class="tab" data-p="c1">南宋（12世纪）</div>
+    <div class="tab" data-p="c2">明清（17世纪）</div>
+    <div class="tab" data-p="c3">当代（21世纪）</div>
+  </div>
+  <div class="card" style="padding:18px">
+    <svg viewBox="0 0 800 400" style="width:100%;height:auto;display:block">
+      <defs>
+        <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#d7e7ec"/><stop offset="100%" stop-color="#b6d0d9"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="800" height="400" fill="url(#sea)"/>
+      <!-- 四期陆地 -->
+      <g id="coastLayers">
+        <path class="cl c0 on" d="M0,0 L800,0 L800,152 Q640,178 420,152 Q210,128 0,158 Z" fill="#e8e3d5" stroke="#c9c0ab" stroke-width="1.6"/>
+        <path class="cl c1"    d="M0,0 L800,0 L800,208 Q620,236 400,208 Q190,182 0,214 Z" fill="#e8e3d5" stroke="#c9c0ab" stroke-width="1.6"/>
+        <path class="cl c2"    d="M0,0 L800,0 L800,262 Q600,290 380,262 Q180,236 0,268 Z" fill="#e8e3d5" stroke="#c9c0ab" stroke-width="1.6"/>
+        <path class="cl c3"    d="M0,0 L800,0 L800,318 Q620,344 400,318 Q180,294 0,324 Z" fill="#e8e3d5" stroke="#c9c0ab" stroke-width="1.6"/>
+      </g>
+      <!-- 洲岛坦沙 -->
+      <g id="coastIsles" font-size="11" font-family="sans-serif" fill="#6f6a61">
+        <g class="cl c0 on"><ellipse cx="560" cy="215" rx="34" ry="11" fill="#cfe0e6" stroke="#a9c4cc"/><text x="560" y="219" text-anchor="middle">洲岛</text></g>
+        <g class="cl c1"><ellipse cx="545" cy="268" rx="40" ry="12" fill="#dbe6d8" stroke="#b6c9b2"/><text x="545" y="272" text-anchor="middle">坦沙</text></g>
+        <g class="cl c2"><ellipse cx="520" cy="320" rx="46" ry="13" fill="#e6e0cd" stroke="#c9c0ab"/><text x="520" y="324" text-anchor="middle">沙田</text></g>
+        <g class="cl c3"><ellipse cx="500" cy="362" rx="52" ry="14" fill="#e0d9c4" stroke="#c0b7a1"/><text x="500" y="366" text-anchor="middle">围垦区</text></g>
+      </g>
+      <!-- 城心 -->
+      <circle cx="400" cy="112" r="5.5" fill="#a8302a"/>
+      <text x="416" y="108" font-size="13" fill="#a8302a" font-family="sans-serif" font-weight="700">广州城心</text>
+      <text x="416" y="125" font-size="11" fill="#6f6a61" font-family="sans-serif">位置千年未变</text>
+      <text x="30" y="382" font-size="14" fill="#4a7c8a" font-family="sans-serif" letter-spacing="4">南 海</text>
+      <text x="30" y="34" font-size="13" fill="#7d8c74" font-family="sans-serif">陆 地</text>
+      <!-- 箭头 -->
+      <path d="M690,120 L690,352" stroke="#a8302a" stroke-width="1.4" stroke-dasharray="5 4" fill="none"/>
+      <path d="M690,352 L684,344 M690,352 L696,344" stroke="#a8302a" stroke-width="1.4" fill="none"/>
+      <text x="700" y="240" font-size="11.5" fill="#a8302a" font-family="sans-serif">岸线南推</text>
+    </svg>
+    <div id="coastNote" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--line2);font-size:14px;color:var(--ink2);line-height:1.9"></div>
+  </div>
+
+  <h3 class="sec">水：从生存防御，到城市泄洪，再到商贸与景观</h3>
+  <div class="grid g3">
+    <div class="card k-geo">
+      <div class="yr">秦末 · 引水筑城</div>
+      <h4>依山借水，先活下来</h4>
+      <p>依托山前高地选址，引水入城，应对珠江咸潮，兼顾水道驿运与水系治理。水是首先要被<b>防御</b>的对象。</p>
+    </div>
+    <div class="card k-geo">
+      <div class="yr">宋元 · 治水塑城</div>
+      <h4>六脉渠：以水利工程塑造城市格局</h4>
+      <p>宋代开凿六脉渠，配套城濠与潮闸系统，统筹城市泄洪、调蓄蓄水，承担<b>排污、防洪、防火水源</b>三重职能。水开始被<b>组织</b>。</p>
+    </div>
+    <div class="card k-geo">
+      <div class="yr">清代 · 山水润城</div>
+      <h4>水系嵌入日常生活</h4>
+      <p>西关大观河、玉带濠两岸发育滨水街巷、私人园林与商贸市集，水系嵌入日常生活与审美。水最终被<b>享用</b>。</p>
+    </div>
+  </div>
+
+  <div class="quote">
+    <div class="txt">青山半入城，六脉皆通海</div>
+    <div class="by">—— 广州千年山水城市理念，从「旧六脉渠」到「新六脉渠」一脉相承</div>
+  </div>
+
+  <h3 class="sec">围垦造田：把水域变成国土</h3>
+  <div class="grid g2">
+    <div class="card k-geo">
+      <div class="yr">北宋始建 · 围堤全长 64.84 km</div>
+      <h4>桑园围</h4>
+      <p>始建于北宋，因种植桑树得名。桑园围围堤全长 <b>64.84 公里</b>（据新华社／人民网／ICID 世界灌溉工程遗产名录），将广州南部大片水域与滩涂转化为田地，
+      奠定城市未来空间基础。<b>2020 年入选世界灌溉工程遗产</b>。</p>
+      <p style="margin-top:12px;font-size:13.5px;color:var(--ink3)">
+        唯物史观：这不是「征服自然」，而是生产力发展到特定阶段后，社会对土地的<b>再组织</b>——
+        围垦改变了物质生产资料的配置，从而改变城市的物质基础本身。
+      </p>
+    </div>
+    <div class="card k-geo">
+      <div class="yr">明清 · 一江一河</div>
+      <h4>110 km 珠江 + 156 km 流溪河</h4>
+      <p>今日广州以「一江一河」实现全域历史文化遗产与自然资源的融合保护：以 <b>110 公里</b>珠江
+      与 <b>156 公里</b>流溪河统领全市自然人文资源，荟萃山水文化、海丝文化、海防文化、工业文化与红色文化。</p>
+    </div>
+  </div>
+<div class="evd-block">
+<h3 class="sec">工程地质编年：人怎样改造了这座城的底座</h3>
+<p class="lead2">地质底本不是静置的自然背景，而是被劳动反复改造的<b>物质生产条件</b>。凿井、开渠、筑堤、削丘、掘地——每一轮技术介入，都在重写红层台地与珠江岸线的关系。</p>
+<div class="engtl">
+  <div class="row"><div class="era">秦汉 · 凿井取水</div><div class="txt"><b>南越国宫署凿井群</b>：在红层台地上凿井取用浅层地下水，绕开受咸潮上溯影响的江河水。城市的第一项「地质工程」，是<b>向地下要水</b>。<span class="tag t-ok">✓ 文献载明</span></div></div>
+  <div class="row"><div class="era">宋 · 开渠排水</div><div class="txt"><b>六脉渠</b>：引城北山地来水，穿城入濠。把「山—城—濠—江」串成一条兼作排水与运输的双用系统，城内地势与水道由此绑定。<span class="tag t-ok">✓ 文献载明</span></div></div>
+  <div class="row"><div class="era">宋明清 · 筑堤围垦</div><div class="txt"><b>桑园围等堤围体系</b>：把海退留下的滩涂固化为可耕可税的田土。堤线一旦筑成，即同时是耕地边界与产权边界——<b>地质工程直接生成地权</b>。<span class="tag t-ok">✓ 文献载明</span></div></div>
+  <div class="row"><div class="era">明清 · 濠涌疏浚</div><div class="txt"><b>西关濠、玉带濠、东濠</b>：水道兼作货运与排污，濠畔即市廛。疏浚频率决定街区兴衰，河涌成为城市代谢的节律器。<span class="tag t-ok">✓ 文献载明</span></div></div>
+  <div class="row"><div class="era">1918 起 · 拆城筑路</div><div class="txt"><b>城墙拆为马路</b>，引入西式下水道。地表物流由水运转入车运，地下首次出现人工管网——城市开始「两层运转」。<span class="tag t-ok">✓ 文献载明</span></div></div>
+  <div class="row"><div class="era">当代 · 向地下与深海</div><div class="txt"><b>地铁网络、地下综合管廊、深层隧道排水、海绵城市</b>：城市既向垂深方向索要空间，又用工程手段对冲暴雨内涝、风暴潮与咸潮上溯。1956 年 1:25 万地形图所记的丘陵与水系，正是今日地下空间工程的地质前提。<span class="tag t-warn">▲ 外部考据</span><span class="tag t-add">＋ 学术推演</span></div></div>
+</div>
+<div class="thesis"><b>理论落点：</b>城市地质由此成为「技术政治」的场域。同一片红层与软土，在不同技术条件下或是障碍、或是资源；而每逢极端天气（内涝、风暴潮、咸潮），地质条件便重新被写回城市的议事日程。所谓「底本」，从来不是命定，而是<b>被生产力不断改写的长期条件</b>。</div>
+<h3 class="evd-h">历代城垣 · 卫星影像叠合（用户补充素材）</h3><div class="evd-row"><figure class="evd"><img data-asset="ov1" alt="历代城垣范围 · 卫星影像叠合（示意 1/6）"><figcaption><b>历代城垣范围 · 卫星影像叠合（示意 1/6）</b><br>当代卫星影像 · 用户补充素材</figcaption></figure><figure class="evd"><img data-asset="ov2" alt="历代城垣范围 · 卫星影像叠合（示意 2/6）"><figcaption><b>历代城垣范围 · 卫星影像叠合（示意 2/6）</b><br>当代卫星影像 · 用户补充素材</figcaption></figure><figure class="evd"><img data-asset="ov3" alt="历代城垣范围 · 卫星影像叠合（示意 3/6）"><figcaption><b>历代城垣范围 · 卫星影像叠合（示意 3/6）</b><br>当代卫星影像 · 用户补充素材</figcaption></figure><figure class="evd"><img data-asset="ov4" alt="历代城垣范围 · 卫星影像叠合（示意 4/6）"><figcaption><b>历代城垣范围 · 卫星影像叠合（示意 4/6）</b><br>当代卫星影像 · 用户补充素材</figcaption></figure><figure class="evd"><img data-asset="ov5" alt="历代城垣范围 · 卫星影像叠合（示意 5/6）"><figcaption><b>历代城垣范围 · 卫星影像叠合（示意 5/6）</b><br>当代卫星影像 · 用户补充素材</figcaption></figure><figure class="evd"><img data-asset="ov6" alt="历代城垣范围 · 卫星影像叠合（示意 6/6）"><figcaption><b>历代城垣范围 · 卫星影像叠合（示意 6/6）</b><br>当代卫星影像 · 用户补充素材</figcaption></figure><figure class="evd"><img data-asset="m1956ams" alt="AMS《广州（Kuang-chou）》地形图（1956，1:25 万）"><figcaption><b>AMS《广州（Kuang-chou）》地形图（1956，1:25 万）</b><br>1956 · U.S. Army Map Service, Series L500, Sheet NF 49-4（哈佛地图收藏，公有领域）</figcaption></figure></div></div></section>
+
+<!-- ═══════════════ 模块二 ═══════════════ -->
+<section id="power" class="mod">
+  <div class="mod-head">
+    <div class="mod-tag">模 块 二 · MODULE 02</div>
+    <h2>权力与资本的空间共谋</h2>
+    <div class="en">POLITICAL POWER &amp; COMMERCIAL CAPITAL IN URBAN FORM</div>
+    <p class="abs">
+      城墙从来不只是防御工事。它是一条被画在地上的生产关系——谁被圈进来、谁被隔在外、谁被允许在墙根下做生意，
+      全部由权力与资本的博弈决定。本模块追踪城垣边界的每一次张缩，看政治权力与海外贸易资本如何反复重塑这座城。
+    </p>
+  </div>
+
+  <h3 class="sec">图层对比：拖动滑块，看「城心不移」的空间重合度</h3>
+  <div class="compare" id="cmp">
+    <div class="cv">
+      <!-- 底层：现代广州 -->
+      <div class="base">
+        <svg viewBox="0 0 800 500" preserveAspectRatio="none">
+          <rect width="800" height="500" fill="#f2eee5"/>
+          <path d="M20,392 Q240,440 460,398 T790,352" stroke="#c6dde3" stroke-width="58" fill="none" stroke-linecap="round"/>
+          <g stroke="#e2dbcc" stroke-width="1.4">
+            <path d="M0,140 H800"/><path d="M0,210 H800"/><path d="M0,280 H800"/><path d="M0,350 H800"/>
+            <path d="M120,0 V400"/><path d="M260,0 V400"/><path d="M400,0 V400"/><path d="M540,0 V400"/><path d="M680,0 V400"/>
+          </g>
+          <!-- 抽象天际线 -->
+          <g fill="#d9d2c3">
+            <rect x="352" y="196" width="34" height="112"/><rect x="392" y="168" width="28" height="140"/>
+            <rect x="426" y="212" width="32" height="96"/><rect x="466" y="184" width="26" height="124"/>
+            <rect x="300" y="240" width="30" height="68"/><rect x="510" y="226" width="30" height="82"/>
+          </g>
+          <!-- 广州塔抽象 -->
+          <path d="M596,318 Q604,224 600,166 Q598,224 612,318 Z" fill="#c9a0a0" stroke="#a8302a" stroke-width="1.6"/>
+          <text x="580" y="336" font-size="11" fill="#a8302a" font-family="sans-serif">广州塔</text>
+          <!-- 新中轴 -->
+          <path d="M400,60 V392" stroke="#a8302a" stroke-width="2" stroke-dasharray="9 6" opacity=".55"/>
+          <text x="410" y="76" font-size="11.5" fill="#a8302a" font-family="sans-serif">新中轴</text>
+          <text x="28" y="60" font-size="13" fill="#9a948a" font-family="sans-serif">现代广州 · CBD 与珠江新城一带</text>
+        </svg>
+      </div>
+      <!-- 顶层：历代城垣叠合 -->
+      <div class="top clip" id="cmpClip">
+        <svg viewBox="0 0 800 500" preserveAspectRatio="none">
+          <rect width="800" height="500" fill="#efe9dc"/>
+          <path d="M20,392 Q240,440 460,398 T790,352" stroke="#c6dde3" stroke-width="58" fill="none" stroke-linecap="round"/>
+          <path d="M262,150 Q330,74 400,150 Z" fill="#dfe5db" stroke="#c3cfbc"/>
+          <g fill="none" stroke-width="2.2">
+            <ellipse cx="400" cy="248" rx="30" ry="21" stroke="#a8302a" fill="rgba(168,48,42,.16)"/>
+            <ellipse cx="400" cy="248" rx="52" ry="36" stroke="#b8860b"/>
+            <ellipse cx="400" cy="248" rx="76" ry="52" stroke="#2f6b6b"/>
+            <ellipse cx="400" cy="248" rx="104" ry="70" stroke="#4a7c3f"/>
+            <ellipse cx="400" cy="248" rx="134" ry="88" stroke="#7a5c9e"/>
+            <ellipse cx="400" cy="248" rx="168" ry="106" stroke="#5c7f9e"/>
+          </g>
+          <circle cx="400" cy="248" r="5" fill="#a8302a"/>
+          <text x="414" y="244" font-size="12" fill="#a8302a" font-family="sans-serif" font-weight="700">城心</text>
+          <!-- 镇海楼 -->
+          <path d="M376,146 h34 v-26 h-34 z" fill="#7a5c9e" stroke="#5c4a7a"/>
+          <text x="418" y="140" font-size="11" fill="#7a5c9e" font-family="sans-serif">镇海楼</text>
+          <!-- 三塔 -->
+          <g fill="#b8860b">
+            <path d="M520,300 l7,-30 l7,30 z"/><path d="M556,306 l7,-28 l7,28 z"/><path d="M592,312 l7,-26 l7,28 z"/>
+          </g>
+          <text x="546" y="330" font-size="11" fill="#8a6500" font-family="sans-serif">莲花塔·琶洲塔·赤岗塔</text>
+          <text x="772" y="60" text-anchor="end" font-size="13" fill="#9a948a" font-family="sans-serif">历代城垣叠合 · 秦至清</text>
+        </svg>
+      </div>
+      <div class="lbl l">现代</div>
+      <div class="lbl r">历代城垣</div>
+      <div class="handle" id="cmpHandle"></div>
+    </div>
+  </div>
+  <div class="compare-legend">
+    <span class="hint">历代城垣层读法：内圈 → 外圈 ＝ 城廓由早到晚逐代外扩的六重范围</span>
+    <span class="sw"><i style="border-color:#a8302a;background:rgba(168,48,42,.18)"></i>①</span>
+    <span class="sw"><i style="border-color:#b8860b"></i>②</span>
+    <span class="sw"><i style="border-color:#2f6b6b"></i>③</span>
+    <span class="sw"><i style="border-color:#4a7c3f"></i>④</span>
+    <span class="sw"><i style="border-color:#7a5c9e"></i>⑤</span>
+    <span class="sw"><i style="border-color:#5c7f9e"></i>⑥</span>
+    <span class="hint">· 具体分期见下方「六代城廓」</span>
+  </div>
+  <p style="font-size:12.5px;color:var(--ink4);margin-top:12px;font-family:var(--sans)">
+    示意图：两侧采用同一坐标系与同一珠江岸线，以便观察六代城廓与现代城市中心的重合关系。城廓范围为示意性复原，非精确测绘边界。
+  </p>
+
+  <h3 class="sec">六代城廓：边界为何这样长</h3>
+  <div class="grid g3">
+    <div class="card k-pow">
+      <div class="yr">前 204 年 · 南越</div>
+      <h4>西城东郭，以西为尊</h4>
+      <p>宫城区在西北面，东面与南面为越人生活居住区，街道呈丁字形，宫前南通江岸大道与东西向大道。
+      <b>中原礼制与百越本土社会，被空间隔离辩证地统一。</b></p>
+    </div>
+    <div class="card k-pow">
+      <div class="yr">917 年 · 南汉 <span class="tag t-add">＋ 补入</span></div>
+      <h4>第二次都城化，中轴被反复确认</h4>
+      <p>广州升兴王府，效仿唐长安以宫城为中心划分城市区域，形成<b>北风景苑囿、南市场、西蕃坊、东官衙贵族</b>环卫宫城之局。
+      四周各建 7 寺共 <b>28 寺</b>应 28 星宿，凿西湖约 <b>500 丈</b>，于番禺二山上建双阙强化轴线。</p>
+      <p style="margin-top:10px;font-size:13px;color:var(--zhu)">
+        <b>为什么必须补这一环：</b>原著明言「南越奠基城址，南汉强化中轴」——两朝反复确认同一根基，
+        是「城心不移」因果链上不可缺的一环。
+      </p>
+    </div>
+    <div class="card k-pow">
+      <div class="yr">宋 · 三城并立</div>
+      <h4>城墙第一次拥抱商业</h4>
+      <p>子城置官署、东城为民市、西城容纳蕃坊与市舶司及西澳内港。<b>西城护蕃坊，雁翅城护江岸商业带</b>
+      ——「城防」与「市场」首次合一，城墙兼具军事防御与商业保护双重职能。</p>
+    </div>
+    <div class="card k-pow">
+      <div class="yr">1380 年 · 明洪武</div>
+      <h4>三城合一，青山半入城</h4>
+      <p>洪武三年填塞城间濠池，宋三城合并贯通；洪武十三年北扩至越秀山修筑<b>镇海楼</b>，借山为城防，
+      形成「青山半入城」经典格局。</p>
+    </div>
+    <div class="card k-pow">
+      <div class="yr">1566 年 · 明嘉靖</div>
+      <h4>南拓新城，开发西关</h4>
+      <p>沿用宋雁翅城筑新城，纳入城南商区以御海寇。明后期城外自发形成<b>西关十八甫</b>，设怀远驿接待域外贡商。</p>
+    </div>
+    <div class="card k-pow">
+      <div class="yr">1918 年 · 民国</div>
+      <h4>拆垣开路，城厢边界消解</h4>
+      <p>拆城墙筑马路，打破城厢边界，传统行政、市井空间向近代城市空间转化。两千年的城门羁绊在此终结。</p>
+    </div>
+  </div>
+
+  <h3 class="sec">三塔三关锁珠江：把自然礁石变成国家治理工具<span class="sub">明万历年间</span></h3>
+  <div class="grid g2">
+    <div class="card k-pow">
+      <h4>借山为郭，借楼为眼</h4>
+      <p>借自然之势，将<b>山体、天际线、塔标、炮台、航道</b>整合为一套复合治理系统——这是前工业时代最节省成本的「基础设施」。</p>
+      <table style="margin-top:14px">
+        <thead><tr><th style="width:74px">类别</th><th>构成</th><th style="width:150px">双重职能</th></tr></thead>
+        <tbody>
+          <tr><td class="k">三塔</td><td>莲花塔 · 琶洲塔 · 赤岗塔<br><span style="font-size:12.5px;color:var(--ink3)">万历年间沿珠江航道依次修建</span></td><td>锁水口 + 海丝商船航标</td></tr>
+          <tr><td class="k">三关</td><td>海珠石 · 海印石 · 浮丘石<br><span style="font-size:12.5px;color:var(--ink3)">珠江中三处天然江心礁石</span></td><td>河道三道天然关口 + 引航</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:14px;font-size:13.5px;color:var(--ink3)">
+        唯物史观：大自然历经百万年演化形成的江心礁石，被精准转化为国家海防与商船引航的双重航标——
+        <b>自然物一旦进入生产关系，就获得了社会属性</b>。
+      </p>
+    </div>
+    <div class="card k-pow">
+      <h4>城防 · 江防 · 海防：三道防线</h4>
+      <p>明清构建以<b>虎门要塞</b>为核心、沿江布设多座炮台的江海防御体系，承担国家东南沿岸的海防重任。
+      岭南海防体系分中路、东路、西路，卫所密布：</p>
+      <p style="margin-top:12px;font-size:14px;line-height:2.1;color:var(--ink2)">
+        潮州卫 · 蓬州所 · 大埕所 · 海门所 · 靖海所 · 碣石卫 · 甲子门所 · 捷胜所 · 海丰所 · 平海所 ·
+        大鹏所 · 东莞所 · <b style="color:var(--zhu)">南海卫</b> · 广州府 · 广东都司 · 新会所 · 香山所 ·
+        广海卫 · 阳江所 · 海朗所 · 双鱼所 · 神电卫 · 宁川所 · 雷州卫 · 永安所 · 乐民所 · 锦囊所 ·
+        海安所 · 海康所 · 廉州卫 · 钦州所 · 海南卫 · 儋州所 · 昌化所 · 清澜所 · 万州所 · 南山所 · 崖州所
+      </p>
+      <p style="margin-top:12px;font-size:13px;color:var(--ink3)">
+        <span class="tag t-ok">✓ 文献载明</span>　「明清时期岭南海防体系」历史图绘
+      </p>
+    </div>
+  </div>
+<div class="evd-block"><h3 class="evd-h">权力空间 · 古图真影</h3><div class="evd-row"><figure class="evd"><img data-asset="m1855" alt="Vrooman《广州城厢与近郊图》（1855）"><figcaption><b>Vrooman《广州城厢与近郊图》（1855）</b><br>1855 · Library of Congress</figcaption></figure><figure class="evd"><img data-asset="m1887" alt="李仲培《广东全省水陆舆图》（1887）"><figcaption><b>李仲培《广东全省水陆舆图》（1887）</b><br>1887 · Library of Congress</figcaption></figure><figure class="evd"><img data-asset="m1879r" alt="Lörcher《广东省域图》（正面，1879）"><figcaption><b>Lörcher《广东省域图》（正面，1879）</b><br>1879 · Library of Congress</figcaption></figure><figure class="evd"><img data-asset="m1834m" alt="《广州城及郊区图》（1834）"><figcaption><b>《广州城及郊区图》（1834）</b><br>1834 · 传教士刊本（公有领域）</figcaption></figure><figure class="evd"><img data-asset="m1857qmg" alt="《广州城及郊区平面图》（1857，英军测绘）"><figcaption><b>《广州城及郊区平面图》（1857，英军测绘）</b><br>1857 · Hongkong Expeditionary Force, Q.M.G. Dept.（公有领域）</figcaption></figure><figure class="evd"><img data-asset="m1860vrooman" alt="Vrooman《广州城及全郊区图》（1860）"><figcaption><b>Vrooman《广州城及全郊区图》（1860）</b><br>1860 · D. Vrooman（公有领域）</figcaption></figure></div></div></section>
+
+<!-- ═══════════════ 模块三 ═══════════════ -->
+<section id="trade" class="mod">
+  <div class="mod-head">
+    <div class="mod-tag">模 块 三 · MODULE 03</div>
+    <h2>通海达邦的全球经济网络</h2>
+    <div class="en">MARITIME CAPITAL &amp; THE GLOBAL ECONOMIC NETWORK</div>
+    <p class="abs">
+      广州不是「因为靠海所以繁荣」。真正的机制是：<b>帝国需要一个可控的对外端口，全球资本需要一个可及的东方市场，
+      两者在珠江口相遇，并把相遇的代价与收益，一并写进了城市空间</b>。本模块拆解这套「港—城—商」融合体系的运转逻辑。
+    </p>
+  </div>
+
+  <h3 class="sec">广州通夷海道：当时世界最长的官方远洋航线</h3>
+  <div class="grid g4" style="margin-bottom:8px">
+    <div class="card k-tr" style="text-align:center;padding:20px 14px">
+      <div style="font-size:32px;font-weight:700;color:var(--dai);font-family:var(--sans)">1.4<span style="font-size:15px">万公里</span></div>
+      <div style="font-size:12.5px;color:var(--ink3);margin-top:6px">广州 → 波斯湾全程</div>
+    </div>
+    <div class="card k-tr" style="text-align:center;padding:20px 14px">
+      <div style="font-size:32px;font-weight:700;color:var(--dai);font-family:var(--sans)">90<span style="font-size:15px">余国</span></div>
+      <div style="font-size:12.5px;color:var(--ink3);margin-top:6px">途经国家与地区</div>
+    </div>
+    <div class="card k-tr" style="text-align:center;padding:20px 14px">
+      <div style="font-size:32px;font-weight:700;color:var(--dai);font-family:var(--sans)">89<span style="font-size:15px">天</span></div>
+      <div style="font-size:12.5px;color:var(--ink3);margin-top:6px">单程航期</div>
+    </div>
+    <div class="card k-tr" style="text-align:center;padding:20px 14px">
+      <div style="font-size:32px;font-weight:700;color:var(--dai);font-family:var(--sans)">714<span style="font-size:15px">年</span></div>
+      <div style="font-size:12.5px;color:var(--ink3);margin-top:6px">设市舶使（全国首个）</div>
+    </div>
+  </div>
+
+  <div class="card" style="padding:20px">
+    <svg viewBox="0 0 900 260" style="width:100%;height:auto;display:block">
+      <rect width="900" height="260" fill="#f4f1ea"/>
+      <path d="M0,150 Q120,110 220,150 T450,150 T680,140 T900,160" stroke="#cfe0e6" stroke-width="60" fill="none"/>
+      <text x="20" y="222" font-size="12" fill="#6f6a61" font-family="sans-serif">广州 → 南海 → 马六甲 → 印度洋 → 波斯湾</text>
+      <g font-size="11.5" font-family="sans-serif">
+        <g fill="#a8302a"><circle cx="60" cy="150" r="7"/><text x="52" y="176" font-weight="700">广州</text></g>
+        <g fill="#2f6b6b"><circle cx="200" cy="140" r="5"/><text x="184" y="124">交趾</text></g>
+        <g fill="#2f6b6b"><circle cx="300" cy="146" r="5"/><text x="284" y="130">林邑</text></g>
+        <g fill="#2f6b6b"><circle cx="400" cy="150" r="5"/><text x="384" y="134">诃陵</text></g>
+        <g fill="#2f6b6b"><circle cx="510" cy="140" r="5"/><text x="490" y="124">马六甲</text></g>
+        <g fill="#2f6b6b"><circle cx="620" cy="146" r="5"/><text x="602" y="130">狮子国</text></g>
+        <g fill="#2f6b6b"><circle cx="710" cy="142" r="5"/><text x="690" y="126">故临</text></g>
+        <g fill="#a8791b"><circle cx="840" cy="152" r="7"/><text x="812" y="178" font-weight="700">波斯湾</text></g>
+      </g>
+      <path d="M60,150 Q300,100 510,140 T840,152" stroke="#a8302a" stroke-width="1.6" stroke-dasharray="7 5" fill="none" opacity=".7"/>
+      <text x="640" y="240" font-size="12" fill="#a8302a" font-family="sans-serif">全长 1.4 万公里 · 途经 90 余国 · 航期 89 天</text>
+    </svg>
+  </div>
+
+  <h3 class="sec">双层港口体系：大船停外港，驳船入城</h3>
+  <p class="para">
+    广州发明了一套极其经济的三级物流：<b>远洋大船停外港</b>（引航、检查、征税），<b>区域中转靠外港</b>，
+    <b>城内配送由驳船走内河</b>。水利工程一物多用——把物流基础设施嵌入城市山水本底，
+    以最低建设成本同时解决交通、水患、商贸三大问题。
+  </p>
+  <div class="grid g2">
+    <div class="card k-tr">
+      <div class="yr">外港 · 引航 检查 征税</div>
+      <h4>扶胥港 · 琶洲港 · 大通港 · 屯门</h4>
+      <p>唐宋外港以<b>扶胥港</b>（今黄埔南冈，南海神庙所在）为核心，另有琶洲港、大通港；唐时更远及屯门（今香港新界青山湾）。
+      明清则以<b>黄埔古港</b>承接远洋大船。</p>
+    </div>
+    <div class="card k-tr">
+      <div class="yr">内港 · 交易 仓储 停泊</div>
+      <h4>兰湖 · 光塔 · 东澳 · 西澳 · 长堤</h4>
+      <p>唐内港在城内<b>兰湖</b>与光塔一带；宋代形成东澳、西澳，其中<b>西澳为市舶司驻地</b>。
+      明清内港延展至十三行、沙面、长堤。</p>
+    </div>
+  </div>
+
+  <h3 class="sec">码头序列播放：一座城如何跟着岸线一路南迁</h3>
+  <div class="tlbar">
+    <button id="hbPlay">▶ 自动播放</button>
+    <button id="hbPrev">◀ 上一站</button>
+    <button id="hbNext">下一站 ▶</button>
+    <div class="track"><i id="hbTrack" style="width:12.5%"></i></div>
+    <div class="cur" id="hbCur">1 / 8</div>
+  </div>
+  <div class="card" style="padding:18px">
+    <svg viewBox="0 0 900 210" style="width:100%;height:auto;display:block">
+      <rect width="900" height="210" fill="#f4f1ea"/>
+      <path d="M-10,96 Q220,124 460,104 T910,86" stroke="#cfe0e6" stroke-width="46" fill="none"/>
+      <text x="20" y="164" font-size="12.5" fill="#5d8b96" font-family="sans-serif" letter-spacing="3">珠　江</text>
+      <text x="20" y="34" font-size="12.5" fill="#7d8c74" font-family="sans-serif">城 区（北）</text>
+      <g id="hbDots" font-size="11.5" font-family="sans-serif"></g>
+    </svg>
+    <div id="hbInfo" style="margin-top:16px;padding-top:16px;border-top:1px solid var(--line2)"></div>
+  </div>
+
+  <h3 class="sec">制度供给：国家权力为外贸资本提供的庇护</h3>
+  <div class="grid g3">
+    <div class="card k-tr">
+      <div class="yr">714 年 · 唐</div>
+      <h4>市舶使</h4>
+      <p>中国首个专职外贸管理机构。国家权力开始<b>主动为庞大的海外贸易资本提供制度庇护</b>。</p>
+    </div>
+    <div class="card k-tr">
+      <div class="yr">971 年 · 宋</div>
+      <h4>广州市舶司</h4>
+      <p>专管海外贸易，广州遂升为宋代最重要的海关与外贸管理城市。
+      <b>比泉州市舶司（1079 年）早 108 年。</b></p>
+    </div>
+    <div class="card k-tr">
+      <div class="yr">唐 · 城西</div>
+      <h4>蕃坊</h4>
+      <p>以怀圣寺为中心，中国最早的外侨聚居地。子城—南城—蕃坊并立，
+      首次把「<b>官署、港市、外侨</b>」三种治理对象纳入同一空间。</p>
+    </div>
+  </div>
+
+  <h3 class="sec">十八甫：一条街巷里的产业经济学<span class="sub">明后期 · 西关</span></h3>
+  <p class="para">
+    「<b>傍埠列肆，逐甫聚货</b>」——各甫傍码头而设，业态随区位而别。十八甫形成了高度精细化的街巷产业分工体系，
+    是前工业时代城市<b>功能分区</b>的民间自发版本。
+  </p>
+  <div class="grid g3">
+    <div class="card k-tr" style="border-top-color:#9aa8a8">
+      <div class="yr">北段 · 二—八甫</div>
+      <h4>平民化街巷</h4>
+      <p>承载城内民生商贸，服务本地日常消费，是城市生活的基本盘。</p>
+    </div>
+    <div class="card k-tr" style="border-top-color:#a8791b">
+      <div class="yr">中段 · 九—十一甫</div>
+      <h4>高端消费与手工业核心区</h4>
+      <p>聚集精工制造与高端消费，是手工业资本的集中地。</p>
+    </div>
+    <div class="card k-tr" style="border-top-color:var(--zhu)">
+      <div class="yr">南段 · 十二—十八甫</div>
+      <h4>大宗仓储与中转贸易</h4>
+      <p>典型的外贸服务型街区，直接对接码头与十三行，承担大宗货物的仓储与中转。</p>
+    </div>
+  </div>
+  <p class="para" style="font-size:14px;color:var(--ink3)">
+    唯物史观：<b>北端重民生，中端聚精工，南端通外贸</b>——街巷业态的空间梯度，
+    精确对应着「距码头的距离」这一交通成本变量。这不是规划设计的产物，而是地租与物流成本自发选择的结果。
+  </p>
+
+  <h3 class="sec">三城八镇：宋代广州的卫星城镇群</h3>
+  <div class="grid g2">
+    <div class="card k-tr">
+      <h4>八镇职能分工</h4>
+      <table style="margin-top:10px">
+        <thead><tr><th style="width:110px">职能</th><th>镇</th></tr></thead>
+        <tbody>
+          <tr><td class="k">外贸海防</td><td>扶胥</td></tr>
+          <tr><td class="k">商品集散</td><td>大通 · 猎德 · 瑞石 · 平石 · 白田</td></tr>
+          <tr><td class="k">军事门户</td><td>石门</td></tr>
+          <tr><td class="k">驿道补给</td><td>大水</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:12px;font-size:13.5px;color:var(--ink3)">
+        宋代在三城基础上周边形成四通八达的卫星城镇群，商贸密集、经济发达、各有侧重——
+        这是广州最早的<b>都市圈</b>形态。
+      </p>
+    </div>
+    <div class="card k-tr">
+      <h4>羊城八景：宋代的城市品牌</h4>
+      <p style="font-size:14.5px;line-height:2.1">
+        扶胥浴日 · 石门返照 · 海山晓霁 · 珠江秋月<br>
+        菊湖云影 · 蒲涧帘泉 · 光孝菩提 · 大通烟雨
+      </p>
+      <p style="margin-top:12px;font-size:13.5px;color:var(--ink3)">
+        八景并非文人雅兴。它是把<b>港口、驿道、寺庙、山泉、江面</b>整合为一套可被记忆与传播的城市意象系统——
+        前现代的城市品牌运营。
+      </p>
+    </div>
+  </div>
+
+  <h3 class="sec">一口通商：繁华与隐忧</h3>
+  <div class="grid g3">
+    <div class="card k-tr">
+      <div class="yr">1591 年 · 明万历十九年</div>
+      <h4>定期市 —— 广交会的雏形</h4>
+      <p>开设春秋两季限时开放的定期市：洋商仅可在开市期入城交易，其余时间滞留澳门。
+      规范化的中外定点互市，<b>为广交会奠定原始范式</b>。</p>
+    </div>
+    <div class="card k-tr">
+      <div class="yr">明 · 西关</div>
+      <h4>怀远驿 —— 最早的「国宾馆」</h4>
+      <p>位于广州西关，在朝贡贸易体系下专门接待外国贡使与商人，
+      建有 <b>120 间房舍</b>，曾长期是广州对外贸易的中心。</p>
+    </div>
+    <div class="card k-tr">
+      <div class="yr">明 · 濠畔街</div>
+      <h4>珍奇百货之肆</h4>
+      <p>紧邻玉带濠、连通珠江，发展为汇聚珍奇的「百货之肆」，繁华可比秦淮。
+      中期朝贡贸易衰落、民间市集兴起后，更成外商云集之地。</p>
+    </div>
+  </div>
+
+  <div class="quote">
+    <div class="txt">临江喧万井，立地涌千艘。<br>气脉雄如此，由来是广州。</div>
+    <div class="by">—— （明）汤显祖《广城二首·录一》　<span class="tag t-ok">✓ 文献载明</span> </div>
+  </div>
+
+  <p class="para">
+    <b>唯物辩证解析：</b>明清广州是一场建立在<b>封建特许与朝贡体系</b>之上的「外贸奇迹」。
+    以制度定商期，以空间容外商，以水运聚百货——城因商而兴，商因城而聚。
+    它源源不断地为帝国吸纳全球白银，但其繁华被<b>锁死在封建上层建筑的藩篱之内</b>，
+    未能自发转化为近代工业资本。这是抵御西方近代工业资本冲击前的「历史悲剧前夜」。
+  </p>
+<div class="evd-block">
+<h3 class="sec">地租梯度：空间是怎样被生产出来的</h3>
+<p class="lead2">水运是前工业时代成本最低的运输方式。码头与濠涌的<b>可达性差</b>，先变成搬运与驳运的<b>成本差</b>，再变成<b>级差地租差</b>，最后落成街巷业态的分工——「空间是被生产出来的」，在这里有价格的刻度。</p>
+<figure class="rentfig">
+<svg viewBox="0 0 640 300" width="100%" style="display:block" role="img" aria-label="十八甫一带地租梯度示意">
+  <rect x="0" y="0" width="640" height="300" fill="#ffffff"/>
+  <rect x="72" y="46" width="128" height="196" fill="#fdf1ee"/>
+  <rect x="200" y="46" width="128" height="196" fill="#fbf5ea"/>
+  <rect x="328" y="46" width="128" height="196" fill="#f6f4ec"/>
+  <rect x="456" y="46" width="148" height="196" fill="#f2f2ef"/>
+  <line x1="72" y1="242" x2="604" y2="242" stroke="#cfc6b6" stroke-width="1.4"/>
+  <line x1="72" y1="242" x2="72" y2="40" stroke="#cfc6b6" stroke-width="1.4"/>
+  <path d="M72,72 C150,96 190,150 300,186 C400,214 500,230 604,238" fill="none" stroke="#a8302a" stroke-width="3"/>
+  <circle cx="110" cy="83" r="5" fill="#a8302a"/>
+  <circle cx="240" cy="140" r="5" fill="#a8302a"/>
+  <circle cx="360" cy="200" r="5" fill="#a8302a"/>
+  <circle cx="520" cy="232" r="5" fill="#a8302a"/>
+  <text x="136" y="66" font-size="13" font-weight="700" fill="#a8302a">泊岸行栈</text>
+  <text x="264" y="66" font-size="13" font-weight="700" fill="#8a6a2a">沿濠商肆</text>
+  <text x="392" y="66" font-size="13" font-weight="700" fill="#4a6b4a">逐甫聚货</text>
+  <text x="520" y="66" font-size="13" font-weight="700" fill="#5a5a5a">腹里宅邸·工坊</text>
+  <text x="86" y="272" font-size="12.5" fill="#444">0–100 步</text>
+  <text x="228" y="272" font-size="12.5" fill="#444">100–300 步</text>
+  <text x="356" y="272" font-size="12.5" fill="#444">300–600 步</text>
+  <text x="486" y="272" font-size="12.5" fill="#444">600 步以外</text>
+  <text x="122" y="100" font-size="12" fill="#6b6b6b">十三行·夷馆·税馆</text>
+  <text x="250" y="158" font-size="12" fill="#6b6b6b">濠畔街·批发</text>
+  <text x="374" y="218" font-size="12" fill="#6b6b6b">十八甫·分段集货</text>
+  <text x="500" y="228" font-size="12" fill="#6b6b6b">居住·低值生产</text>
+  <text x="88" y="32" font-size="12.5" fill="#333">单位面积地租（相对值）</text>
+  <text x="470" y="292" font-size="12.5" fill="#333">距水距离（珠江／濠涌）→</text>
+</svg>
+<figcaption>地租梯度示意：横轴为距水体的可达距离，纵轴为单位面积地租相对值。锚地—濠涌—甫—腹里四带递降，与「傍埠列肆，逐甫聚货」的既有格局互相印证。<span class="tag t-add">＋ 学术推演</span></figcaption>
+</figure>
+<div class="engtl">
+  <div class="row"><div class="era">① 泊岸行栈</div><div class="txt">距水十数步至百步之内。外贸中介、仓储、税馆云集，承担最高的搬运效率与最高的租金——<b>十三行与夷馆</b>所占据的正是地租曲线的顶点。<span class="tag t-ok">✓ 文献载明</span></div></div>
+  <div class="row"><div class="era">② 沿濠商肆</div><div class="txt">沿濠涌一线。批发与手工业随水道铺展，濠畔街因此成为「前店后仓」的典型断面：临水即铺面，深度即仓廪。<span class="tag t-ok">✓ 文献载明</span></div></div>
+  <div class="row"><div class="era">③ 逐甫聚货</div><div class="txt"><b>十八甫</b>之所以「逐甫」分段聚集不同货类，并非任意：每一「甫」距码头的驳运成本不同，租得起高价仓栈的货类才挤得进靠水那一段，货值低、周转慢者依次外推。物流成本在此直接改写业态排序。<span class="tag t-ok">✓ 文献载明</span><span class="tag t-add">＋ 学术推演</span></div></div>
+  <div class="row"><div class="era">④ 腹里宅邸·工坊</div><div class="txt">地租最低处让给居住与低值生产。行商宅邸与工坊同处一区，是有钱人用「通勤成本」换「空间成本」的理性选择。<span class="tag t-add">＋ 学术推演</span></div></div>
+</div>
+<div class="thesis"><b>理论落点：</b>把「傍埠列肆，逐甫聚货」读成自发形成的杂乱，就漏掉了其中最硬的一环——<b>商业资本借水运成本重塑地租梯度，再用地租梯度重组街巷业态</b>。空间的秩序不是被「规划」出来的，而是被成本与地租生产出来的；此后每一次交通技术革命（拆城筑路、轮渡、地铁），都重演同一机制：<b>谁离节点近，谁改换业态</b>。</div>
+<h3 class="evd-h">通海航道 · 古图真影</h3><div class="evd-row"><figure class="evd"><img data-asset="m1818" alt="Horsburgh《珠江／黄埔河段测深图》（1818）"><figcaption><b>Horsburgh《珠江／黄埔河段测深图》（1818）</b><br>1818 · Library of Congress</figcaption></figure><figure class="evd"><img data-asset="m1834" alt="Berghaus《广东海岸图（澳门子午线两侧）》（1834）"><figcaption><b>Berghaus《广东海岸图（澳门子午线两侧）》（1834）</b><br>1834 · Library of Congress</figcaption></figure><figure class="evd"><img data-asset="m1760" alt="Dalrymple《华南近海与岛屿海岸图》（1760）"><figcaption><b>Dalrymple《华南近海与岛屿海岸图》（1760）</b><br>1760 · Gallica / BnF</figcaption></figure><figure class="evd"><img data-asset="m1787" alt="Huddart《虎门至黄埔珠江河段实测平面图》（1787）"><figcaption><b>Huddart《虎门至黄埔珠江河段实测平面图》（1787）</b><br>1787 · Gallica / BnF</figcaption></figure><figure class="evd"><img data-asset="m1670aa" alt="《Quancheu（广州）城图》早期欧洲刊本"><figcaption><b>《Quancheu（广州）城图》早期欧洲刊本</b><br>约 17 世纪后期 · 欧洲刊本（公有领域）</figcaption></figure><figure class="evd"><img data-asset="m1856a" alt="《广州及其周边航道 · 澳门与香港》（1856 后印本）"><figcaption><b>《广州及其周边航道 · 澳门与香港》（1856 后印本）</b><br>1856 · London: Edward Stanford（公有领域）</figcaption></figure><figure class="evd"><img data-asset="m1863" alt="Weller《珠江（Chu Kiang）航道图》（1863）"><figcaption><b>Weller《珠江（Chu Kiang）航道图》（1863）</b><br>1863 · Edward Weller, F.R.G.S.（公有领域）</figcaption></figure><figure class="evd"><img data-asset="m1749entree" alt="Bellin《广州河口（虎门）航道图》（1749）"><figcaption><b>Bellin《广州河口（虎门）航道图》（1749）</b><br>1749 · Jacques-Nicolas Bellin 绘，哈佛地图收藏（公有领域）</figcaption></figure><figure class="evd"><img data-asset="m1749isles" alt="Bellin《珠江口诸岛图》（1749）"><figcaption><b>Bellin《珠江口诸岛图》（1749）</b><br>1749 · Jacques-Nicolas Bellin 绘，哈佛地图收藏（公有领域）</figcaption></figure><figure class="evd"><img data-asset="m1853cox" alt="《广州及其周边航道·澳门与香港》（1853 初印本）"><figcaption><b>《广州及其周边航道·澳门与香港》（1853 初印本）</b><br>1853 · London: George Cox（SDUK《综合地图集》第 170a 图），哈佛地图收藏（公有领域）</figcaption></figure></div></div></section>
+
+<!-- ═══════════════ 模块四 ═══════════════ -->
+<section id="modern" class="mod">
+  <div class="mod-head">
+    <div class="mod-tag">模 块 四 · MODULE 04</div>
+    <h2>近代解构与现代转型</h2>
+    <div class="en">MODERN DISMANTLING &amp; THE BIRTH OF CITY PLANNING</div>
+    <p class="abs">
+      城墙不是被思想拆掉的，是被<b>汽车</b>拆掉的。当新的生产力（机动交通、近代工业、市政财政）
+      冲决旧城垣的物理边界时，上层建筑必须以全新的工具——设市、勘界、土地分区——重新组织空间。
+      广州是中国第一个完成这套动作的城市。
+    </p>
+  </div>
+
+  <h3 class="sec">近代中轴：一条在碰撞中逐步成形的「变革之轴」</h3>
+  <div class="card" style="padding:20px">
+    <svg viewBox="0 0 900 300" style="width:100%;height:auto;display:block">
+      <rect width="900" height="300" fill="#f4f1ea"/>
+      <path d="M-10,266 Q240,290 470,272 T910,258" stroke="#cfe0e6" stroke-width="44" fill="none"/>
+      <text x="26" y="252" font-size="12" fill="#5d8b96" font-family="sans-serif" letter-spacing="3">珠　江</text>
+      <!-- 越秀山 -->
+      <path d="M60,74 Q130,16 200,74 Z" fill="#e6ebe2" stroke="#cfd8c8"/>
+      <text x="130" y="66" font-size="11.5" fill="#7d8c74" text-anchor="middle" font-family="sans-serif">越秀山</text>
+      <!-- 轴线 -->
+      <path d="M130,74 L130,268" stroke="#7a5c9e" stroke-width="2.4" stroke-dasharray="8 6"/>
+      <!-- 节点 -->
+      <g font-size="11.5" font-family="sans-serif">
+        <g><rect x="106" y="52" width="48" height="22" fill="#7a5c9e" opacity=".85"/><text x="130" y="42" text-anchor="middle" fill="#5c4a7a" font-weight="700">镇海楼</text><text x="180" y="66" fill="#6f6a61">1380</text></g>
+        <g><circle cx="130" cy="104" r="7" fill="#a8302a"/><text x="150" y="108" fill="#a8302a" font-weight="700">中山纪念碑</text><text x="248" y="108" fill="#6f6a61">1926—31</text></g>
+        <g><circle cx="130" cy="140" r="8" fill="#a8302a"/><text x="150" y="144" fill="#a8302a" font-weight="700">中山纪念堂</text><text x="248" y="144" fill="#6f6a61">1926—31</text></g>
+        <g><circle cx="130" cy="176" r="7" fill="#2f6b6b"/><text x="150" y="180" fill="#2f6b6b" font-weight="700">市府合署</text><text x="248" y="180" fill="#6f6a61">1930—34</text></g>
+        <g><circle cx="130" cy="212" r="7" fill="#4a7c3f"/><text x="150" y="216" fill="#4a7c3f" font-weight="700">中央公园（第一公园）</text><text x="320" y="216" fill="#6f6a61">1918—21</text></g>
+        <g><circle cx="130" cy="248" r="7" fill="#a8791b"/><text x="150" y="252" fill="#8a6500" font-weight="700">海珠桥</text><text x="248" y="252" fill="#6f6a61">1929—33</text></g>
+      </g>
+      <text x="560" y="60" font-size="13" fill="#7a5c9e" font-family="sans-serif" font-weight="700">近代中轴线</text>
+      <text x="560" y="82" font-size="12" fill="#6f6a61" font-family="sans-serif">北起越秀山镇海楼，向南串联，</text>
+      <text x="560" y="100" font-size="12" fill="#6f6a61" font-family="sans-serif">直达海珠广场，与古代中轴比肩并行。</text>
+      <text x="560" y="126" font-size="12" fill="#a8302a" font-family="sans-serif">并非一次性规划而成，</text>
+      <text x="560" y="144" font-size="12" fill="#a8302a" font-family="sans-serif">而是中西理念碰撞融合中逐步成形。</text>
+    </svg>
+  </div>
+
+  <h3 class="sec">关键年份：从拆墙到分区</h3>
+  <div class="datalist">
+    <div class="dl-row"><span class="lb"><b>1918 年</b>　市政公所成立，着手实施拆城筑路的城市改造方案，广州旧城格局逐渐明确</span><span class="vl">拆城筑路</span></div>
+    <div class="dl-row"><span class="lb"><b>1919 年</b>　孙科推动广州行政中枢及轴线建设；起义路辟建</span><span class="vl">轴线启动</span></div>
+    <div class="dl-row"><span class="lb"><b>1921.2.15</b>　广州正式设市，成立广州市政厅——<b>中国近代史上第一个设市城市</b></span><span class="vl">正式设市</span></div>
+    <div class="dl-row"><span class="lb"><b>1929—33 年</b>　海珠桥建成，跨江联系打通，「河南」开发提速</span><span class="vl">跨江发展</span></div>
+    <div class="dl-row"><span class="lb"><b>1930 年</b>　广州市土地局会同南海、番禺两县完成勘界测绘，统一竖立界碑，绘制《广州市界志图》</span><span class="vl">法定市界</span></div>
+    <div class="dl-row"><span class="lb"><b>1947 年</b>　《广州市土地分区使用办法》颁布，对分区方案延续与修正</span><span class="vl">土地分区</span></div>
+  </div>
+
+  <div class="grid g2" style="margin-top:26px">
+    <div class="card k-mod">
+      <div class="yr">1930 年 · 46 方界碑</div>
+      <h4>第一次用界碑定义「什么是广州」</h4>
+      <p>1930 年广州市界范围设 <b>46 方界碑</b>，其中<b>陆界碑 26 方、水界碑 20 方</b>。
+      这是广州首次划出现代意义上的城市范围，并以法定界碑的形式固定下来。</p>
+      <p style="margin-top:12px;font-size:13.5px;color:var(--ink3)">
+        唯物史观：城市边界从「城墙的物理阻隔」变为「界碑的法律界定」——
+        <b>空间治理从工程问题转为法权问题</b>，这正是现代国家建构在城市层面的投影。
+      </p>
+    </div>
+    <div class="card k-mod">
+      <div class="yr">1947 年 · 土地分区</div>
+      <h4>与《雅典宪章》的功能分区思想相契合</h4>
+      <p>将全市地域划分功能区：商业区、普通住宅区、田园住宅区、工业区、农业区、风景区，
+      以功能划分土地使用分区。</p>
+      <table style="margin-top:14px">
+        <thead><tr><th>对照项</th><th>广州 1947</th><th>《雅典宪章》1933</th></tr></thead>
+        <tbody>
+          <tr><td class="k">核心理念</td><td>以功能划分土地使用分区</td><td>居住·工作·游憩·交通</td></tr>
+          <tr><td class="k">分区类型</td><td>商业 / 住宅 / 田园住宅 / 工业 / 农业 / 风景</td><td>功能分区 + 交通组织</td></tr>
+          <tr><td class="k">时间关系</td><td colspan="2">广州实践与《雅典宪章》（1933）几乎同期，属现代城市规划思想的东方平行实践</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h3 class="sec">打破的与保留的</h3>
+  <div class="grid g2">
+    <div class="card k-mod">
+      <div class="yr">打破</div>
+      <h4>拆城筑路：生产力的物理要求</h4>
+      <p>1918 年市政公所成立，为解决<b>城内人居空间不足</b>与<b>汽车交通不便</b>两大痛点，
+      开始拆城墙筑马路，打破城门羁绊，引入大型开敞空间与公共建筑。
+      广州近代城市空间由此逐渐清晰。</p>
+    </div>
+    <div class="card k-mod">
+      <div class="yr">保留</div>
+      <h4>城心未移：历史路径的锁定效应</h4>
+      <p>拆掉了城墙，却拆不掉城心。近代中轴与古代中轴<b>比肩并行</b>，
+      城市原点仍在北京路—中山四路一带。交通工具的革命改变了城市的形态，
+      但改变不了两千年累积的地租、区位与社会网络。</p>
+      <p style="margin-top:10px;font-size:13.5px;color:var(--ink3)">
+        唯物史观：这是<b>路径依赖</b>的典型案例——生产力可以摧毁旧的形式（城墙），
+        却必须继承旧的内容（城市中心）。
+      </p>
+    </div>
+  </div>
+<div class="evd-block">
+<h3 class="sec">法权转轨：地权怎样变成市政财政</h3>
+<p class="lead2">近代广州的重建，表面是马路、骑楼与公园，底下是<b>地权制度与市政财政</b>的重构。没有这一层，砖石无从落地。</p>
+<div class="engtl">
+  <div class="row"><div class="era">1930 · 市界勘定</div><div class="txt"><b>46 方界碑（陆界 26／水界 20）</b>：行政边界第一次可精确测绘、标示、公示。边界既清，则地籍可编、税基可定。<span class="tag t-ok">✓ 文献载明</span></div></div>
+  <div class="row"><div class="era">1947 · 土地分区</div><div class="txt"><b>土地分区使用</b>：土地用途由行政法规划定，同一块地「能做什么」不再由习惯决定，而由法规界定——<b>土地的交换价值被制度化</b>。这已具备近代城市规划法权的性质。<span class="tag t-ok">✓ 文献载明</span></div></div>
+  <div class="row"><div class="era">地权改造</div><div class="txt">由官田、学田、旗地、宗族尝产等<b>产权重叠、流转受限</b>的旧地权，转向可登记、可抵押、可自由交易的土地私有制；并配套<b>地价税与土地税</b>。土地从「身份的附属」变成「可计价的商品」。<span class="tag t-warn">▲ 外部考据</span><span class="tag t-add">＋ 学术推演</span></div></div>
+  <div class="row"><div class="era">财政落点</div><div class="txt">土地税与市政公债构成稳定财源，拆城筑路、骑楼街、公园、下水道等公共工程才有支付主体。<b>市政财政是近代城市形态的「出资方」</b>。<span class="tag t-warn">▲ 外部考据</span><span class="tag t-add">＋ 学术推演</span></div></div>
+</div>
+<div class="thesis"><b>理论落点：</b>近代规划法权的确立，本质是<b>封建地权向近代土地私有制与市政财政转轨的空间投影</b>。上层建筑之所以改得如此剧烈（拆城墙、改税制、设市政机构），恰恰说明经济基础已先一步变了——当贸易与工业要求土地成为可流转的生产要素，旧地权体系就必然被凿开。界碑与分区图，是这场变革落在地面上的印章。</div>
+<h3 class="evd-h">古今对照 · 古图真影</h3><div class="evd-row"><figure class="evd"><img data-asset="m1974" alt="CIA《广州城区参考图》（1974）"><figcaption><b>CIA《广州城区参考图》（1974）</b><br>1974 · Library of Congress</figcaption></figure><figure class="evd"><img data-asset="m1883" alt="《广东城近旁之图》（1883，日制）"><figcaption><b>《广东城近旁之图》（1883，日制）</b><br>1883 · Library of Congress</figcaption></figure><figure class="evd"><img data-asset="m1879v" alt="Lörcher《广东省域图》（背面，1879）"><figcaption><b>Lörcher《广东省域图》（背面，1879）</b><br>1879 · Library of Congress</figcaption></figure><figure class="evd"><img data-asset="m1856c" alt="Colton《中国》地图（含广州插图，1856）"><figcaption><b>Colton《中国》地图（含广州插图，1856）</b><br>1856 · J.H. Colton & Co., New York（公有领域）</figcaption></figure><figure class="evd"><img data-asset="m1862" alt="《广州城图》（1862，中文注记手绘本）"><figcaption><b>《广州城图》（1862，中文注记手绘本）</b><br>1862 · 手绘本（公有领域）</figcaption></figure></div></div></section>
+
+<!-- ═══════════════ 模块五 ═══════════════ -->
+<section id="future" class="mod">
+  <div class="mod-head">
+    <div class="mod-tag">模 块 五 · MODULE 05</div>
+    <h2>面向 2049 的未来之城</h2>
+    <div class="en">STRATEGIC VISION TOWARD 2049</div>
+    <p class="abs">
+      历史文化保护与新时代国家海洋战略在这里交汇。广州的下一次跃升，不是从「内河商都」变成「沿海城市」，
+      而是从<b>内河商贸文明</b>迈向<b>深海科创文明</b>——这是生产力跃迁的必然，也是国家大南海战略赋予广州的新职能。
+    </p>
+  </div>
+
+  <h3 class="sec">四大城市精神：生生不息的价值内核</h3>
+  <div class="grid g4">
+    <div class="card k-fut" style="border-top-color:#4a7c3f">
+      <h4>人地和谐<br>与山水共生</h4>
+      <p>从云山珠水走向山城田海，亘古未变的是顺应自然山水的智慧与精神。从旧六脉渠到新六脉渠，传承的是「青山半入城、六脉皆通海」的千年山水城市理念。</p>
+    </div>
+    <div class="card k-fut" style="border-top-color:#2f6b6b">
+      <h4>陆汇九州<br>与海通万邦</h4>
+      <p>从海丝原点到双循环战略节点，不变的是国家门户职责。链接两大洋，构建双扇面，支持双循环。</p>
+    </div>
+    <div class="card k-fut" style="border-top-color:#a8791b">
+      <h4>守正传承<br>与锐意创新</h4>
+      <p>形成「两洋南拓、两江东进、老城提质、极点示范」空间方略，促进三脉传承、推动三轴融合、推进三核联动。</p>
+    </div>
+    <div class="card k-fut" style="border-top-color:#7a5c9e">
+      <h4>多元融合<br>与开放包容</h4>
+      <p>环南海最大城市，全球 1.2 亿粤语粤人的精神家园，半数以上海外华人华侨的乡愁之地。以多元文化融合打造人人精彩的城市。</p>
+    </div>
+  </div>
+
+  <h3 class="sec">羊城八景：七代名录里的变与不变<span class="sub">点击切换朝代</span></h3>
+  <p class="para">
+    从宋代到 2011 年，羊城八景评选了七代。变的是景点，不变的是——<b>云山、珠水、越秀，三代同在</b>。
+    这是一座城市两千年审美基因的自我确认。
+  </p>
+  <div class="tabs" data-tabs="bj">
+    <div class="tab on" data-p="b0">宋</div>
+    <div class="tab" data-p="b1">元</div>
+    <div class="tab" data-p="b2">明</div>
+    <div class="tab" data-p="b3">清</div>
+    <div class="tab" data-p="b4">80 年代</div>
+    <div class="tab" data-p="b5">2002</div>
+    <div class="tab" data-p="b6">2011</div>
+  </div>
+  <div class="card" style="padding:22px">
+    <div id="bjBox" class="bajing"></div>
+    <p style="margin-top:20px;padding-top:16px;border-top:1px solid var(--line2);font-size:13.5px;color:var(--ink3);line-height:1.9">
+      <span class="tag t-ok">✓ 文献载明</span>　「羊城八景：从古到今，不变的是自然山水与人文结合的记忆」（所据文献）。
+      <span style="color:var(--zhu)">观察：</span>白云山、珠江、越秀山在全部七代名录中<b>反复出现</b>，
+      构成广州城市意象的稳定内核。
+    </p>
+  </div>
+
+  <h3 class="sec">双循环枢纽：两个扇面，一组数字</h3>
+  <div class="grid g2">
+    <div class="card k-fut">
+      <div class="yr">国 内 扇 面</div>
+      <h4>南中国最大的城市</h4>
+      <p>腹地范围：广东、广西、海南、福建、云南、贵州、江西、四川　<b>八省区</b></p>
+      <div style="display:flex;gap:32px;margin-top:16px">
+        <div><div style="font-size:34px;font-weight:700;color:var(--dai);font-family:var(--sans);line-height:1">4.3<span style="font-size:15px">亿</span></div><div style="font-size:12.5px;color:var(--ink3);margin-top:6px">总人口</div></div>
+        <div><div style="font-size:34px;font-weight:700;color:var(--dai);font-family:var(--sans);line-height:1">35<span style="font-size:15px">万亿</span></div><div style="font-size:12.5px;color:var(--ink3);margin-top:6px">GDP</div></div>
+      </div>
+    </div>
+    <div class="card k-fut">
+      <div class="yr">国 际 扇 面</div>
+      <h4>环南海最大的城市</h4>
+      <p>联系范围：越南、老挝、泰国、柬埔寨、吉隆坡、新加坡、文莱、菲律宾</p>
+      <div style="display:flex;gap:32px;margin-top:16px">
+        <div><div style="font-size:34px;font-weight:700;color:var(--dai);font-family:var(--sans);line-height:1">6.2<span style="font-size:15px">亿</span></div><div style="font-size:12.5px;color:var(--ink3);margin-top:6px">总人口</div></div>
+        <div><div style="font-size:34px;font-weight:700;color:var(--dai);font-family:var(--sans);line-height:1">1.2<span style="font-size:15px">亿</span></div><div style="font-size:12.5px;color:var(--ink3);margin-top:6px">全球粤语粤人</div></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sec">世界级枢纽的能级数据</h3>
+  <div class="grid g2">
+    <div class="card k-fut">
+      <div class="yr">世界级海港</div>
+      <h4>广州港</h4>
+      <div class="datalist" style="margin-top:12px;border:none">
+        <div class="dl-row" style="padding-left:0"><span class="lb">货物吞吐量</span><span class="vl">世界第 5</span></div>
+        <div class="dl-row" style="padding-left:0"><span class="lb">集装箱吞吐量</span><span class="vl">世界第 6</span></div>
+        <div class="dl-row" style="padding-left:0"><span class="lb">联通范围</span><span class="vl">100+ 国家 / 400+ 港口</span></div>
+        <div class="dl-row" style="padding-left:0"><span class="lb">「一带一路」航线</span><span class="vl">150 条 · 占 86%</span></div>
+      </div>
+    </div>
+    <div class="card k-fut">
+      <div class="yr">世界级空港</div>
+      <h4>白云机场</h4>
+      <div class="datalist" style="margin-top:12px;border:none">
+        <div class="dl-row" style="padding-left:0"><span class="lb">客运流量</span><span class="vl">全国第 1</span></div>
+        <div class="dl-row" style="padding-left:0"><span class="lb">货运流量</span><span class="vl">全国第 2</span></div>
+        <div class="dl-row" style="padding-left:0"><span class="lb">国际通航点</span><span class="vl">超 100 个</span></div>
+        <div class="dl-row" style="padding-left:0"><span class="lb">飞机起降</span><span class="vl">55 万架次 · 全球第 9</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sec">国家大南海战略：为什么是广州</h3>
+  <div class="grid g2">
+    <div class="card k-fut">
+      <h4>三大海区的地理差异</h4>
+      <table>
+        <thead><tr><th style="width:110px">海区</th><th>地理特征与战略意义</th></tr></thead>
+        <tbody>
+          <tr><td class="k">渤海·黄海·东海</td><td>位于大陆架上，大部分区域深度<b>不到 200 米</b></td></tr>
+          <tr><td class="k">南海</td><td>中国近海中面积最大、最深的海区，<b>平均水深 1212 米，最大深度 5559 米</b>；深海科研与产业化基础优，是现代海洋命运共同体的示范地区</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:12px;font-size:13.5px;color:var(--ink3)">
+        渤海、东海、南海各有不同的地理特征、战略意义和外交策略，需要不同城市引领。
+      </p>
+    </div>
+    <div class="card k-fut">
+      <h4>建设世界领先的海洋创新发展之都</h4>
+      <p><b>一带：</b>百里「海洋科技创新走廊」</p>
+      <p><b>三区：</b>中部、东部、南部三大海洋创新区</p>
+      <p style="margin-top:12px">格局概括为「<b>一带三区，串珠成链</b>」。</p>
+      <p style="margin-top:14px;font-size:13.5px;color:var(--ink3)">
+        唯物史观：从「引泊避风的扶胥港」到「深海科研的海洋创新走廊」，
+        广州与海洋的关系完成了从<b>利用</b>到<b>开发</b>再到<b>科研</b>的三次跃迁——
+        每一次跃迁都由当时的生产力水平所决定。
+      </p>
+    </div>
+  </div>
+
+  <h3 class="sec">空间方略：三脉 · 三轴 · 三核 · 四极</h3>
+  <div class="datalist">
+    <div class="dl-row"><span class="lb"><b>总体方略</b>　两洋南拓、两江东进、老城提质、极点示范</span><span class="vl">16 字方针</span></div>
+    <div class="dl-row"><span class="lb"><b>三脉</b>　千年城脉 · 文脉 · 商脉——塑造展现经典魅力与时代活力的高品质空间</span><span class="vl">文化传承</span></div>
+    <div class="dl-row"><span class="lb"><b>三轴</b>　老中轴 · 新中轴 · 活力创新轴——以轴线凝聚发展合力</span><span class="vl">空间骨架</span></div>
+    <div class="dl-row"><span class="lb"><b>三核</b>　老城区「历史文化核」品质提升 · 东部中心「现代活力核」功能提升 · 南沙「未来发展核」能级提升</span><span class="vl">能级分工</span></div>
+    <div class="dl-row"><span class="lb"><b>一带一轴</b>　珠江高质量发展带 · 广州活力创新轴</span><span class="vl">城镇结构</span></div>
+    <div class="dl-row"><span class="lb"><b>四极</b>　国家知识中心城 · 北部增长极 · 狮子洋增长极 · 从化绿色发展示范区</span><span class="vl">增长极点</span></div>
+    <div class="dl-row"><span class="lb"><b>目标愿景</b>　具有经典魅力和时代活力的<b>中心型世界城市</b></span><span class="vl">2049</span></div>
+  </div>
+
+  <h3 class="sec">从国家历史文化名城走向世界文化名城</h3>
+  <div class="grid g3">
+    <div class="card k-fut">
+      <div class="yr">北 京</div>
+      <h4>国家文化代表</h4>
+      <p><b>7 项</b>世界文化遗产。以国家层面的文化代表性构筑影响力。</p>
+    </div>
+    <div class="card k-fut">
+      <div class="yr">罗 马</div>
+      <h4>悠久的城市历史</h4>
+      <p><b>1 项</b>世界文化遗产，但包含罗马整个历史中心，面积达 <b>14.3 km²</b>。以整体的城市历史本身作为遗产。</p>
+    </div>
+    <div class="card k-fut">
+      <div class="yr">巴 黎</div>
+      <h4>强大的文化号召力</h4>
+      <p><b>3 项</b>世界文化遗产。以文化号召力与生活方式输出形成全球影响。</p>
+    </div>
+  </div>
+  <p class="para">
+    广州的比较优势不在遗产数量，而在<b>「活着的连续性」</b>——城址未变、城心不移、商脉不断，
+    2240 年持续运转的城市生命本身，就是最难得的遗产形态。
+  </p>
+
+  <h3 class="sec">人人精彩：多元融合的社区生活圈</h3>
+  <div class="grid g4">
+    <div class="card k-fut" style="padding:20px 20px"><div class="yr">乐龄社区</div><p style="font-size:13.8px">老年颐养，缩短设施服务半径，鼓励发展新兴适老型设施</p></div>
+    <div class="card k-fut" style="padding:20px 20px"><div class="yr">青年社区</div><p style="font-size:13.8px">青年宜业，推进社区教育学习点，鼓励设置联合办公空间</p></div>
+    <div class="card k-fut" style="padding:20px 20px"><div class="yr">儿童友好社区</div><p style="font-size:13.8px">幼有所育，补齐 0 至 3 岁婴幼儿托管中心设施短板</p></div>
+    <div class="card k-fut" style="padding:20px 20px"><div class="yr">落脚社区</div><p style="font-size:13.8px">满足流动人口就近使用公共设施需求</p></div>
+  </div>
+
+<h3 class="sec">从扶胥锚地到深海科创走廊：一条被生产力推动的南拓线</h3>
+<p class="lead2">广州的海洋史常被读成一部「港址迁移史」（外港内迁、再向深水南拓）。若只看空间，是萎缩与重寻；若看生产力工具，则是一条毫不含糊的<b>升级链</b>。</p>
+<div class="chain">
+  <span class="node">唐宋 · 扶胥外港<br><small>木帆船 · 靠风力与潮汐</small></span><span class="arw">→</span>
+  <span class="node">明清 · 黄埔古港<br><small>一口通商 · 靠制度红利</small></span><span class="arw">→</span>
+  <span class="node">近代 · 白鹅潭·太古仓<br><small>蒸汽轮船 · 靠热机</small></span><span class="arw">→</span>
+  <span class="node">当代 · 南沙深水港<br><small>集装箱 · 靠规模经济</small></span><span class="arw">→</span>
+  <span class="node hi">面向 2049 · 深海科创走廊<br><small>无人潜航器 · 智能船舶 · 深海装备 · 靠算力与资本</small></span>
+</div>
+<div class="engtl">
+  <div class="row"><div class="era">锚地逻辑</div><div class="txt">扶胥、黄埔的本质是<b>避风锚地 + 近海商贸</b>：船小、吃水浅、靠天时，港址只能停在江口以内。港的边界，就是船的能力边界。<span class="tag t-ok">✓ 文献载明</span></div></div>
+  <div class="row"><div class="era">深水逻辑</div><div class="txt">船型变大、吃水加深，港址被迫向深水岸线南拓；南沙之后，进一步指向<b>深海</b>——从「以岸为界」变成「以探测能力为界」。<span class="tag t-ok">✓ 文献载明</span></div></div>
+  <div class="row"><div class="era">科创逻辑</div><div class="txt">海洋创新走廊、智能船舶中试平台、深海探测与海洋科技资本，构成第三代海洋战略的载体：输出的不再是货，而是<b>海上的技术能力</b>。<span class="tag t-warn">▲ 外部考据</span></div></div>
+</div>
+<div class="thesis"><b>理论落点：</b>从「避风锚地」到「深海科创」，不是简单的空间南拓，而是<b>生产力工具的必然跃迁</b>——木帆船靠天、蒸汽轮船靠煤、集装箱靠规模、深海装备靠算力与资本。锚地与科创走廊是同一条逻辑链的两端，串起它们的不是地图上的线，而是「<b>以海洋换取生产力</b>」这一持续两千年的同一动机。历史上广州每一次跃升，都是先换了工具，再换了岸线。</div>
+</section>
+
+<!-- ═══════════════ 模块六 · 城脉共创 ═══════════════ -->
+<section id="co" class="mod">
+  <div class="mod-head">
+    <div class="mod-tag">公 众 参 与 · PUBLIC ENGAGEMENT</div>
+    <h2>城脉共创</h2>
+    <div class="en">A CO-CREATIVE GATEWAY TO THE LIVING CITY</div>
+    <p class="abs">
+      前五章是<b>单向的学术呈现</b>，本章转向<b>双向的城市共创</b>——把 2240 年的城脉交回街坊手上。
+      三项轻量工具：<b>地标打卡地图</b>、<b>海洋科普小测</b>、<b>分享卡片生成器</b>。
+      全部<b>离线运行</b>，打卡记录只写入你自己浏览器的本地存储，<b>不上传任何服务器</b>。
+      这也是本站从「一次性成果」迈向「可持续运营的数字人文生态」的第一块试验田。
+    </p>
+  </div>
+
+  <h3 class="sec">其一 · 地标打卡地图 <span class="sub">走一趟城脉，点亮一处坐标</span></h3>
+  <p class="para">下图以<b>示意</b>方式标出十二处与前五章相互对应的地标：从白垩纪红层残丘（番山、禺山）到当代深水港，一条线串起地质、海贸与市政。点击地图上的编号，或点右侧条目，即可「打卡」——进度保存在本机浏览器。</p>
+  <div class="co-wrap">
+    <div class="co-map">
+      <svg viewBox="0 0 680 430" role="img" aria-label="广州城脉十二处地标示意地图">
+        <defs>
+          <linearGradient id="coRiver" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#d9e9e9"></stop><stop offset="1" stop-color="#c1dbdb"></stop>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="680" height="430" fill="#fdfcf8"></rect>
+        <path d="M-12,262 C120,296 195,316 265,330 C370,350 470,358 562,374 C612,383 652,390 692,396"
+              fill="none" stroke="url(#coRiver)" stroke-width="36" stroke-linecap="round"></path>
+        <path d="M52,120 C120,182 176,242 232,300" fill="none" stroke="#e4f0f0" stroke-width="12" stroke-linecap="round"></path>
+        <text x="80" y="358" fill="#8fb0b0" font-family="sans-serif" font-size="13" letter-spacing="4">珠　江</text>
+        <rect x="236" y="126" width="152" height="136" rx="12" fill="#f7f0e3" stroke="#c9b79a" stroke-width="2" stroke-dasharray="7 5"></rect>
+        <text x="312" y="118" text-anchor="middle" fill="#a08a66" font-family="sans-serif" font-size="12" letter-spacing="3">老　城</text>
+        <g id="coPins"></g>
+        <g transform="translate(626,50)">
+          <path d="M0,-22 L7,10 L0,4 L-7,10 Z" fill="#a8302a"></path>
+          <text y="32" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#a8302a">N</text>
+        </g>
+      </svg>
+      <div class="co-note">地标位置为<b>示意</b>，非精确坐标；底图水系为简化表达，不作权属或工程依据。</div>
+    </div>
+    <div class="co-side">
+      <div class="co-prog">已打卡 <b id="coN">0</b> <span style="color:#9a948a">/ 12 处</span></div>
+      <div class="co-bar"><i id="coBar"></i></div>
+      <div class="co-list" id="coList"></div>
+      <button class="co-reset" id="coReset" type="button">重置打卡记录</button>
+      <div class="co-hint" id="coHint"></div>
+    </div>
+  </div>
+
+  <h3 class="sec">其二 · 海洋科普小测 <span class="sub">八问自测，看你与这座城多熟</span></h3>
+  <p class="para">八道题全部取自前五章与公开史料，答完即时给出解析与来路。答错不要紧——<b>解析里就写着答案的出处</b>。</p>
+  <div class="quiz" id="quiz"></div>
+  <div class="quiz-res" id="quizRes">还没有开始。逐题点选，答完全部八题后在此给出评级。</div>
+
+  <h3 class="sec">其三 · 分享卡片生成器 <span class="sub">把你的城脉坐标带回去</span></h3>
+  <p class="para">挑一处地标、留个署名，生成一张 1080×1350 的分享卡（以站内公有领域古图为底纹），可下载 PNG，用于朋友圈、课堂或线下活动。卡片<b>在本机绘制</b>，同样不上传。</p>
+  <div class="cardgen">
+    <div class="cg-form">
+      <label for="cgLm">选择地标</label>
+      <select id="cgLm"></select>
+      <label for="cgName">署名（可留空）</label>
+      <input id="cgName" maxlength="12" placeholder="例如：荔湾街坊">
+      <div class="cg-btns">
+        <button id="cgBtn" type="button">重新绘制</button>
+        <a class="cg-dl off" id="cgDl" download="城脉千年-打卡卡.png">下载 PNG</a>
+      </div>
+      <div class="cg-note">底纹为站内公有领域古地图（Vrooman《广州城厢与近郊图》1855）。若浏览器禁用本地存储，打卡进度将不保留，其余功能不受影响。</div>
+    </div>
+    <div class="cg-prev"><canvas id="cgCanvas" width="1080" height="1350"></canvas></div>
+  </div>
+</section>
+
+<!-- ═══════════════ 数字考据档案馆 ═══════════════ -->
+<section id="archive" class="mod">
+  <div class="mod-head">
+    <div class="mod-tag">附 设 子 库 · DIGITAL ARCHIVE</div>
+    <h2>数字考据档案馆</h2>
+    <div class="en">EVIDENCE ARCHIVE WITH THREE-LEVEL SOURCE GRADING</div>
+    <p class="abs">
+      本站全部知识点按<b>四级信源制</b>标注——每一条都可回溯到具体出处，凡无从坐实者一律剥离。这是学术级平台的生命线，也是本档案库的检索骨架：下方按<b>信源等级</b>与<b>内容类别</b>两轴切分，可交叉筛选。
+    </p>
+  </div>
+
+  <div class="arch-legend">
+    <div class="al-card ok">
+      <div class="al-top"><span class="tag t-ok">✓ 文献载明</span><span class="al-n">26<i>条</i></span></div>
+      <p>所据文献<b>直接载明</b>，可回溯至具体卷次、条文或实测记录。</p>
+    </div>
+    <div class="al-card warn">
+      <div class="al-top"><span class="tag t-warn">▲ 外部考据</span><span class="al-n">8<i>条</i></span></div>
+      <p>所据文献未载，经<b>外部权威源</b>核实；不代表原文献观点，须与原书表述区分。</p>
+    </div>
+    <div class="al-card add">
+      <div class="al-top"><span class="tag t-add">＋ 学术推演</span><span class="al-n">3<i>条</i></span></div>
+      <p>本站推演或另行征引，<b>须独立标注</b>，不得与原文献记载混同。</p>
+    </div>
+    <div class="al-card img">
+      <div class="al-top"><span class="tag t-img">◉ 古图真影</span><span class="al-n">69<i>幅</i></span></div>
+      <p>古地图／卫星影像等<b>原始图证</b>，来源另注。</p>
+    </div>
+  </div>
+
+  <div class="arch-stat">
+    <div class="as-i"><div class="as-n">37<i>条</i></div><div class="as-l">档案条目总数</div></div>
+    <div class="as-i"><div class="as-n">13<i>条</i></div><div class="as-l">数据锚点 · 量化数据</div></div>
+    <div class="as-i"><div class="as-n">10<i>条</i></div><div class="as-l">空间要素 · 城址地物</div></div>
+    <div class="as-i"><div class="as-n">8<i>条</i></div><div class="as-l">典籍原话 · 传世文献</div></div>
+    <div class="as-i"><div class="as-n">6<i>条</i></div><div class="as-l">制度条文 · 建置市舶</div></div>
+    <div class="as-i"><div class="as-n">69<i>幅</i></div><div class="as-l">关联古图真影</div></div>
+  </div>
+
+  <div class="arch-keys">
+    分类读法：<b>典籍原话</b> 传世文献的直接引文 · <b>数据锚点</b> 可供核验的量化数据 · <b>空间要素</b> 城址、地物与轴线 · <b>制度条文</b> 建置、职官与市舶规制。可键入关键词，或点选下方标签交叉筛选。
+  </div>
+
+  <details class="arch-note">
+    <summary>信源标注的判定标准（点击展开）</summary>
+    <div class="an-body">
+      <p><b>✓ 文献载明</b>——所据文献直接载明，标注卷次、条文或图版编号，可逐条回查原书。</p>
+      <p><b>▲ 外部考据</b>——所据文献未载，另有权威外部源可核；此类标注<b>不代表原文献观点</b>，须与原书表述明确区分。</p>
+      <p><b>＋ 学术推演 / 扩展征引</b>——本站推演或另行征引者，须独立标注出处，不得与原文献记载混同。</p>
+      <p><b>◉ 古图真影</b>——古地图、卫星影像等原始图证；来源、年代与馆藏号另注于图下。</p>
+      <p><b>✕ 已订正</b>——经核验后改写原有表述之处，标出订正依据与正确结论。</p>
+      <p style="color:var(--ink4)">凡版本、年代、卷次无从坐实者，一律剥离或标「待核」，不作确证使用。</p>
+    </div>
+  </details>
+
+  <div class="arch-bar">
+    <input id="archQ" type="text" placeholder="检索关键词：如「市舶」「界碑」「六脉渠」「汤显祖」…">
+    <span class="cnt" id="archCnt">共 0 条</span>
+  </div>
+  <div class="arch-bar" style="top:112px;padding-top:10px;padding-bottom:10px">
+    <div class="tab on" data-f="cat" data-v="all">全部类别</div>
+    <div class="tab" data-f="cat" data-v="text">典籍原话</div>
+    <div class="tab" data-f="cat" data-v="data">数据锚点</div>
+    <div class="tab" data-f="cat" data-v="space">空间要素</div>
+    <div class="tab" data-f="cat" data-v="inst">制度条文</div>
+    <span style="width:14px"></span>
+    <div class="tab on" data-f="lvl" data-v="all">全部信源</div>
+    <div class="tab" data-f="lvl" data-v="ok">文献载明</div>
+    <div class="tab" data-f="lvl" data-v="warn">外部考据</div>
+    <div class="tab" data-f="lvl" data-v="ext">扩展征引</div>
+  </div>
+
+  <div class="arch-grid" id="archGrid">
+<div class="arch-card warn" data-cat="text" data-lvl="warn" data-t="史记 货殖列传 番禺 一都会 珠玑 犀 玳瑁 果 布 之凑 卷一百二十九 典籍补录"><h5>《史记》卷一二九《货殖列传》：「番禺亦其一都会也」</h5><div class="body">司马迁记南方都会，独以番禺列名：「番禺亦其一都会也，珠玑、犀、玳瑁、果、布之凑。」「凑」即集散之地。这是传世正史中最早称番禺为「都会」的记载之一，可与南越国宫署、南越王墓所出珠饰、玻璃器等物证对读。</div><div class="foot"><span><span class="tag t-warn">▲ 外部考据</span></span><span>卷次：《史记》卷一二九《货殖列传》</span></div></div><div class="arch-card warn" data-cat="text" data-lvl="warn" data-t="汉书 地理志 粤地 处近海 犀象毒冒 珠玑 商贾 多取富 番禺 卷二十八下 典籍补录"><h5>《汉书》卷二八下《地理志》：粤地「处近海，多犀、象、毒冒、珠玑」</h5><div class="body">班固记粤地物产与商况：「（粤地）处近海，多犀、象、毒冒、珠玑、银、铜、果、布之凑，中国往商贾者多取富焉。番禺，其一都会也。」中原商贾南下求富的动因，汉代已写明。</div><div class="foot"><span><span class="tag t-warn">▲ 外部考据</span></span><span>卷次：《汉书》卷二八下《地理志》</span></div></div><div class="arch-card warn" data-cat="text" data-lvl="warn" data-t="张九龄 开凿大庾岭路序 全唐文 卷二百九十一 曲江集 开元四载 716 订正依据 典籍补录"><h5>张九龄《开凿大庾岭路序》（《全唐文》卷二九一）</h5><div class="body">序云「开元四载，冬十有一月，俾使臣左拾遗内供奉张九龄……」，为本站「大庾岭通道开工于开元四年（716 年）」订正之直接文献依据。文中并记岭路修通后「海外诸国，日以通商」之南北物流动线。</div><div class="foot"><span><span class="tag t-warn">▲ 外部考据</span></span><span>卷次：《全唐文》卷二九一（亦见《曲江集》）</span></div></div><div class="arch-card warn" data-cat="text" data-lvl="warn" data-t="新唐书 地理志 贾耽 广州通海夷道 屯门山 卷四十三下 1.4万公里 89天 典籍补录"><h5>《新唐书》卷四三下《地理志》：贾耽「广州通海夷道」</h5><div class="body">「广州东南海行二百里，至屯门山，乃帆风西行，二日至九州石……」迄于大食缚达城。此即本站「1.4 万公里／90 余国／89 天」一组数据的文献本源，也是中西交通史上最著名的远洋航程记录之一。</div><div class="foot"><span><span class="tag t-warn">▲ 外部考据</span></span><span>卷次：《新唐书》卷四三下《地理志》</span></div></div><div class="arch-card warn" data-cat="text" data-lvl="warn" data-t="岭外代答 周去非 卷三 外国门下 航海外夷 大食诸国 南海 航路 典籍补录"><h5>《岭外代答》卷三《外国门下》：南海诸国与「航海外夷」</h5><div class="body">周去非（南宋永嘉人，曾任桂林通判）成书于淳熙五年（1178），全书十卷二十门二百九十四条。卷三列《大秦国》《大食诸国》《木兰皮国》《昆仑层期国》《波斯国》及《航海外夷》诸条，记南海、印度洋诸国方位、物产与航路要冲，是宋代广州—南海航线的域外知识底本。</div><div class="foot"><span><span class="tag t-warn">▲ 外部考据</span></span><span>卷次：《岭外代答》卷三《外国门下》</span></div></div>
+
+    <div class="arch-card ok" data-cat="text" data-lvl="ok" data-t="步骘 海岛膏腴 宜为都邑 三国 交州 水经注">
+      <h5>「斯诚海岛膏腴之地，宜为都邑。」</h5>
+      <div class="body">东吴交州刺史步骘视察番禺后感叹：「骘到，见土地形体之法，观则既遣，愈亦观察。睹巨海之浩茫，观原薮之殷阜，乃曰：『斯诚海岛膏腴之地，宜为都邑。』」遂移治番禺，辟番山之北以广之。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span><span>原出《水经注》引</span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="text" data-lvl="ok" data-t="汤显祖 广城二首 临江喧万井 立地涌千艘 气脉雄如此 由来是广州">
+      <h5>「临江喧万井，立地涌千艘。气脉雄如此，由来是广州。」</h5>
+      <div class="body">（明）汤显祖《广城二首·录一》。这是所据文献中<b>唯一一首完整引用的诗作</b>，也是全书的定调之句——「气脉」二字，正是「城脉千年」的文学原型。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ext" data-cat="text" data-lvl="ext" data-t="史记 汉书 新唐书 岭外代答 张九龄 典籍补录 卷次 收口 扩展征引">
+      <h5>⚠ 典籍补录：五条已核卷次，边界收口</h5>
+      <div class="body">本馆初拟收录《史记》《汉书》《新唐书》《岭外代答》及张九龄上疏等典籍。经逐页核对，<b>所据原始文本并未直接引用</b>上述典籍。现处理如下：<b>逐条复核传世文献卷次，正式入编为本馆「典籍补录」五条</b>（一律标注「▲ 外部考据」以示区别）；<b>凡卷次无从坐实者，一律不予收录，不作模糊征引</b>。越王井「三层防护结构」一说即因无卷次可稽而剥离。至此，「待考」与「扩展征引」的边界已收口。</div>
+      <div class="foot"><span><span class="tag t-ext">＋ 扩展征引</span></span><span>审读结论 · 002 号报告（已收口）</span></div>
+    </div>
+    <div class="arch-card ok" data-cat="data" data-lvl="ok" data-t="1.4万公里 90余国 89天 广州通夷海道 海丝 航线">
+      <h5>广州通夷海道：1.4 万公里 / 90 余国 / 89 天</h5>
+      <div class="body">由广州至波斯湾，途经 90 余个国家与地区，航期 89 天，全长 1.4 万公里，是当时<b>世界最长的官方远洋航线</b>。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="data" data-lvl="ok" data-t="46方 界碑 陆界26 水界20 1930 市界志图">
+      <h5>1930 年市界：46 方界碑（陆界 26 / 水界 20）</h5>
+      <div class="body">广州市土地局会同南海、番禺两县完成勘界测绘，统一竖立界碑，绘制《广州市界志图》，正式确立法定市界。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card warn" data-cat="data" data-lvl="warn" data-t="64.84公里 桑园围 世界灌溉工程遗产 2020 围垦 围堤全长">
+      <h5>桑园围：围堤全长 64.84 km，2020 年入选世界灌溉工程遗产</h5>
+      <div class="body">始建于北宋，因种植桑树得名。桑园围围堤全长 64.84 公里（据 ICID 世界灌溉工程遗产名录／新华社），将广州南部大片水域与滩涂转化为田地，奠定城市未来空间基础。</div>
+      <div class="foot"><span><span class="tag t-warn">▲ 外部考据</span></span><span>ICID／新华社；原书所记 39 km 为局部段或旧估，本站采用权威全长</span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="data" data-lvl="ok" data-t="120间 怀远驿 国宾馆 西关">
+      <h5>怀远驿：120 间房舍的明代「国宾馆」</h5>
+      <div class="body">位于广州西关，在朝贡贸易体系下专门接待外国贡使与商人，规模宏大，建有 120 间房舍。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="data" data-lvl="ok" data-t="500丈 西湖 28寺 南汉 星宿 兴王府">
+      <h5>南汉：西湖约 500 丈，城周 28 寺应 28 星宿</h5>
+      <div class="body">917 年刘䶮称帝，广州升兴王府。城周各建 7 寺共 28 寺与天上 28 星宿相呼应；凿西湖约 500 丈以通舟楫。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span>　<span class="tag t-add">＋ 学术推演</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="data" data-lvl="ok" data-t="4.3亿 35万亿 6.2亿 双扇面 双循环 腹地">
+      <h5>双扇面：国内 4.3 亿人 / 35 万亿，国际 6.2 亿人</h5>
+      <div class="body">国内扇面腹地含粤桂琼闽滇黔赣川八省区；国际扇面联系环南海 7 国。链接两大洋，构建双扇面，支持双循环。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="data" data-lvl="ok" data-t="1212米 5559米 南海 平均水深 最大深度 深海">
+      <h5>南海：平均水深 1212 米，最大深度 5559 米</h5>
+      <div class="body">中国近海中面积最大、最深的海区。相较之下，渤海、黄海、东海位于大陆架上，大部分区域深度不到 200 米。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="data" data-lvl="ok" data-t="广州港 世界第5 第6 400港口 150条 86% 一带一路">
+      <h5>广州港：世界第 5 / 第 6，150 条航线占 86%</h5>
+      <div class="body">货物、集装箱吞吐量位居世界第 5、第 6 位；联通全球 100 多个国家和地区的 400 多个港口；国际航线中通往「一带一路」共建国家和地区的航线 150 条，占比 86%。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="data" data-lvl="ok" data-t="白云机场 55万架次 全球第9 客运全国第1 货运第2">
+      <h5>白云机场：55 万架次，全球第 9</h5>
+      <div class="body">客运流量全国第 1、货运全国第 2；国际通航点超 100 个；飞机起降 55 万架次，排名全球第 9、全国第 2。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="data" data-lvl="ok" data-t="110公里 156公里 珠江 流溪河 一江一河">
+      <h5>一江一河：110 km 珠江 + 156 km 流溪河</h5>
+      <div class="body">以「一江一河」实现全域历史文化遗产与自然资源的融合与保护利用，荟萃山水文化、海丝文化、海防文化、工业文化与红色文化。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="data" data-lvl="ok" data-t="1.2亿 粤语 粤人 华侨 乡愁 全球">
+      <h5>全球 1.2 亿粤语粤人的精神家园</h5>
+      <div class="body">广州是全球粤文化中心地，是半数以上海外华人华侨的乡愁之地。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="data" data-lvl="ok" data-t="世界文化遗产 北京7 巴黎3 罗马1 14.3平方公里">
+      <h5>世界文化遗产对照：北京 7 / 巴黎 3 / 罗马 1（14.3 km²）</h5>
+      <div class="body">罗马 1 项世界文化遗产包含罗马整个历史中心，面积 14.3 km²。广州展望 2049：从国家历史文化名城走向世界文化名城。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card warn" data-cat="data" data-lvl="warn" data-t="白垩纪 红层 残丘 台地 番山 禺山 20米台地 地质">
+      <h5>▲ 白垩纪红层残丘台地：「硬底座」的地质学依据</h5>
+      <div class="body">番山由<b>上白垩纪红色砂岩</b>构成，属台地残留丘陵；广州台地第一级高程 15–25 米（「20 米台地」），番山海拔约 20 米，坡山（五仙观）同属红岩、高出珠江平原面 5–8 米。<br><b>所据史料通篇未出现地质年代术语</b>，本条为依据《番禺县志·舆地》及广州地貌资料所作的学术延伸，不代表原著观点。</div>
+      <div class="foot"><span><span class="tag t-warn">▲ 外部考据</span></span><span>《番禺县志》舆地卷 · 广州地貌资料</span></div>
+    </div>
+
+    <div class="arch-card warn" data-cat="space" data-lvl="warn" data-t="越王井 滤水构造 咸潮 凿井 南越国 剥离 审读修正">
+      <h5>⚠ 越王井：剥离无卷次可稽的表述</h5>
+      <div class="body">初稿曾述及越王井「三层防护结构」（防渗·过滤·透水）。经复核，此说在传世文献中<b>无从坐实具体卷次</b>，本站<b>不再采录</b>。今按可考范围改述为：越王井相传为南越国时期所凿，历代疏浚沿用，是广州城区现存最早的古井之一。以「<b>剥离优于存疑</b>」为原则，维护信源分级之严谨。</div>
+      <div class="foot"><span><span class="tag t-warn">▲ 外部考据</span></span><span>审读修正 · 无稽表述已剥离</span></div>
+    </div>
+    <div class="arch-card ok" data-cat="space" data-lvl="ok" data-t="西城东郭 以西为尊 南越 赵佗城 二元 丁字街">
+      <h5>西城东郭：中原礼制与百越社会的空间辩证</h5>
+      <div class="body">南越国都城宫殿区在西北面，东面和南面为越人生活居住区，街道为丁字形，宫前南通江岸上大道和东西向大道，体现「以西为尊」的宗法礼制思想。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="space" data-lvl="ok" data-t="三城并立 子城 东城 西城 雁翅城 六脉渠 填高成台">
+      <h5>宋三城并立与六脉渠</h5>
+      <div class="body">子城置官署、东城为民市、西城容纳蕃坊与市舶司及西澳内港。在珠江淤泥滩涂上以「填高成台」技术克服低洼淤积；疏浚六脉渠承担排污、防洪、防火水源功能；南宋筑东西雁翅城护沿江港市。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="space" data-lvl="ok" data-t="三塔 三关 莲花塔 琶洲塔 赤岗塔 海珠石 海印石 浮丘石 锁水口">
+      <h5>三塔三关锁珠江</h5>
+      <div class="body">三塔：莲花塔、琶洲塔、赤岗塔，万历年间沿珠江航道依次修建。三关：海珠石、海印石、浮丘石，为珠江中三处天然江心礁石。既为「锁水口」保障航道安全，又充当海上丝路商船航标。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="space" data-lvl="ok" data-t="镇海楼 青山半入城 越秀山 洪武十三年 借山为城防">
+      <h5>镇海楼与「青山半入城」</h5>
+      <div class="body">明洪武十三年向北扩城至越秀山，修筑镇海楼，借山为城防，形成「青山半入城」经典格局。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="space" data-lvl="ok" data-t="十八甫 傍埠列肆 逐甫聚货 业态 分区 西关">
+      <h5>十八甫：三段业态梯度</h5>
+      <div class="body">北段（二—八甫）平民化街巷承载城内民生商贸；中段（九—十一甫）高端消费与手工业核心区；南段（十二—十八甫）大宗仓储与中转贸易，典型外贸服务型街区。「傍埠列肆，逐甫聚货」，业态随区位而别。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span>　<span class="tag t-add">＋ 学术推演</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="space" data-lvl="ok" data-t="码头 兰湖 坡子 光塔 东澳 东堤 砚子步 黄埔古港 十三行 沙面 长堤 内外港">
+      <h5>港—城—商融合体系：码头时间序列</h5>
+      <div class="body">兰湖码头（秦汉）→ 坡子码头（两晋）→ 光塔（唐）→ 东澳·东堤（宋）→ 砚子步（明）→ 黄埔古港·十三行·沙面·长堤（清）。大船停外港、驳船入城，把远洋、区域、城内配送三层物流分开。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span>　<span class="tag t-add">＋ 学术推演</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="space" data-lvl="ok" data-t="八镇 扶胥 大通 石门 猎德 瑞石 平石 大水 白田 卫星城镇">
+      <h5>三城八镇：最早的都市圈</h5>
+      <div class="body">八镇：扶胥、大通、石门、猎德、瑞石、平石、大水、白田。职能分工——外贸海防（扶胥）、商品集散（大通·猎德·瑞石·平石·白田）、军事门户（石门）、驿道补给（大水）。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="space" data-lvl="ok" data-t="近代中轴 镇海楼 中山纪念碑 中山纪念堂 市府合署 中央公园 海珠桥 起义路">
+      <h5>近代中轴线序列</h5>
+      <div class="body">北起越秀山镇海楼，向南串联中山纪念碑、中山纪念堂、市政府大楼、人民公园、起义路，直达海珠广场，与古代中轴比肩并行。并非一次性规划而成，而在中西理念碰撞融合中逐步成形。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="inst" data-lvl="ok" data-t="市舶使 714 市舶司 971 泉州 1079 外贸管理">
+      <h5>市舶使（714）与市舶司（971）</h5>
+      <div class="body">714 年广州设市舶使，为中国首个专职外贸管理机构；971 年首设市舶司，专管海外贸易。广州市舶司比泉州市舶司（1079 年）<b>早 108 年</b>。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="inst" data-lvl="ok" data-t="定期市 1591 万历十九年 广交会 雏形 澳门">
+      <h5>定期市：广交会的原始范式</h5>
+      <div class="body">明万历十九年（1591 年）起，开设春秋两季限时开放的定期市：洋商仅可在开市期入城交易，其余时间滞留澳门。规范化的中外定点互市，为广交会奠定原始范式。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="inst" data-lvl="ok" data-t="1921 设市 市政厅 第一个设市城市 雅典宪章 土地分区 1947">
+      <h5>1921 年设市与 1947 年土地分区</h5>
+      <div class="body">1921 年 2 月 15 日广州正式设市，成立广州市政厅，是中国近代史上第一个设市城市。1947 年《广州市土地分区使用办法》将全市地域划分功能区，与 1933 年《雅典宪章》提出的功能分区思想类似。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="inst" data-lvl="ok" data-t="大庾岭 716 开元四年 张九龄 京广快线 驿站 贡赋">
+      <h5>✕ 订正：大庾岭通道开工于唐开元四年（716 年）</h5>
+      <div class="body"><b>订正说明：</b>初稿曾写作「唐开元元年（716 年）」，年代自相矛盾——开元元年为 713 年，716 年为开元四年。据张九龄《开凿大庾岭路序》「开元四载，冬十有一月，俾使臣左拾遗内供奉张九龄……」及广东省地方志办、韶关市政府网记载，开工确为<b>开元四年（716 年）</b>。全站已统一订正。</div>
+      <div class="foot"><span><span class="tag t-err">✕ 已订正</span></span><span>经外部史料核验</span></div>
+    </div>
+
+    <div class="arch-card ok" data-cat="inst" data-lvl="ok" data-t="海防 卫所 虎门要塞 城防 江防 潮州卫 南海卫 海南卫">
+      <h5>明清海防：城防·江防·海防三道防线</h5>
+      <div class="body">以虎门要塞为核心、沿江布设多座炮台，承担国家东南沿岸海防重任。岭南海防体系分中路、东路、西路，卫所自潮州卫、碣石卫、南海卫、广海卫、神电卫、雷州卫直至海南卫，遍布粤东西两翼。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span>　<span class="tag t-add">＋ 学术推演</span></span></div>
+    </div>
+
+    <div class="arch-card ext" data-cat="inst" data-lvl="ext" data-t="两洋南拓 两江东进 老城提质 极点示范 三脉 三轴 三核 四极 2049">
+      <h5>2049 空间方略：三脉·三轴·三核 / 一带一轴·三核四极</h5>
+      <div class="body">「两洋南拓、两江东进、老城提质、极点示范」。三脉（城脉·文脉·商脉）、三轴（老中轴·新中轴·活力创新轴）、三核（历史文化核·现代活力核·未来发展核）。城镇空间结构优化为「一带一轴、三核四极」：珠江高质量发展带、广州活力创新轴；中心城区、南沙新区、东部中心；国家知识中心城、北部增长极、狮子洋增长极、从化绿色发展示范区。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span></span></div>
+    </div>
+
+    <div class="arch-card ext" data-cat="space" data-lvl="ext" data-t="民系 广府 客家 福佬 迁徙 大庾岭 珠玑 梅州 福建">
+      <h5>三大民系迁徙与文化版图</h5>
+      <div class="body">北方战乱推动岭南人口快速增加，逐步形成三大文化版图：广府系经大庾岭—南雄迁入；客家系从闽赣经梅州迁入；福佬系从福建经海路迁入。广西移民主要包括军事移民、非汉族移民、福建移民、流放移民等。</div>
+      <div class="foot"><span><span class="tag t-ok">✓ 文献载明</span>　<span class="tag t-add">＋ 学术推演</span></span></div>
+    </div>
+
+  </div>
+
+
+<h3 class="evd-h" style="margin-top:34px">古图通鉴 · 真影对照（公有领域古地图 + 卫星叠合）</h3><p class="abs" style="margin:6px 0 4px"><b>馆藏图集</b>：《广州历史地图精粹》（中国第一历史档案馆、广州市档案局、广州市越秀区人民政府编，2003）全书收清康熙二十四年至 1949 年历史地图 97 幅，为本站空间复原的重要参照。本站已自该书本第 68、70、81、89、93 等图版提取晚清至民国图幅，逐一配题入库；原书为图版影印、无文字层，其余图版详目仍须结合纸本查阅。下方通鉴共收 63 幅公有领域高清古地图真影与 6 帧卫星影像叠合图，皆可点击放大，供对照研读。</p><p class="abs" style="margin:10px 0 0;font-size:12.6px;color:#8a857c"><b>信源与许可</b>：欧美及日本各图取自公共文化机构数字典藏，标注为公有领域（Public Domain）或 CC BY-NC-SA 等开放许可，原作者署名与馆藏号见图下注记；《广州历史地图精粹》各图为中国第一历史档案馆、广州市档案馆等馆藏原图的影印图版，原图年代均已属公有领域，此处仅作研究对照之用，正式引用请核对纸本与原藏机构授权。另有一批图幅来自用户提供素材，其中《六脉渠图》《广州市土地分区使用图》等图面题名可直读，而部分清初舆图与城景图的题名、年代、作者尚无可核馆藏著录，已在各图注中标为「待核」，不作确证使用。</p><div id="mapGallery" class="gal"></div></section>
+
+<footer class="foot">
+  <b>数字广州 · 城脉千年</b>　数字人文交互平台 v1.8　|　2026 年 9 月<br>
+  本平台为广州营城智慧的数字人文呈现，史料采自公开方志、古地图与学术文献；引文以「文献载明／外部考据／学术推演」分级标注，古图真影另注来源。<br>
+  方法论：历史唯物主义与辩证唯物主义、历史地理学、城市地质学与经济地理学复合范式。<br>
+  信源标注：<span class="tag t-ok">✓ 文献载明</span> 所据文献直接载明　<span class="tag t-warn">▲ 外部考据</span> 所据文献未载、经外部权威源核实　<span class="tag t-ext">＋ 学术推演</span> 本站推演或另行征引　<span class="tag t-err">✕ 已订正</span> 与史实冲突项之订正记录　<span class="tag t-img">◉ 古图真影</span> 古地图／卫星影像原始图证。<br>
+  免责说明：本站所有古地图、城廓范围为<b>示意性复原</b>，用于呈现空间演变关系，非精确测绘边界，不作为权属或工程依据。
+</footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+/* ── 滚动进度 ── */
+var prog=document.getElementById('prog');
+function onScroll(){
+  var h=document.documentElement;
+  var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);
+  if(prog) prog.style.width=(p*100)+'%';
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+onScroll();
+
+/* ── 导航高亮 ── */
+var secs=['home','geo','power','trade','modern','future','co','archive'];
+var links={};
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  links[a.getAttribute('href').slice(1)]=a;
+});
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){
+      var id=e.target.id;
+      for(var k in links){ links[k].classList.toggle('on',k===id); }
+    }
+  });
+},{rootMargin:'-45% 0px -50% 0px'});
+secs.forEach(function(id){ var el=document.getElementById(id); if(el) io.observe(el); });
+
+/* ── 时空卷轴 ── */
+var steps=document.querySelectorAll('.step');
+var eras=document.querySelectorAll('.era');
+var harbors=document.querySelectorAll('.harbor');
+if(steps.length){
+  var sio=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var i=parseInt(e.target.getAttribute('data-era'),10)||0;
+      steps.forEach(function(s,si){ s.classList.toggle('on',si<=i); });
+      eras.forEach(function(x,xi){ x.classList.toggle('on',xi<=i); });
+      harbors.forEach(function(h){ h.classList.toggle('on',i>=3); });
+    });
+  },{rootMargin:'-40% 0px -40% 0px'});
+  steps.forEach(function(s){ sio.observe(s); });
+}
+
+/* ── 通用 Tabs ── */
+document.querySelectorAll('.tabs[data-tabs]').forEach(function(box){
+  var key=box.getAttribute('data-tabs');
+  box.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click',function(){
+      box.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on');});
+      t.classList.add('on');
+      var p=t.getAttribute('data-p');
+      document.querySelectorAll('.panel[data-g="'+key+'"]').forEach(function(pn){
+        pn.classList.toggle('on',pn.getAttribute('data-k')===p);
+      });
+      if(key==='coast'){ Coast(p); }
+      if(key==='bj'){ Bajing(parseInt(p.slice(1),10)); }
+    });
+  });
+});
+
+/* ── 海岸线 ── */
+var COAST=[
+  '<b>秦汉（公元前 2 世纪）</b>　海岸线直抵城下，番禺城前临珠江口内海，洲岛散布于城南水面。任嚣城选址于番山、禺山高地，正是为了避开这片周期性受潮汐与咸潮支配的水域。',
+  '<b>南宋（12 世纪）</b>　泥沙持续淤积，坦沙出露。城南大片水域转为滩涂，「填高成台」技术使西城得以在淤泥滩涂上筑成，城市第一次主动向水面要地。',
+  '<b>明清（17 世纪）</b>　沙田连片，围垦大兴。桑园围一类的堤围工程把水域与滩涂系统性地转化为田地，海岸线南推至今日的南沙一带，城市南拓获得物质基础。',
+  '<b>当代（21 世纪）</b>　岸线继续南移至伶仃洋。广州从「江城」走向「山海之城」，南沙成为面向南海的战略支点——这既是自然淤积的结果，更是国家海洋战略的主动选择。'
+];
+function Coast(p){
+  var idx=parseInt(p.slice(1),10)||0;
+  document.querySelectorAll('.cl').forEach(function(el){
+    el.classList.toggle('on',el.classList.contains(p));
+  });
+  var n=document.getElementById('coastNote');
+  if(n) n.innerHTML=COAST[idx];
+}
+Coast('c0');
+
+/* ── 羊城八景 ── */
+var BJ=[
+  [['扶胥浴日','黄埔南海神庙'],['石门返照','小北江与流溪河汇合处'],['海山晓霁','镇南门外海山楼'],['珠江秋色','珠江'],['菊湖云影','菊湖'],['蒲涧濂泉','白云山滴水岩'],['光孝菩提','越秀光孝寺'],['大通烟雨','滘口大通寺']],
+  [['扶胥浴日','黄埔南海神庙'],['石门返照','小北江与流溪河汇合处'],['大通烟雨','滘口大通寺'],['蒲涧濂泉','白云山滴水岩'],['粤台秋月','越秀山'],['景泰僧归','白云山景泰寺'],['白云晚望','白云山白云寺'],['灵洲鳌负','南海官窑一带']],
+  [['粤秀松涛','越秀山'],['穗石洞天','惠福西路五仙观'],['番山云气','文德路·中山四路一带'],['药洲春晓','教育路一带'],['琪林苏井','海珠北路与光孝寺之间'],['珠江静澜','珠江'],['象山樵歌','越秀山南面山岗'],['荔湾渔唱','荔湾湖一带']],
+  [['粤秀连峰','越秀山'],['琶洲砥柱','琶洲塔'],['五仙霞洞','惠福西路五仙观'],['孤兀禺山','清代禺山'],['镇海层楼','越秀山'],['浮丘丹井','中山七路一带'],['西樵云瀑','佛山西樵山'],['东海鱼珠','琶洲之东·黄埔港附近']],
+  [['红陵旭日','烈士陵园'],['黄埔云樯','黄埔港一带'],['云山锦绣','白云山'],['珠海睛波','珠江'],['黄花浩气','黄花岗'],['越秀层楼','越秀山'],['流花玉宇','广州站周边建筑群'],['龙洞琪林','龙洞华南植物园']],
+  [['云山叠翠','白云山'],['珠水夜韵','珠江'],['越秀新晖','越秀山'],['天河飘绢','中信广场'],['古祠留芳','陈家祠'],['五环晨曦','奥林匹克中心'],['黄花皓月','黄花岗'],['莲峰观海','莲花山']],
+  [['塔耀新城','广州塔'],['珠水流光','珠江'],['云山叠翠','白云山'],['越秀风华','越秀山'],['古祠流芳','陈家祠'],['荔湾胜境','荔枝湾涌'],['科城锦绣','科学城'],['湿地唱晚','南沙湿地']]
+];
+function Bajing(i){
+  var box=document.getElementById('bjBox');
+  if(!box||!BJ[i]) return;
+  box.innerHTML=BJ[i].map(function(x){
+    return '<div class="bj"><div class="nm">'+x[0]+'</div><div class="pl">'+x[1]+'</div></div>';
+  }).join('');
+}
+Bajing(0);
+
+/* ── 图层对比滑块 ── */
+(function(){
+  var cmp=document.getElementById('cmp');
+  if(!cmp) return;
+  var cv=cmp.querySelector('.cv'), clip=document.getElementById('cmpClip'), hd=document.getElementById('cmpHandle');
+  var dragging=false;
+  function set(pct){
+    pct=Math.max(0,Math.min(100,pct));
+    clip.style.clipPath='inset(0 0 0 '+pct+'%)';
+    hd.style.left=pct+'%';
+  }
+  function fromEvent(e){
+    var r=cv.getBoundingClientRect();
+    var x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
+    set(x/r.width*100);
+  }
+  hd.addEventListener('mousedown',function(e){dragging=true;e.preventDefault();});
+  cv.addEventListener('mousedown',function(e){dragging=true;fromEvent(e);});
+  window.addEventListener('mousemove',function(e){ if(dragging) fromEvent(e); });
+  window.addEventListener('mouseup',function(){ dragging=false; });
+  hd.addEventListener('touchstart',function(){dragging=true;},{passive:true});
+  window.addEventListener('touchmove',function(e){ if(dragging) fromEvent(e); },{passive:true});
+  window.addEventListener('touchend',function(){ dragging=false; });
+  set(50);
+})();
+
+/* ── 码头序列播放器 ── */
+(function(){
+  var HB=[
+    {n:'兰湖码头',d:'秦汉',t:'内港',x:110,y:104,desc:'唐代码头分内外港，内港码头在城内兰湖。兰湖是广州已知最早的城内码头区，服务于秦汉番禺城的物资进出。'},
+    {n:'坡子码头',d:'两晋',t:'内港',x:196,y:112,desc:'两晋时期的内港码头，随城区与岸线的南推而南移，承接区域性的内河航运。'},
+    {n:'光塔码头',d:'唐',t:'内港',x:286,y:104,desc:'唐代内港码头，紧邻蕃坊与怀圣寺。西亚各国特别是阿拉伯人大量来广州经商，在城西番舶码头区居留。'},
+    {n:'扶胥港 · 南海神庙',d:'唐宋',t:'外港',x:392,y:118,desc:'外港核心。隋设南海镇外港并建南海神庙（594 年）；唐时外港在波罗庙（今黄埔南冈）与屯门。承担引航、检查、征税职能。'},
+    {n:'东澳 · 东堤',d:'宋',t:'内港',x:498,y:108,desc:'宋代内港体系。西澳为市舶司驻地，东澳与东堤承担交易、仓储、停泊，形成内港双澳格局。'},
+    {n:'砚子步',d:'明',t:'内港',x:604,y:112,desc:'明代内港码头，与西关十八甫的仓储、中转贸易直接对接，是外贸服务型街区的物流前端。'},
+    {n:'黄埔古港',d:'明清',t:'外港',x:700,y:100,desc:'明清外港。远洋大船在此停泊、查验、征税，再由驳船转运入城——「大船停外港、驳船入城」的三级物流在此成型。'},
+    {n:'十三行 · 沙面 · 长堤',d:'清',t:'内港',x:800,y:106,desc:'清代内港的鼎盛形态。1757 年广州成为唯一对外通商口岸，十三行迎来全球资本交汇的巅峰，沙面与长堤相继成为新的滨江商贸带。'}
+  ];
+  var dots=document.getElementById('hbDots');
+  var info=document.getElementById('hbInfo');
+  var cur=document.getElementById('hbCur');
+  var trk=document.getElementById('hbTrack');
+  if(!dots) return;
+  var idx=0, timer=null;
+  dots.innerHTML=HB.map(function(h,i){
+    return '<g class="hbdot" data-i="'+i+'">'+
+      '<circle cx="'+h.x+'" cy="'+h.y+'" r="6" fill="'+(h.t==='外港'?'#a8791b':'#2f6b6b')+'" opacity=".45"/>'+
+      '<text x="'+h.x+'" y="'+(h.y+26)+'" text-anchor="middle" font-size="10.5" fill="#6f6a61">'+h.n.split(' · ')[0]+'</text>'+
+      '</g>';
+  }).join('');
+  function render(){
+    dots.querySelectorAll('.hbdot').forEach(function(g,i){
+      var c=g.querySelector('circle');
+      c.setAttribute('opacity', i<=idx?1:.32);
+      c.setAttribute('r', i===idx?9:6);
+      g.querySelector('text').setAttribute('font-weight', i===idx?700:400);
+      g.querySelector('text').setAttribute('fill', i===idx?c.getAttribute('fill'):'#6f6a61');
+    });
+    var h=HB[idx];
+    info.innerHTML='<div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap">'+
+      '<span style="font-size:22px;font-weight:700">'+h.n+'</span>'+
+      '<span class="tag '+(h.t==='外港'?'t-warn':'t-add')+'">'+h.t+'</span>'+
+      '<span style="font-size:13px;color:var(--ink3);font-family:var(--sans)">'+h.d+'</span></div>'+
+      '<p style="margin-top:10px;font-size:14.5px;color:var(--ink2);line-height:1.95">'+h.desc+'</p>';
+    if(cur) cur.textContent=(idx+1)+' / '+HB.length;
+    if(trk) trk.style.width=((idx+1)/HB.length*100)+'%';
+  }
+  function next(){ idx=(idx+1)%HB.length; render(); }
+  function prev(){ idx=(idx-1+HB.length)%HB.length; render(); }
+  dots.addEventListener('click',function(e){
+    var g=e.target.closest('.hbdot'); if(!g) return;
+    idx=parseInt(g.getAttribute('data-i'),10); render();
+  });
+  var pb=document.getElementById('hbPlay');
+  if(pb) pb.addEventListener('click',function(){
+    if(timer){ clearInterval(timer); timer=null; pb.textContent='▶ 自动播放'; }
+    else { timer=setInterval(next,2600); pb.textContent='❚❚ 暂停'; next(); }
+  });
+  var nb=document.getElementById('hbNext'); if(nb) nb.addEventListener('click',next);
+  var pv=document.getElementById('hbPrev'); if(pv) pv.addEventListener('click',prev);
+  render();
+})();
+
+/* ── 档案馆筛选与检索 ── */
+(function(){
+  var grid=document.getElementById('archGrid');
+  var q=document.getElementById('archQ');
+  var cnt=document.getElementById('archCnt');
+  if(!grid) return;
+  var f={cat:'all',lvl:'all'};
+  var cards=[].slice.call(grid.querySelectorAll('.arch-card'));
+  function apply(){
+    var kw=(q&&q.value||'').trim().toLowerCase();
+    var n=0;
+    cards.forEach(function(c){
+      var okCat = f.cat==='all' || c.getAttribute('data-cat')===f.cat;
+      var okLvl = f.lvl==='all' || c.getAttribute('data-lvl')===f.lvl;
+      var hay=((c.getAttribute('data-t')||'')+' '+c.textContent).toLowerCase();
+      var okQ = !kw || hay.indexOf(kw)>-1;
+      var show=okCat&&okLvl&&okQ;
+      c.classList.toggle('hide',!show);
+      if(show) n++;
+    });
+    if(cnt) cnt.textContent='共 '+n+' 条';
+  }
+  document.querySelectorAll('.tab[data-f]').forEach(function(t){
+    t.addEventListener('click',function(){
+      var k=t.getAttribute('data-f');
+      document.querySelectorAll('.tab[data-f="'+k+'"]').forEach(function(x){x.classList.remove('on');});
+      t.classList.add('on');
+      f[k]=t.getAttribute('data-v');
+      apply();
+    });
+  });
+  if(q) q.addEventListener('input',apply);
+  apply();
+  /* 两行 sticky 工具栏对齐：第二行吸附点 = 第一行吸附点 + 其高度 + 间距
+     （第一行 top:60px 是为让开顶部导航，故不能写死数值） */
+  var bars=document.querySelectorAll('#archive .arch-bar');
+  if(bars.length>1){
+    var fitBar=function(){
+      var t1=parseFloat(getComputedStyle(bars[0]).top);
+      if(!isFinite(t1)) t1=60;
+      bars[1].style.top=(t1+bars[0].offsetHeight+6)+'px';
+    };
+    fitBar();
+    window.addEventListener('resize',fitBar);
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fitBar);
+  }
+})();
+
+})();
+</script>
+
+<script>
+window.ASSETS={"m1670aa":"assets/m1670aa.webp","b3_1670neu":"assets/b3_1670neu.jpg","mm_gd_qingchu":"assets/mm_gd_qingchu.webp","m1685":"assets/m1685.jpg","jc_kangxi":"assets/jc_kangxi.jpg","m1700tigris":"assets/m1700tigris.webp","mm_cheng_fangzhi":"assets/mm_cheng_fangzhi.webp","m1700liebautW":"assets/m1700liebautW.jpg","m1700liebautP":"assets/m1700liebautP.jpg","b3_1744bowen":"assets/b3_1744bowen.jpg","b3_1748dalman":"assets/b3_1748dalman.webp","m1749entree":"assets/m1749entree.webp","m1749isles":"assets/m1749isles.webp","m1760":"assets/m1760.jpg","jp_1783n":"assets/jp_1783n.jpg","jp_1783s":"assets/jp_1783s.jpg","m1787":"assets/m1787.webp","mm_pan_b":"assets/mm_pan_b.webp","mm_pan_a":"assets/mm_pan_a.webp","m1810":"assets/m1810.webp","mm_pan_c":"assets/mm_pan_c.webp","m1818":"assets/m1818.webp","m1834m":"assets/m1834m.webp","m1834":"assets/m1834.jpg","b3_1848tigre":"assets/b3_1848tigre.webp","b3_1851tallis":"assets/b3_1851tallis.jpg","m1853cox":"assets/m1853cox.webp","m1855":"assets/m1855.webp","m1856a":"assets/m1856a.webp","m1856c":"assets/m1856c.webp","jp_huangqing":"assets/jp_huangqing.jpg","m1857qmg":"assets/m1857qmg.webp","m1860vrooman":"assets/m1860vrooman.webp","m1862":"assets/m1862.webp","m1863":"assets/m1863.webp","b3_1864guangdong":"assets/b3_1864guangdong.jpg","mm_liumai":"assets/mm_liumai.webp","b3_1878eb":"assets/b3_1878eb.webp","m1879r":"assets/m1879r.webp","m1879v":"assets/m1879v.webp","b3_1880kerr":"assets/b3_1880kerr.jpg","m1883":"assets/m1883.jpg","m1887":"assets/m1887.jpg","jc_1888":"assets/jc_1888.jpg","b3_1890vrooman":"assets/b3_1890vrooman.jpg","b3_1904vicinity":"assets/b3_1904vicinity.jpg","jc_1907a":"assets/jc_1907a.jpg","jc_1907b":"assets/jc_1907b.jpg","jc_1907c":"assets/jc_1907c.jpg","jc_1907d":"assets/jc_1907d.jpg","jc_1910":"assets/jc_1910.jpg","jp_1919":"assets/jp_1919.jpg","jp_1930s":"assets/jp_1930s.jpg","jc_1933a":"assets/jc_1933a.jpg","jc_1933b":"assets/jc_1933b.jpg","jp_1934harbour":"assets/jp_1934harbour.jpg","jc_1947":"assets/jc_1947.jpg","mm_tudi_fenqu":"assets/mm_tudi_fenqu.webp","jp_1953":"assets/jp_1953.jpg","m1956ams":"assets/m1956ams.jpg","jp_1958":"assets/jp_1958.jpg","jp_street":"assets/jp_street.jpg","m1974":"assets/m1974.webp","ov1":"assets/ov1.jpg","ov2":"assets/ov2.jpg","ov3":"assets/ov3.jpg","ov4":"assets/ov4.jpg","ov5":"assets/ov5.jpg","ov6":"assets/ov6.jpg"};;;
+window.ASSET_META={"m1670aa":{"title":"《Quancheu（广州）城图》早期欧洲刊本","era":"约 17 世纪后期","src":"欧洲刊本（公有领域）","cap":"欧洲早期印制的广州城平面图，以欧式制图语汇表现城墙、城门与街巷格网，反映大航海时代西人对广州『双城』格局的认知。"},"b3_1670neu":{"title":"《Kantonis 城平面图》（纽荷夫《使团记》原书图版，1670）","era":"1670","src":"Johan Nieuhof《Het gezantschap…》阿姆斯特丹 1670 刊本；Radboud 大学图书馆藏本（公有领域）","cap":"纽荷夫使团记原书第 78 图版，拉丁／法文双语图题（KANTONIS Plana effigies／Plate forme de la Ville de Kanton），为欧洲早期印本对广州「双城」格局的平面表达，纸上犹存原书装订中缝。与站内 van der Aa 转刻本不同件。"},"mm_gd_qingchu":{"title":"清初广东府县舆图（刻本，题名待核）","era":"清初 · 题名与年代待核","src":"用户提供素材；刻本舆图，图面仅见府县名与「江西」界标，题名与出典待核","cap":"墨刻广东舆图，广州府、韶州府、南雄府、惠州府、肇庆府与罗定州等并列，府县隶辖以圆点系名。图尚作「南雄府」（清乾隆二十二年始改南雄州），年代上限可据此推定。"},"m1685":{"title":"康熙《广东舆图》（1685）","era":"清·康熙二十四年","src":"Library of Congress","cap":"康熙二十四年木刻《广东舆图》第一叶，含广东境界与道里注记。"},"jc_kangxi":{"title":"康熙《广州府舆图》","era":"清·康熙（十七世纪后期）","src":"《广州历史地图精粹》（中国第一历史档案馆等编，2003）图版 2","cap":"本书所收年代最早的府城相关图，山形水势以传统形象绘法表现，府境范围与属县并见。原书为图版影印本。"},"m1700tigris":{"title":"西班牙文手稿《珠江下游航道图》（约18世纪）","era":"18世纪","src":"Library of Congress","cap":"广州至 Lankeet 岛『虎河』（珠江下游）航道与测深，西班牙文手稿。"},"mm_cheng_fangzhi":{"title":"方志所载广州府城图（刻本，题名待核）","era":"明清方志体 · 年代待核","src":"用户提供素材；木刻阳文方志插图（图面文字左右镜像，为版刻特征），题名与出典待核","cap":"方志体府城图，城墙、城门、衙署与寺观一一标名：巡抚院、布政司、按察司、双门、香山禺山、学宫、五仙观、怀圣寺（光塔）等俱在，城外白云山、珠江与海珠石环抱，是理解「双城三区」格局的传统图式。"},"m1700liebautW":{"title":"Liébaut《珠江西侧近岸图》（约1720）","era":"18世纪","src":"Gallica / BnF","cap":"珠江西侧近岸特写。"},"m1700liebautP":{"title":"Liébaut《珠江口·澳门及邻近岛屿图》（约1736）","era":"18世纪","src":"Gallica / BnF","cap":"珠江口、澳门及邻近岛屿平面图。"},"b3_1744bowen":{"title":"《大河（Ta Ho）畔广州城平面图》（1744）","era":"1744","src":"Emanuel Bowen 绘，Harris《Navigantium…》伦敦 1744（公有领域）","cap":"鸟瞰式广州城图，周列图例 1–13 逐条标注城门、衙署与江岸，反映十八世纪中叶英人对广州城垣与水道关系的理解。原档分辨率有限，未作放大插值。"},"b3_1748dalman":{"title":"《广州十三行商馆图》（1748–49）","era":"1748–1749","src":"Johan Friedrich Dalman 随瑞典东印度公司 Freden 号日记附图；哥德堡大学图书馆藏手稿（公有领域）","cap":"达曼在广州期间手绘的十三行专图，商馆逐座标名，是清代一口通商前夜北岸商馆区形态的稀见第一手实录，可与站内 1856、1860 各版城市图上的商馆区对读。"},"m1749entree":{"title":"Bellin《广州河口（虎门）航道图》（1749）","era":"1749","src":"Jacques-Nicolas Bellin 绘，哈佛地图收藏（公有领域）","cap":"法、荷双语并注的珠江口航道图，上端绘广州城（QUANG TCHEU-FU）与城郊，下段为虎门至澳门水道，标注水深、沙洲与航向罗盘，是十八世纪欧洲刊印广州水道图的早期代表。"},"m1749isles":{"title":"Bellin《珠江口诸岛图》（1749）","era":"1749","src":"Jacques-Nicolas Bellin 绘，哈佛地图收藏（公有领域）","cap":"横披式珠江口诸岛图，澳门、氹仔、上下川岛与万山群岛历历可数，图题注明据最新航海观测绘成，可与 1760 至 1863 年各航道图连读，见水道认识的累积。"},"m1760":{"title":"Dalrymple《华南近海与岛屿海岸图》（1760）","era":"1760","src":"Gallica / BnF","cap":"华南近海与岛屿海岸图，含通往珠江／澳门一带航线语境（Berghaus 亚洲图集第16号）。"},"jp_1783n":{"title":"《大清广舆图》广东（北叶，天明三年序）","era":"日本天明三年（1783）","src":"国立国会图书馆数字典藏；公众领域标记（PDM）","cap":"日本长久保赤水校订系日刻《大清广舆图》广东一袋之北叶，以中国传统绘法表现省域山河府县；广州双城仅以红方示意，可作「他者视角」下的广州定位。"},"jp_1783s":{"title":"《大清广舆图》广东（南叶，天明三年序）","era":"日本天明三年（1783）","src":"国立国会图书馆数字典藏；公众领域标记（PDM）","cap":"同袋南叶，含海南岛并及广东全省南半，与北叶拼合为完整省域。"},"m1787":{"title":"Huddart《虎门至黄埔珠江河段实测平面图》（1787）","era":"1787","src":"Gallica / BnF","cap":"自虎门（bouche du Tigre）至黄埔（Wampou）珠江河段实测平面图。"},"mm_pan_b":{"title":"珠江沿岸城景图（清代外销画风格）","era":"清代 · 年代待核","src":"用户提供素材；外销画风格，作者与年代待核","cap":"以花塔、光塔为视觉焦点的珠江沿岸图绘，江面列满中式帆船与舢舨，岸上屋宇连绵，反映十三行时期广州口岸的日常面貌。"},"mm_pan_a":{"title":"广州城与珠江全景（清代城景图）","era":"清代 · 年代待核","src":"用户提供素材；城景图／铜版画风格，作者与年代待核","cap":"自珠江南岸北望省城的全景式图绘，城垣、越秀山与江中舟楫连成一片，可与站内各版实测平面图互为印证——平面图解「位置」，全景图解「景象」。"},"m1810":{"title":"Ross《伶仃至虎门航道图》（1810–1820）","era":"1810–1820","src":"Library of Congress","cap":"伶仃（Lintin）至虎门（Bocca Tigris）航道与测深，珠江口入湾关键段。"},"mm_pan_c":{"title":"广州城鸟瞰图（清代外销画风格）","era":"清代 · 年代待核","src":"用户提供素材；外销画风格，作者与年代待核","cap":"俯瞰式城景图，城厢、江岸与远近山峦尽收一纸，舟船云集，是清代外销画中最常见的广州题材之一。"},"m1818":{"title":"Horsburgh《珠江／黄埔河段测深图》（1818）","era":"1818","src":"Library of Congress","cap":"东印度公司珠江／黄埔河段测深与岸线地标剖面，贸易航道核心图。"},"m1834m":{"title":"《广州城及郊区图》（1834）","era":"1834","src":"传教士刊本（公有领域）","cap":"传教士所绘广州城及郊区图，内城、新城轮廓完整，城外街市、岗地与珠江岸线关系清晰。"},"m1834":{"title":"Berghaus《广东海岸图（澳门子午线两侧）》（1834）","era":"1834","src":"Library of Congress","cap":"广东海岸、澳门子午线两侧，含澳门／广州／珠江区域注记。"},"b3_1848tigre":{"title":"法国海军部《虎门（珠江口）水道图》（1848，实测 1844）","era":"1848（实测 1844）","src":"Dépôt-général de la Marine 刊，David Rumsey 地图收藏（CC BY-NC-SA 3.0）","cap":"1844 年 9 月奉海军少将 Cecille 之命实测，1848 年由法国海军部刊行，覆盖虎门至伶仃洋珠江口全段，水深数字与航道标绘密布，为十九世纪中叶珠江口通航条件的第一手记录。"},"b3_1851tallis":{"title":"Tallis《中国与缅甸》图（附广州商馆小景，1851）","era":"1851","src":"J. Rapkin 绘、J. B. Allen 镌，J. & F. Tallis 刊，David Rumsey 地图收藏（CC BY-NC-SA 3.0）","cap":"全国性商业地图，四周饰以中国风物小景，其中「英国商馆（British factories in Canton）」一幅记十三行临江立面，可作全国视野下的广州定位参照。"},"m1853cox":{"title":"《广州及其周边航道·澳门与香港》（1853 初印本）","era":"1853","src":"London: George Cox（SDUK《综合地图集》第 170a 图），哈佛地图收藏（公有领域）","cap":"与站内 1856 年版同为一版之先后印次：四图合幅，含澳门岛（附香港小图，据 E. Belcher 爵士实测）、澳门至广州之珠江全程与广州城平面，J. & C. Walker 镌版。此本为 1853 年 Cox 初印，可与后印本并观版刻递修之迹。"},"m1855":{"title":"Vrooman《广州城厢与近郊图》（1855）","era":"1855","src":"Library of Congress","cap":"广州城厢与近郊手稿彩图，城墙、郊区街道格局清晰，城址演变首选底图。"},"m1856a":{"title":"《广州及其周边航道 · 澳门与香港》（1856 后印本）","era":"1856","src":"London: Edward Stanford（公有领域）","cap":"SDUK 珠江口系列第 170 图之 Stanford 后印本（初印本见本站 1853 年版）：四图合幅，含澳门岛与香港小图、澳门至广州之珠江全程、广州城平面，J. & C. Walker 镌版，底图据 E. Belcher 爵士实测，标注沿江炮台、岛屿与水深。"},"m1856c":{"title":"Colton《中国》地图（含广州插图，1856）","era":"1856","src":"J.H. Colton & Co., New York（公有领域）","cap":"美国 Colton 版《中国》地图，左下嵌广州（Canton）局部图，呈现广州在中国与东亚格局中的位置。"},"jp_huangqing":{"title":"《皇清地理图》第八十一、八十二（1856 覆刻）","era":"清·咸丰六年覆刻（原图止道光二年）","src":"World Digital Library；Wikimedia Commons（公有领域）","cap":"全书以计里画方绘全国总图，此二叶含广东部分。书末记「广东省城学院前艺芳斋刊印」，可见清代坊刻地图的出版地即在广州。"},"m1857qmg":{"title":"《广州城及郊区平面图》（1857，英军测绘）","era":"1857","src":"Hongkong Expeditionary Force, Q.M.G. Dept.（公有领域）","cap":"第二次鸦片战争期间英军军需总监部测绘，内城、新城与西关、河南分区着色，附图幅左上角城区面积与街市注释。"},"m1860vrooman":{"title":"Vrooman《广州城及全郊区图》（1860）","era":"1860","src":"D. Vrooman（公有领域）","cap":"与 1855 年版同源的更新本，城墙范围、江岸沙坦与郊野道路更详，可与本站 1855 年版作两版对照。"},"m1862":{"title":"《广州城图》（1862，中文注记手绘本）","era":"1862","src":"手绘本（公有领域）","cap":"以传统中文地名注记广州内城、新城与珠江岸线，南海、番禺分界清晰，与同期西式测绘图形成制图传统对照。"},"m1863":{"title":"Weller《珠江（Chu Kiang）航道图》（1863）","era":"1863","src":"Edward Weller, F.R.G.S.（公有领域）","cap":"自澳门、氹仔（Typa）至广州的珠江航道测深图，含虎门、黄埔河段，十九世纪中叶通海航道的实测记录。"},"b3_1864guangdong":{"title":"《广东全图》（1864）","era":"清·同治三年","src":"湖北官书局编《大清一统舆地全图》之一，美国国会图书馆藏（公有领域）","cap":"同治三年官刻广东全图，仍守计里画方传统，全省山川府县并列；与站内康熙二十四年《广东舆图》并观，可见近两百年间官修地图体例之承变。"},"mm_liumai":{"title":"《六脉渠图》（清，年代待核）","era":"清代 · 年代待核","src":"用户提供素材；图题《六脈渠圖》为图面原文，年代与出典待核（通带着录多系于清同治九年 1870，本站未获馆藏著录佐证）","cap":"广州城内六脉渠的专图：图中以粗线勾出渠道路径，与街巷、城门并列，是宋代以来城内引水排涝系统在清代末年实际走向的直接图证。此图不在《广州历史地图精粹》所收 97 幅之列，为该书本已明记的缺口，今补入。原件分辨率有限（645×524），作线索性图证使用。"},"b3_1878eb":{"title":"《不列颠百科全书》第九版广州图（约 1878）","era":"约 1878","src":"Encyclopaedia Britannica 9th ed. Vol. V；Wikimedia Commons（公有领域）","cap":"百科全书条目配图，中英地名并列，城市轮廓与江岸码头线一并标出，是十九世纪后期西文工具书中的广州标准像。"},"m1879r":{"title":"Lörcher《广东省域图》（正面，1879）","era":"1879","src":"Library of Congress","cap":"广东省域布质地图，海军岸线＋传教士细节。"},"m1879v":{"title":"Lörcher《广东省域图》（背面，1879）","era":"1879","src":"Library of Congress","cap":"省域图背面文字注记。"},"b3_1880kerr":{"title":"Kerr《广州指南》所附广州城图（1880）","era":"1880","src":"J. G. Kerr《The Canton Guide》；大英图书馆藏（公有领域）","cap":"传教士嘉约翰所编旅行指南内页城图，街巷、城门与教堂、医院等近代设施并见，反映开埠之后广州城内功能空间的重组。"},"m1883":{"title":"《广东城近旁之图》（1883，日制）","era":"1883","src":"Library of Congress","cap":"日制大比例：广州东郊与珠江南岸村落、田地、道路。"},"m1887":{"title":"李仲培《广东全省水陆舆图》（1887）","era":"1887","src":"Library of Congress","cap":"木刻手绘彩图，广东全省水陆与行政区一览。"},"jc_1888":{"title":"《广东省城全图》（陈氏书院藏本，约 1888）","era":"约清光绪十四年（1888）","src":"《广州历史地图精粹》图版 39（陈氏书院藏图）","cap":"晚清坊间传统城图，以中文地名密注内城、新城与西关街市，与同期西式实测图形成鲜明的制图传统对照。"},"b3_1890vrooman":{"title":"Vrooman《广州城图》（1890）","era":"1890","src":"Daniel Vrooman 绘；大英图书馆藏（公有领域）","cap":"与站内 1855（LOC）、1860（NLA）两版同源的第三次修订，江岸沙坦、西关街市与沙面一带细密可辨。三版并置，可读城墙内外四十年之变。"},"b3_1904vicinity":{"title":"法国陆军地理处《广州及邻近地区图》（1904）","era":"1904","src":"Service géographique des armées；Wikimedia Commons（公有领域）","cap":"图心在澳门与维多利亚岛，兼及珠江口全域，附水深与电报线，可作清末广州对外航路与通讯网的空间索引；非广州城墙专图。"},"jc_1907a":{"title":"《广东省城内外全图（河南附）》图记与局部（1907）","era":"清·光绪三十三年（1907）","src":"德国营造师舒乐（F. Schnock）测绘，广州市档案馆藏；《广州历史地图精粹》图版 68","cap":"图记页与局部放大，可读图例、比例与测绘职名。"},"jc_1907b":{"title":"《广东省城内外全图（河南附）》（1907）· 图幅一","era":"清·光绪三十三年（1907）","src":"同上，图版 68 连续页（一）","cap":"中英对照，图面题 CANTON with Suburbs and Honam…1907。城厢、河南与芳村大坦沙并收，街道、码头与河床深浅一一注记；原图约 114×144 厘米，为清末广州最完备的城市实测图。"},"jc_1907c":{"title":"《广东省城内外全图（河南附）》（1907）· 图幅二","era":"清·光绪三十三年（1907）","src":"同上，图版 68 连续页（二）","cap":"图幅续页，珠江南岸与河南岛一带街区、田塘细部。"},"jc_1907d":{"title":"《广东省城内外全图（河南附）》（1907）· 图幅三","era":"清·光绪三十三年（1907）","src":"同上，图版 68 连续页（三）","cap":"图幅末页，近郊村落与道路系统的收尾部分。"},"jc_1910":{"title":"《广州省城图》（1910）","era":"清·宣统二年（1910）","src":"广东省档案馆藏；《广州历史地图精粹》图版 70","cap":"1:25000 省城图，宣统年间编制，纸本墨印，城墙内外街道与近郊村落并收，是清亡前夕广州城市形态的定格。"},"jp_1919":{"title":"早稻田大学藏《广东》市街图（1919）","era":"1919","src":"早稻田大学图书馆藏；Wikimedia Commons（公有领域）","cap":"日藏广州街市图，沙面租界、河南与珠江北岸街巷俱全，惟原件仅千余像素，清晰度有限，作线索性参照。"},"jp_1930s":{"title":"《广州市最新马路全图》（约 1930 年代）","era":"约 1930 年代","src":"京都大学人文科学研究所藏；Wikimedia Commons（公有领域）","cap":"民国广州市马路网全图，拆城筑路后的近代干道体系、沙面与河南岛路网历历可见，是本站「近代市政」一章最直接的空间底图。"},"jc_1933a":{"title":"《广州市区域图》（1933，广州市土地局）","era":"民国二十二年（1933）","src":"广州市档案馆藏；《广州历史地图精粹》图版 81","cap":"土地局编制 1:25000 区域图，市界扩展后的行政范围与近郊地形并见，为广州设市后系统性地籍测绘的成果之一。"},"jc_1933b":{"title":"《广州市区域图 · 测量分区》（1933 编，1945 补编）","era":"1933 编制／1945 补编","src":"广州市档案馆藏；《广州历史地图精粹》图版 89","cap":"同局同期图幅，以蓝、黄、红褐分色标示测量分区界与分段界，为民国地籍测量作业组织的直接物证。"},"jp_1934harbour":{"title":"《Canton Harbour 广州港图》（1934）","era":"1934","src":"Wikimedia Commons（公有领域）","cap":"省城北岸自沙面至白鹅潭的港区详图，码头、浮标、锚地与水深并注，河岸线细密程度为本站诸图之最，可与十三行时期商馆岸线对照。"},"jc_1947":{"title":"《广州市图》万分之一 第 6 幅（1947）","era":"民国三十六年（1947）","src":"广州市政府地政局绘，据 1928 年陆军测量局图修正；《广州历史地图精粹》图版 93","cap":"万分一图幅联合表第六幅，抗战后地政局依 1928 年陆军测量局底图修正而成，为本站所见最晚的一幅民国官方城图。"},"mm_tudi_fenqu":{"title":"《广州市土地分区使用图》（1947）","era":"民国三十六年（1947）","src":"用户提供素材；图面题《廣州市土地分區使用圖》，并注「民國三十六年八月十八日第七次市政會議通過」","cap":"抗战后广州市政府颁行的土地使用分区图，以蓝、红、绿分色标示各区土地使用性质与道路系统，是近代城市规划从「测绘制图」转向「功能分区」的标志性图件。"},"jp_1953":{"title":"《广州市马路图》（1953）","era":"1953","src":"广州市国家档案馆藏；Wikimedia Commons（公有领域）","cap":"建国初期广州市马路网图，可作民国至当代之间城市道路形态的过渡参照。不属于历史古图。"},"m1956ams":{"title":"AMS《广州（Kuang-chou）》地形图（1956，1:25 万）","era":"1956","src":"U.S. Army Map Service, Series L500, Sheet NF 49-4（哈佛地图收藏，公有领域）","cap":"美国陆军地图局 1:25 万实测地形图，等高线密布，北江、流溪河与珠江三角洲水系、山地丘陵起伏一览；作为本站地质与地貌基底之现代制图参照，可与历代城图对读。"},"jp_1958":{"title":"《广州市马路简图》（1958）","era":"1958","src":"《广州旅行指南》附图（广州铁路管理局广州站）；Wikimedia Commons（公有领域）","cap":"旅客用简化路网图，站点与主要马路并注，反映建国初期城市交通意象。"},"jp_street":{"title":"《广州市街道图》（廖生民编，刊年待核）","era":"近代 · 刊年待核","src":"私人收藏；Wikimedia Commons（公有领域模板）","cap":"街道级详图，城内路网与街名密布。具体刊年未见著录，暂以「近代」标注，待与馆藏原图核对。"},"m1974":{"title":"CIA《广州城区参考图》（1974）","era":"1974","src":"Library of Congress","cap":"现代城区参考图（1:40,000），便于古今对照；非历史古图。"},"ov1":{"title":"历代城垣范围 · 卫星影像叠合（示意 1/6）","era":"当代卫星影像","src":"用户补充素材","cap":"基于卫星影像的广州历代城垣范围叠合，共 6 帧，呈现城址由北向南、沿江向海逐步拓展的空间脉络。"},"ov2":{"title":"历代城垣范围 · 卫星影像叠合（示意 2/6）","era":"当代卫星影像","src":"用户补充素材","cap":"基于卫星影像的广州历代城垣范围叠合，共 6 帧，呈现城址由北向南、沿江向海逐步拓展的空间脉络。"},"ov3":{"title":"历代城垣范围 · 卫星影像叠合（示意 3/6）","era":"当代卫星影像","src":"用户补充素材","cap":"基于卫星影像的广州历代城垣范围叠合，共 6 帧，呈现城址由北向南、沿江向海逐步拓展的空间脉络。"},"ov4":{"title":"历代城垣范围 · 卫星影像叠合（示意 4/6）","era":"当代卫星影像","src":"用户补充素材","cap":"基于卫星影像的广州历代城垣范围叠合，共 6 帧，呈现城址由北向南、沿江向海逐步拓展的空间脉络。"},"ov5":{"title":"历代城垣范围 · 卫星影像叠合（示意 5/6）","era":"当代卫星影像","src":"用户补充素材","cap":"基于卫星影像的广州历代城垣范围叠合，共 6 帧，呈现城址由北向南、沿江向海逐步拓展的空间脉络。"},"ov6":{"title":"历代城垣范围 · 卫星影像叠合（示意 6/6）","era":"当代卫星影像","src":"用户补充素材","cap":"基于卫星影像的广州历代城垣范围叠合，共 6 帧，呈现城址由北向南、沿江向海逐步拓展的空间脉络。"}};;;
+(function(){
+  function fill(){
+    document.querySelectorAll('img[data-asset]').forEach(function(im){
+      var k=im.getAttribute('data-asset'); if(window.ASSETS[k]) im.src=window.ASSETS[k];
+    });
+  }
+  function buildGallery(){
+    var gal=document.getElementById('mapGallery'); if(!gal) return;
+    Object.keys(window.ASSET_META).forEach(function(k){
+      var m=window.ASSET_META[k];
+      var card=document.createElement('div'); card.className='gal-card';
+      var img=document.createElement('img'); img.loading='lazy'; img.alt=m.title;
+      img.setAttribute('data-asset',k);
+      if(window.ASSETS[k]) img.src=window.ASSETS[k];
+      var cap=document.createElement('div'); cap.className='gc-cap';
+      cap.innerHTML='<div class="gc-t">'+m.title+'</div><div class="gc-m">'+m.era+' · '+m.src+'</div>'
+        +'<div class="gc-m" style="margin-top:3px">'+m.cap+'</div>';
+      card.appendChild(img); card.appendChild(cap);
+      gal.appendChild(card);
+    });
+  }
+  /* ── 全站图证灯箱：任意内嵌图皆可放大，组内可翻页 ──
+     注意：#lightbox 的 DOM 在本 <script> 之后，故一律延迟到 boot() 再取用 */
+  var lb=null, G={list:[],i:0};
+  function lbGet(id){ return document.getElementById(id); }
+  function renderLB(){
+    var k=G.list[G.i]; if(!k) return;
+    var m=window.ASSET_META[k]||{};
+    var im=lbGet('lbImg');
+    im.classList.remove('raw');
+    lbGet('lbZoom').textContent='原始尺寸';
+    im.src=window.ASSETS[k]; im.alt=m.title||'';
+    lbGet('lbCap').innerHTML='<div class="c1">'+(m.title||'')+'</div>'
+      +'<div class="c2">'+[m.era,m.src].filter(Boolean).join('　·　')+'</div>';
+    lbGet('lbIdx').textContent=(G.i+1)+' / '+G.list.length+'　'+((m.era)||'');
+    lbGet('lbPrev').classList.toggle('off', G.i<=0);
+    lbGet('lbNext').classList.toggle('off', G.i>=G.list.length-1);
+    if(lb){ lb.scrollTop=0; lb.scrollLeft=0; }
+  }
+  window.openLB=function(k,im){
+    if(!k||!window.ASSETS[k]) return;
+    var box=im?(im.closest('.evd-row')||im.closest('#mapGallery')||null):null;
+    var els=box?[].slice.call(box.querySelectorAll('img[data-asset]')):[];
+    if(els.length<2) els=[];
+    G.list=els.length?els.map(function(e){return e.getAttribute('data-asset');}):[k];
+    G.i=Math.max(0,G.list.indexOf(k));
+    renderLB();
+    if(lb) lb.classList.add('on');
+  };
+  window.lbNav=function(d){
+    var n=G.i+d; if(n<0||n>=G.list.length) return;
+    G.i=n; renderLB();
+  };
+  function lbClose(){ if(lb){ lb.classList.remove('on'); } lbGet('lbImg').src=''; }
+  function lbZoom(){
+    var im=lbGet('lbImg');
+    im.classList.toggle('raw');
+    lbGet('lbZoom').textContent=im.classList.contains('raw')?'适应窗口':'原始尺寸';
+  }
+  function initLB(){
+    lb=document.getElementById('lightbox'); if(!lb) return;
+    lb.onclick=function(e){ if(e.target===lb) lbClose(); };
+    lbGet('lbX').onclick=function(e){ e.stopPropagation(); lbClose(); };
+    lbGet('lbPrev').onclick=function(e){ e.stopPropagation(); window.lbNav(-1); };
+    lbGet('lbNext').onclick=function(e){ e.stopPropagation(); window.lbNav(1); };
+    lbGet('lbZoom').onclick=function(e){ e.stopPropagation(); lbZoom(); };
+    lbGet('lbImg').onclick=function(e){ e.stopPropagation(); lbZoom(); };
+    document.addEventListener('keydown',function(e){
+      if(!lb.classList.contains('on')) return;
+      if(e.key==='Escape') lbClose();
+      else if(e.key==='ArrowLeft') window.lbNav(-1);
+      else if(e.key==='ArrowRight') window.lbNav(1);
+    });
+  }
+  function bindZoom(){
+    document.querySelectorAll('#mapGallery .gal-card').forEach(function(c){
+      var im=c.querySelector('img'); if(!im||c.dataset.lb) return; c.dataset.lb='1';
+      c.addEventListener('click',function(){ window.openLB(im.getAttribute('data-asset'), im); });
+    });
+    document.querySelectorAll('.evd-row img[data-asset]').forEach(function(im){
+      var t=im.closest('figure')||im; if(t.dataset.lb) return; t.dataset.lb='1';
+      t.addEventListener('click',function(){ window.openLB(im.getAttribute('data-asset'), im); });
+    });
+  }
+  function boot(){ fill(); buildGallery(); initLB(); bindZoom(); }
+  if(document.readyState!=='loading'){ boot(); }
+  else { document.addEventListener('DOMContentLoaded', boot); }
+})();
+</script>
+<div class="lightbox" id="lightbox"><span class="lb-idx" id="lbIdx"></span><div class="lb-tools"><span class="lb-btn" id="lbZoom">原始尺寸</span></div><span class="lb-x" id="lbX">×</span><div class="lb-nav lb-prev" id="lbPrev">‹</div><div class="lb-nav lb-next" id="lbNext">›</div><img id="lbImg" src="" alt=""><div class="lb-cap" id="lbCap"></div></div>
+<script>
+/* v1.5 图版自检：确保内嵌图证资源全部就位 */
+(function(){
+  var A=window.ASSETS||{}, imgs=document.querySelectorAll('img[data-asset]'), miss=0;
+  for(var i=0;i<imgs.length;i++){
+    var im=imgs[i], k=im.getAttribute('data-asset');
+    if(!A[k]){ miss++; im.style.minHeight='96px'; im.style.background='#fdf1ee';
+      im.setAttribute('alt',(im.getAttribute('alt')||'')+'（图版缺失）'); }
+    else { im.loading='lazy'; im.decoding='async'; }
+  }
+  var b=document.getElementById('assetCheck');
+  if(b){ b.textContent = miss ? ('⚠ 图版自检：'+imgs.length+' 项中 '+miss+' 项未加载')
+                              : ('✓ 图版自检：'+imgs.length+' 项图证资源全部内嵌可用');
+         b.className = miss ? 'tag t-warn' : 'tag t-ok'; }
+})();
+</script>
+<script>
+/* ═══ 模块六 · 城脉共创（v1.6）═══ */
+(function(){
+"use strict";
+
+var LM=[
+ {n:"番山禺山旧址",e:"地质底本 · 白垩纪红层残丘",d:"今北京路一带。红层残丘是广州城最原始的地质基座，后世凿井、开渠、筑堤皆在此底本上展开。",x:330,y:208},
+ {n:"越王井",e:"秦汉 · 现存最早古井之一",d:"相传为南越国时期所凿，历代疏浚沿用，是广州城区现存最早的古井之一。",x:298,y:170},
+ {n:"六脉渠遗址",e:"宋 · 城市排水系统",d:"宋代开凿的城内水渠系统，引水入城、排涝泄洪，是古代城市水利工程。",x:362,y:236},
+ {n:"光孝寺",e:"岭南古刹",d:"广州最古老的佛寺之一，见证城市宗教与文化空间的千年延续。",x:248,y:188},
+ {n:"怀远驿",e:"明永乐三年 · 房舍一百二十间",d:"建于蚬子步（今十八甫一带），明代接待海外贡使的驿馆。",x:206,y:248},
+ {n:"十三行商馆区",e:"清 · 一口通商",d:"今十三行路一带，清代对外贸易的商行垄断区，商业资本重塑地租梯度的典型地段。",x:276,y:294},
+ {n:"白鹅潭 · 太古仓",e:"近代 · 蒸汽航运码头",d:"珠江航道要冲，近代仓储与码头工业的空间遗存。",x:150,y:296},
+ {n:"莲花山古采石场",e:"秦汉至今 · 人工改造地质",d:"番禺莲花山，历代采石留下的石壁与岩洞，是人工与地质共同塑造的地景。",x:462,y:388},
+ {n:"黄埔古港",e:"明清 · 外港",d:"广州外港之一，清代一口通商时期的重要停泊与贸易港。",x:540,y:352},
+ {n:"南海神庙 · 扶胥港",e:"唐宋 · 最重要外港",d:"今黄埔庙头，唐宋广州海外贸易的主要锚地与祭海之所。",x:614,y:368},
+ {n:"南沙深水港",e:"当代 · 深水枢纽",d:"港址南拓的现代终点之一，集装箱与深水泊位的枢纽。",x:652,y:404},
+ {n:"中山纪念堂（拆城筑路一带）",e:"1918 起 · 近代市政",d:"1918 年广州拆城墙筑马路，封建城垣转化为近代市政道路的空间节点。",x:296,y:138}
+];
+var KEY='gzm_co_v1';
+function load(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
+function save(a){ try{ localStorage.setItem(KEY, JSON.stringify(a)); }catch(e){} }
+var done=load();
+function has(i){ return done.indexOf(i)>-1; }
+
+/* ── 打卡地图 ── */
+var NS='http://www.w3.org/2000/svg';
+var gPins=document.getElementById('coPins'), listEl=document.getElementById('coList'),
+    nEl=document.getElementById('coN'), barEl=document.getElementById('coBar'),
+    hintEl=document.getElementById('coHint');
+if(gPins){
+  LM.forEach(function(m,i){
+    var p=document.createElementNS(NS,'g');
+    p.setAttribute('class','co-pin'+(has(i)?' on':''));
+    p.setAttribute('transform','translate('+m.x+','+m.y+')');
+    p.setAttribute('data-lm',i);
+    var c=document.createElementNS(NS,'circle'); c.setAttribute('r',12);
+    var t=document.createElementNS(NS,'text'); t.setAttribute('y','4.4'); t.textContent=(i+1);
+    var ti=document.createElementNS(NS,'title'); ti.textContent=m.n+'（'+m.e+'）';
+    p.appendChild(c); p.appendChild(t); p.appendChild(ti);
+    gPins.appendChild(p);
+  });
+}
+if(listEl){
+  LM.forEach(function(m,i){
+    var it=document.createElement('div');
+    it.className='co-item'+(has(i)?' on':'');
+    it.setAttribute('data-lm',i);
+    it.innerHTML='<span class="no">'+(i+1)+'</span><span><span class="nm">'+m.n+'</span><span class="mt">'+m.e+'</span></span>';
+    listEl.appendChild(it);
+  });
+}
+function refresh(){
+  if(nEl) nEl.textContent=done.length;
+  if(barEl) barEl.style.width=(done.length/LM.length*100)+'%';
+  [].forEach.call(document.querySelectorAll('.co-pin,.co-item'),function(p){
+    p.classList.toggle('on', has(parseInt(p.getAttribute('data-lm'),10)));
+  });
+  if(hintEl){
+    if(done.length>=LM.length){
+      hintEl.innerHTML='<b style="color:#a8302a">城脉贯通！</b>十二处坐标已全部点亮——你已把这座城从红层残丘读到深水港口。';
+    } else {
+      hintEl.textContent='已点亮 '+done.length+' 处，尚有 '+(LM.length-done.length)+' 处待访。点击地图编号或右侧条目即可打卡，记录保存在本机浏览器。';
+    }
+  }
+  if(window.gzmDrawCard) window.gzmDrawCard();
+}
+function toggle(i){
+  var k=done.indexOf(i);
+  if(k>-1) done.splice(k,1); else done.push(i);
+  save(done); refresh();
+}
+document.addEventListener('click',function(e){
+  var t=e.target, el=(t&&t.closest)?t.closest('.co-pin,.co-item'):null;
+  if(!el) return;
+  toggle(parseInt(el.getAttribute('data-lm'),10));
+});
+var rb=document.getElementById('coReset');
+if(rb) rb.addEventListener('click',function(){
+  if(window.confirm('确定清空全部打卡记录？')){ done=[]; save(done); refresh(); }
+});
+window.gzmDone=function(){ return done.length; };
+refresh();
+
+/* ── 海洋科普小测 ── */
+var QZ=[
+ {q:'广州建城始于哪一年？',o:['公元前 214 年','公元前 111 年','公元 226 年','公元 971 年'],
+  e:'秦平定岭南置南海郡，番禺为郡治，是为广州建城之始，至今 2240 余年。'},
+ {q:'广州「地质底本」的主体是哪一类地貌？',o:['白垩纪红层残丘（番山、禺山）','花岗岩台地','洪积冲积扇','喀斯特峰林'],
+  e:'番山、禺山为白垩纪红层残丘，是广州城最原始的地质基座；后世凿井、开渠、筑堤皆在此底本上展开。'},
+ {q:'唐宋时期广州最重要的外港是？',o:['扶胥港（今南海神庙一带）','黄埔古港','白鹅潭','南沙深水港'],
+  e:'扶胥港在唐宋时期为广州海外贸易的主要锚地，南海神庙即其祭海之所；黄埔古港则为明清外港。'},
+ {q:'明代在广州设驿接待海外贡使、房舍达一百二十间的是？',o:['怀远驿','来远驿','市舶亭','海山楼'],
+  e:'怀远驿于明永乐三年建于蚬子步（今十八甫一带），房舍一百二十间，为明代接待海外贡使的驿馆。'},
+ {q:'张九龄《开凿大庾岭路序》所记的开凿年份是？',o:['开元四载（716 年）','贞观元年','天宝三载','元和十年'],
+  e:'文中有「开元四载，冬十有一月」之语。大庾岭路开凿后，岭南与中原通道改善，广州外贸随之更盛。'},
+ {q:'桑园围围堤全长约多少公里（权威数据）？',o:['约 64.84 公里','约 39 公里','约 18 公里','约 120 公里'],
+  e:'桑园围为珠三角著名堤围，权威资料记其围堤全长约 64.84 公里；旧籍中较小的数值多指某一时段的局部段长。'},
+ {q:'广州港 2025 年货物吞吐量约居世界第几位？',o:['第 5 位','第 2 位','第 12 位','第 20 位'],
+  e:'广州港货物吞吐量居世界第 5、集装箱吞吐量居世界第 6，是华南最重要的综合性枢纽港之一。'},
+ {q:'南海的平均水深约为多少米？',o:['约 1212 米','约 380 米','约 3000 米','约 5559 米'],
+  e:'南海平均水深约 1212 米，最大深度约 5559 米；深海探测与海洋科技由此成为广州海洋战略的新前沿。'}
+];
+var qzEl=document.getElementById('quiz'), qrEl=document.getElementById('quizRes');
+function shuffle(a){
+  a=a.slice();
+  for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; }
+  return a;
+}
+if(qzEl){
+  var answered=0, right=0;
+  QZ.forEach(function(item,i){
+    var box=document.createElement('div'); box.className='qz';
+    box.innerHTML='<div class="q"><em>Q'+(i+1)+'</em>'+item.q+'</div><div class="opts"></div>';
+    var opts=box.querySelector('.opts');
+    var exp=document.createElement('div'); exp.className='exp';
+    exp.innerHTML='<b>解析：</b>'+item.e;
+    var correct=item.o[0];
+    shuffle(item.o).forEach(function(o){
+      var b=document.createElement('div'); b.className='op'; b.textContent=o;
+      b.addEventListener('click',function(){
+        if(box.getAttribute('data-d')) return;
+        box.setAttribute('data-d','1'); answered++;
+        var ok=(o===correct); if(ok) right++;
+        [].forEach.call(opts.querySelectorAll('.op'),function(x){
+          x.classList.add('dis');
+          if(x.textContent===correct) x.classList.add('right');
+        });
+        if(!ok) b.classList.add('wrong');
+        exp.classList.add('on');
+        if(answered===QZ.length && qrEl){
+          var lv = right>=7?'城脉通人':(right>=5?'初识城脉':(right>=3?'略有耳闻':'尚待入门'));
+          var say = right>=7?'你把这座城的地质、海贸与市政脉络都读通了。'
+                  : right>=5?'底子不错，再把航道与堤围那几条线补上就更完整。'
+                  : '不妨回到前五章漫游一遍，再来一局。';
+          qrEl.innerHTML='<b>'+right+' / '+QZ.length+'</b>　评级：<b style="font-size:16px">'+lv+'</b><br>'+say
+            +'<br><span style="font-size:12.5px;color:#6f6a61">（答案取自本站前五章与公开史料，可逐题回看解析。）</span>';
+        }
+      });
+      opts.appendChild(b);
+    });
+    box.appendChild(exp);
+    qzEl.appendChild(box);
+  });
+}
+
+/* ── 分享卡片生成器 ── */
+var cv=document.getElementById('cgCanvas');
+var ctx=cv?cv.getContext('2d'):null;
+var selEl=document.getElementById('cgLm'), nmEl=document.getElementById('cgName'), dlEl=document.getElementById('cgDl');
+var BG=new Image(), bgOk=false;
+if(window.ASSETS && window.ASSETS['m1855']){
+  BG.onload=function(){ bgOk=true; if(window.gzmDrawCard) window.gzmDrawCard(); };
+  BG.src=window.ASSETS['m1855'];
+}
+if(selEl) LM.forEach(function(m,i){
+  var o=document.createElement('option'); o.value=i; o.textContent=(i+1)+'. '+m.n; selEl.appendChild(o);
+});
+function spaced(c,text,x,y,sp,align){
+  var i,w=0;
+  for(i=0;i<text.length;i++) w+=c.measureText(text[i]).width+sp;
+  w-=sp;
+  var sx = align==='center' ? x-w/2 : (align==='right' ? x-w : x);
+  for(i=0;i<text.length;i++){ c.fillText(text[i],sx,y); sx+=c.measureText(text[i]).width+sp; }
+}
+function wrapText(c,text,x,y,maxW,lh){
+  var line='', yy=y;
+  for(var i=0;i<text.length;i++){
+    var test=line+text[i];
+    if(c.measureText(test).width>maxW && line){ c.fillText(line,x,yy); line=text[i]; yy+=lh; }
+    else line=test;
+  }
+  if(line) c.fillText(line,x,yy);
+  return yy;
+}
+function coverDraw(c,img,W,H,alpha){
+  c.save(); c.globalAlpha=alpha;
+  var r=Math.max(W/img.width,H/img.height), w=img.width*r, h=img.height*r;
+  c.drawImage(img,(W-w)/2,(H-h)/2,w,h); c.restore();
+}
+window.gzmDrawCard=function(){
+  if(!ctx) return;
+  var W=cv.width, H=cv.height, idx=selEl?parseInt(selEl.value||'0',10):0;
+  var m=LM[idx]||LM[0];
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle='#f7f4ee'; ctx.fillRect(0,0,W,H);
+  if(bgOk) coverDraw(ctx,BG,W,H,0.20);
+  var gd=ctx.createLinearGradient(0,0,0,H);
+  gd.addColorStop(0,'rgba(247,244,238,.72)'); gd.addColorStop(.34,'rgba(247,244,238,.28)');
+  gd.addColorStop(.60,'rgba(247,244,238,.58)'); gd.addColorStop(1,'rgba(247,244,238,.95)');
+  ctx.fillStyle=gd; ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle='#c9b79a'; ctx.lineWidth=2; ctx.strokeRect(38,38,W-76,H-76);
+  ctx.strokeStyle='#e6ddcb'; ctx.lineWidth=1; ctx.strokeRect(50,50,W-100,H-100);
+  ctx.textAlign='left'; ctx.textBaseline='alphabetic';
+  ctx.fillStyle='#a8302a'; ctx.font='600 26px sans-serif';
+  spaced(ctx,'数字广州 · 城脉千年',86,124,7,'left');
+  ctx.fillStyle='#9a948a'; ctx.font='400 19px sans-serif';
+  spaced(ctx,'DIGITAL GUANGZHOU',86,156,4,'left');
+  ctx.fillStyle='#1c1b19'; ctx.font='700 104px Georgia, "Songti SC", serif';
+  spaced(ctx,'城脉千年',86,304,10,'left');
+  ctx.fillStyle='#a8302a'; ctx.fillRect(88,338,124,5);
+  ctx.fillStyle='#1c1b19'; ctx.font='700 54px Georgia, "Songti SC", serif';
+  var y1=wrapText(ctx,m.n,86,452,W-172,68);
+  ctx.fillStyle='#a8302a'; ctx.font='400 27px sans-serif';
+  ctx.fillText(m.e,86,y1+56);
+  ctx.fillStyle='#4a463f'; ctx.font='400 27px Georgia, "Songti SC", serif';
+  wrapText(ctx,m.d,86,y1+112,W-172,44);
+  ctx.fillStyle='#3d3a35'; ctx.font='600 29px sans-serif';
+  spaced(ctx,'城脉打卡　NO.'+('0'+(idx+1)).slice(-2),86,H-176,3,'left');
+  var who=(nmEl&&nmEl.value.trim())||'无名街坊';
+  var dt=new Date();
+  var ds=dt.getFullYear()+'.'+('0'+(dt.getMonth()+1)).slice(-2)+'.'+('0'+dt.getDate()).slice(-2);
+  ctx.fillStyle='#6f6a61'; ctx.font='400 25px sans-serif';
+  ctx.fillText(who+'　·　'+ds,86,H-126);
+  ctx.fillStyle='#a8302a'; ctx.fillRect(W-196,H-244,108,108);
+  ctx.fillStyle='#fff'; ctx.font='700 46px Georgia, "Songti SC", serif'; ctx.textAlign='center';
+  ctx.fillText('城',W-142,H-192); ctx.fillText('脉',W-142,H-142);
+  ctx.textAlign='left';
+  if(dlEl && cv){
+    try{ dlEl.href=cv.toDataURL('image/png'); dlEl.classList.remove('off'); }catch(e){}
+  }
+};
+if(selEl) selEl.addEventListener('change',function(){ window.gzmDrawCard(); });
+if(nmEl) nmEl.addEventListener('input',function(){ window.gzmDrawCard(); });
+var cgb=document.getElementById('cgBtn');
+if(cgb) cgb.addEventListener('click',function(){ window.gzmDrawCard(); });
+window.gzmDrawCard();
+
+})();
+</script>
+</body>
+</html>
