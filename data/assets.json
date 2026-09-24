@@ -947,5 +947,70 @@
   "title": "五代十国·时期全图（《中国历史地图集》第五册）",
   "era": "五代十国（943年前后）",
   "src": "谭其骧主编《中国历史地图集》第五册，中国地图出版社，1982；比例尺 1:2100万"
+ },
+ {
+  "key": "tq_han_jiaozhou",
+  "file": "assets/tq_han_jiaozhou.webp",
+  "w": 2336,
+  "h": 1635,
+  "bytes": 230936,
+  "ratio": 1.429,
+  "quality": 82,
+  "format": "webp",
+  "title": "东汉 · 交州刺史部（《中国历史地图集》第2册）",
+  "era": "东汉时期",
+  "src": "谭其骧主编《中国历史地图集》第2册，中国地图出版社，1982；比例尺 1:490万"
+ },
+ {
+  "key": "tq_sg_jiaozhou",
+  "file": "assets/tq_sg_jiaozhou.webp",
+  "w": 2338,
+  "h": 1637,
+  "bytes": 261942,
+  "ratio": 1.428,
+  "quality": 82,
+  "format": "webp",
+  "title": "三国·吴 · 交州（《中国历史地图集》第3册）",
+  "era": "三国·吴时期",
+  "src": "谭其骧主编《中国历史地图集》第3册，中国地图出版社，1982；比例尺 1:490万"
+ },
+ {
+  "key": "tq_xi_jiaozhou_gz",
+  "file": "assets/tq_xi_jiaozhou_gz.webp",
+  "w": 2338,
+  "h": 1637,
+  "bytes": 241312,
+  "ratio": 1.428,
+  "quality": 82,
+  "format": "webp",
+  "title": "西晋 · 交州 广州（《中国历史地图集》第3册）",
+  "era": "西晋时期",
+  "src": "谭其骧主编《中国历史地图集》第3册，中国地图出版社，1982；比例尺 1:490万"
+ },
+ {
+  "key": "tq_nq_jiaozhou",
+  "file": "assets/tq_nq_jiaozhou.webp",
+  "w": 2370,
+  "h": 1659,
+  "bytes": 230414,
+  "ratio": 1.429,
+  "quality": 82,
+  "format": "webp",
+  "title": "南朝·齐 · 交州（《中国历史地图集》第4册）",
+  "era": "南朝 · 齐",
+  "src": "谭其骧主编《中国历史地图集》第4册，中国地图出版社，1982；比例尺 1:420万"
+ },
+ {
+  "key": "tq_nq_gz_yz",
+  "file": "assets/tq_nq_gz_yz.webp",
+  "w": 2370,
+  "h": 1659,
+  "bytes": 167064,
+  "ratio": 1.429,
+  "quality": 82,
+  "format": "webp",
+  "title": "南朝·齐 · 广州 越州（《中国历史地图集》第4册）",
+  "era": "南朝 · 齐",
+  "src": "谭其骧主编《中国历史地图集》第4册，中国地图出版社，1982；比例尺 1:420万"
  }
 ]
