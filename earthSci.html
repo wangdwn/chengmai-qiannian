@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>地球科学对人类文明的贡献（提要）—— 徐义刚院士报告｜城脉千年</title>
+<meta name="description" content="徐义刚院士在中国科学院学部第九届学术年会上的报告《地球科学对人类文明的贡献》读书提要：评判的三个标志、四个改变世界的地球故事、未来地学的四个担当。本站提要，非原文转载。">
+<style>
+/* ════════ 设计令牌 ════════ */
+:root{
+  --ink:#1c1b19; --ink2:#3d3a35; --ink3:#6f6a61; --ink4:#9a948a;
+  --paper:#f7f4ee; --card:#ffffff; --line:#e5dfd4; --line2:#f0ece4;
+  --zhu:#a8302a; --zhu-l:#f7ecea;
+  --dai:#2f6b6b; --dai-l:#eaf2f2;
+  --jin:#a8791b; --jin-l:#fbf3e0;
+  --lv:#4a7c3f; --lv-l:#eef4ec;
+  --zi:#7a5c9e; --zi-l:#f2edf8;
+  --serif:"Songti SC","SimSun","Source Han Serif SC","Noto Serif CJK SC",Georgia,serif;
+  --sans:ui-sans-serif,"PingFang SC","Microsoft YaHei",-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;padding:0 34px}
+.narrow{max-width:940px;margin:0 auto}
+
+/* ════════ 滚动进度 ════════ */
+#prog{position:fixed;top:var(--nav-h,56px);left:0;height:3px;background:var(--zhu);width:0;z-index:300;transition:width .1s linear}
+
+/* ════════ 导航 ════════ */
+header.nav{position:sticky;top:var(--nav-h,56px);z-index:150;background:rgba(247,244,238,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1240px;margin:0 auto;padding:12px 34px;display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.brand{font-size:17px;font-weight:700;letter-spacing:.06em;color:var(--zhu);white-space:nowrap}
+.brand em{font-style:normal;font-size:11px;letter-spacing:.24em;color:var(--ink3);display:block;font-family:var(--sans);margin-top:-2px}
+.nav-links{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.nav-links a{
+  font-family:var(--sans);font-size:12.8px;color:var(--ink2);text-decoration:none;
+  padding:6px 11px;border-radius:3px;transition:.18s;white-space:nowrap;letter-spacing:.02em;
+}
+.nav-links a:hover{background:#ece7dd;color:var(--zhu)}
+.nav-links a.on{background:var(--zhu);color:#fff}
+.nav-links a b{font-weight:600;opacity:.55;margin-right:4px;font-size:10.5px}
+
+/* ════════ HERO ════════ */
+.hero{padding:76px 0 54px;text-align:center;border-bottom:3px double var(--line);position:relative;overflow:hidden}
+.hero .kicker{font-family:var(--sans);font-size:11.5px;letter-spacing:.4em;color:var(--zhu);font-weight:700;margin-bottom:22px}
+.hero h1{font-size:clamp(38px,6.4vw,68px);line-height:1.16;letter-spacing:.1em;font-weight:700}
+.hero h1 span{color:var(--zhu)}
+.hero .sub{font-size:16px;color:var(--ink3);margin-top:20px;letter-spacing:.22em;font-family:var(--sans);font-size:13px}
+.hero .desc{max-width:800px;margin:26px auto 0;color:var(--ink2);font-size:15.5px;line-height:2}
+
+.big3{display:flex;justify-content:center;gap:0;margin:42px auto 8px;flex-wrap:wrap;max-width:820px}
+.big3 div{flex:1;min-width:170px;padding:0 22px;border-right:1px solid var(--line)}
+.big3 div:last-child{border:none}
+.big3 .n{font-size:44px;font-weight:700;color:var(--zhu);font-family:var(--sans);line-height:1}
+.big3 .n i{font-size:16px;font-style:normal;color:var(--ink3);margin-left:5px;font-weight:400}
+.big3 .l{font-size:13px;color:var(--ink3);margin-top:8px;letter-spacing:.1em}
+
+/* 方法论链条 */
+.chain{display:flex;align-items:stretch;justify-content:center;gap:0;margin:44px auto 0;flex-wrap:wrap;max-width:960px}
+.chain .node{
+  background:var(--card);border:1px solid var(--line);padding:16px 26px;min-width:210px;
+  position:relative;
+}
+.chain .node h5{font-size:15px;font-weight:700;margin-bottom:5px}
+.chain .node p{font-size:12.5px;color:var(--ink3);line-height:1.7;font-family:var(--sans)}
+.chain .arw{display:flex;align-items:center;padding:0 12px;color:var(--ink4);font-size:20px}
+.chain .node:nth-child(1) h5{color:var(--jin)}
+.chain .node:nth-child(3) h5{color:var(--dai)}
+.chain .node:nth-child(5) h5{color:var(--zhu)}
+
+/* 同期古城 */
+.worldcities{background:var(--card);border:1px solid var(--line);padding:26px 30px;margin:44px auto 0;max-width:1000px}
+.worldcities h4{font-size:14px;font-family:var(--sans);letter-spacing:.14em;color:var(--ink3);font-weight:700;margin-bottom:4px}
+.worldcities .note{font-size:12.5px;color:var(--ink4);margin-bottom:22px;font-family:var(--sans)}
+.wc-row{display:grid;grid-template-columns:112px 1fr;gap:14px;align-items:center;margin:9px 0}
+.wc-name{font-size:14px;font-weight:700;text-align:right;color:var(--ink2)}
+.wc-name em{font-style:normal;font-size:11px;color:var(--ink4);display:block;font-weight:400}
+.wc-bar{height:24px;background:#f0ece4;position:relative;border-radius:2px}
+.wc-bar i{position:absolute;top:0;bottom:0;border-radius:2px}
+.wc-bar b{position:absolute;right:8px;top:0;line-height:24px;font-size:11.5px;font-family:var(--sans);color:var(--ink2);font-weight:600}
+.wc-gz i{background:linear-gradient(90deg,#a8302a,#c25a52)}
+.wc-other i{background:linear-gradient(90deg,#9aa8a8,#c3cdcd)}
+
+/* ════════ 通用版块 ════════ */
+section.mod{padding:80px 0 20px;border-top:1px solid var(--line)}
+section.mod:first-of-type{border-top:none}
+.mod-head{margin-bottom:38px}
+.mod-tag{font-family:var(--sans);font-size:11.5px;letter-spacing:.3em;color:var(--zhu);font-weight:700}
+.mod-head h2{font-size:31px;letter-spacing:.05em;margin:8px 0 0;font-weight:700}
+.mod-head .en{font-family:var(--sans);font-size:11px;letter-spacing:.24em;color:var(--ink4);margin-top:6px}
+.mod-head .abs{max-width:860px;margin-top:16px;color:var(--ink2);font-size:15.5px;border-left:3px solid var(--zhu);padding-left:16px;line-height:1.95}
+h3.sec{font-size:20px;margin:44px 0 6px;font-weight:700;letter-spacing:.03em}
+h3.sec .sub{font-size:13px;color:var(--ink3);font-weight:400;margin-left:10px;font-family:var(--sans);letter-spacing:.06em}
+p.para{color:var(--ink2);font-size:15.5px;margin:14px 0;line-height:2}
+p.para b{color:var(--ink)}
+
+/* 徽章 */
+.tag{display:inline-block;font-family:var(--sans);font-size:11px;padding:2px 8px;border-radius:2px;font-weight:700;letter-spacing:.03em;vertical-align:1px;white-space:nowrap}
+.t-ok{background:var(--lv-l);color:var(--lv);border:1px solid #cfe0c9}
+.t-warn{background:var(--jin-l);color:#8a6500;border:1px solid #ecd9a6}
+.t-add{background:var(--dai-l);color:var(--dai);border:1px solid #c5dcdc}
+.t-ext{background:var(--zi-l);color:var(--zi);border:1px solid #ddd0ec}
+.t-err{background:var(--zhu-l);color:var(--zhu);border:1px solid #e6c5c1}
+.src{display:inline-block;font-family:var(--sans);font-size:11px;color:var(--ink3);background:#f2efe8;padding:0 6px;border-radius:2px;margin-left:5px}
+
+/* 卡片网格 */
+.grid{display:grid;gap:18px;margin:22px 0}
+.g2{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(258px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(196px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);padding:24px 26px;position:relative}
+.card h4{font-size:17px;margin-bottom:10px;font-weight:700;letter-spacing:.02em}
+.card p{font-size:14.2px;color:var(--ink2);line-height:1.9}
+.card .yr{font-family:var(--sans);font-size:11.5px;letter-spacing:.14em;color:var(--zhu);font-weight:700;margin-bottom:6px}
+.card.k-geo{border-top:3px solid var(--jin)}
+.card.k-pow{border-top:3px solid var(--zhu)}
+.card.k-tr{border-top:3px solid var(--dai)}
+.card.k-mod{border-top:3px solid var(--zi)}
+.card.k-fut{border-top:3px solid var(--lv)}
+
+/* 引文 */
+.quote{
+  background:#fdfbf7;border:1px solid var(--line);border-left:4px solid var(--zhu);
+  padding:20px 26px;margin:20px 0;
+}
+.quote .txt{font-size:19px;line-height:2;letter-spacing:.06em;color:var(--ink)}
+.quote .by{font-size:12.5px;color:var(--ink3);margin-top:10px;font-family:var(--sans);letter-spacing:.06em}
+
+/* 表格 */
+table{width:100%;border-collapse:collapse;margin:18px 0;background:var(--card);font-size:14px}
+th{background:#f4f0e8;text-align:left;padding:11px 14px;font-weight:700;border:1px solid var(--line);font-size:13px;white-space:nowrap}
+td{padding:10px 14px;border:1px solid var(--line);color:var(--ink2);line-height:1.75;vertical-align:top}
+td.k{font-weight:700;color:var(--ink);white-space:nowrap}
+tbody tr:nth-child(even){background:#fdfcfa}
+
+/* ════════ 时空卷轴 ════════ */
+.scroll-wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;position:relative}
+.steps{position:relative;padding-left:30px}
+.steps::before{content:"";position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:var(--line)}
+.step{padding:0 0 46px 0;position:relative;opacity:.34;transition:opacity .45s,transform .45s}
+.step .dot{position:absolute;left:-28px;top:9px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--ink4);transition:.35s}
+.step.on{opacity:1}
+.step.on .dot{background:var(--zhu);border-color:var(--zhu);box-shadow:0 0 0 5px rgba(168,48,42,.13)}
+.step .y{font-family:var(--sans);font-size:12px;letter-spacing:.16em;color:var(--zhu);font-weight:700}
+.step h4{font-size:19px;margin:4px 0 6px;font-weight:700}
+.step p{font-size:14.2px;color:var(--ink2);line-height:1.9}
+.step .mini{font-family:var(--sans);font-size:11.5px;color:var(--ink4);margin-top:8px;letter-spacing:.04em}
+.sticky{position:sticky;top:88px}
+.mapbox{background:var(--card);border:1px solid var(--line);padding:14px}
+.mapbox svg{width:100%;height:auto;display:block}
+.maplegend{display:flex;flex-wrap:wrap;gap:12px;font-family:var(--sans);font-size:11.5px;color:var(--ink3);margin-top:12px;padding-top:12px;border-top:1px solid var(--line2)}
+.maplegend span i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.layer{transition:opacity .6s}
+.era{opacity:0;transition:opacity .7s, stroke-dashoffset 1.2s}
+.era.on{opacity:1}
+.harbor{opacity:.16;transition:opacity .5s}
+.harbor.on{opacity:1}
+
+/* ════════ 图层对比滑块 ════════ */
+.compare{background:var(--card);border:1px solid var(--line);overflow:hidden;position:relative;user-select:none}
+.compare .cv{position:relative;width:100%;aspect-ratio:16/10;background:#f3efe6;overflow:hidden}
+.compare .cv>.base,.compare .cv>.top{position:absolute;inset:0}
+.compare .cv>.base{z-index:1}
+.compare .cv>.top{z-index:2}
+.compare .cv svg{width:100%;height:100%;display:block}
+.compare .clip{clip-path:inset(0 0 0 50%)}
+.compare .handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--zhu);cursor:ew-resize;z-index:5}
+.compare .handle::after{content:"◀ ▶";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--zhu);color:#fff;font-size:11px;padding:9px 6px;border-radius:3px;letter-spacing:-1px;font-family:var(--sans);white-space:nowrap}
+.compare .lbl{position:absolute;top:12px;font-family:var(--sans);font-size:11.5px;background:rgba(255,255,255,.92);padding:5px 11px;border:1px solid var(--line);letter-spacing:.08em;font-weight:700;z-index:4}
+.compare .lbl.l{left:12px;color:var(--dai)}
+.compare .lbl.r{right:12px;color:var(--zhu)}
+.compare-legend{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:12px;
+  padding:11px 14px;background:var(--card);border:1px solid var(--line);
+  font-family:var(--sans);font-size:12.5px;color:var(--ink3)}
+.compare-legend .hint{color:var(--ink4)}
+.compare-legend .sw{display:inline-flex;align-items:center;gap:5px}
+.compare-legend .sw i{display:inline-block;width:15px;height:10px;border:2px solid;border-radius:50%}
+
+/* ════════ 控件 ════════ */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:20px 0 16px}
+.tab{font-family:var(--sans);font-size:13px;padding:8px 17px;border:1px solid var(--line);background:var(--card);cursor:pointer;transition:.18s;color:var(--ink2);letter-spacing:.04em}
+.tab:hover{border-color:var(--zhu);color:var(--zhu)}
+.tab.on{background:var(--zhu);color:#fff;border-color:var(--zhu)}
+.panel{display:none}
+.panel.on{display:block;animation:fade .4s}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* 时间轴播放 */
+.tlbar{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);padding:14px 20px;margin:18px 0;flex-wrap:wrap}
+.tlbar button{font-family:var(--sans);font-size:12.5px;padding:7px 16px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--ink2);transition:.18s}
+.tlbar button:hover{border-color:var(--dai);color:var(--dai)}
+.tlbar .track{flex:1;min-width:180px;height:4px;background:#eae5da;position:relative;border-radius:2px}
+.tlbar .track i{position:absolute;left:0;top:0;bottom:0;background:var(--dai);border-radius:2px;transition:width .35s}
+.tlbar .cur{font-family:var(--sans);font-size:13px;font-weight:700;color:var(--dai);min-width:150px}
+
+/* 八景轮盘 */
+.bajing{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:10px;margin-top:18px}
+.bj{background:var(--card);border:1px solid var(--line);padding:14px 12px;text-align:center;transition:.3s}
+.bj:hover{border-color:var(--jin);transform:translateY(-2px)}
+.bj .nm{font-size:16px;font-weight:700;letter-spacing:.08em}
+.bj .pl{font-size:11.5px;color:var(--ink3);margin-top:6px;font-family:var(--sans);line-height:1.6}
+
+/* 数据条 */
+.datalist{background:var(--card);border:1px solid var(--line)}
+.dl-row{display:grid;grid-template-columns:1fr auto;gap:14px;padding:11px 20px;border-bottom:1px solid var(--line2);align-items:baseline}
+.dl-row:last-child{border:none}
+.dl-row .lb{font-size:14.2px;color:var(--ink2)}
+.dl-row .vl{font-family:var(--sans);font-size:15px;font-weight:700;color:var(--dai);white-space:nowrap}
+
+/* 档案馆 */
+.arch-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);padding:14px 18px;margin:20px 0;position:sticky;top:60px;z-index:60}
+.arch-bar input{flex:1;min-width:180px;font-family:var(--sans);font-size:13.5px;padding:8px 13px;border:1px solid var(--line);background:#fdfcfa;color:var(--ink);outline:none}
+.arch-bar input:focus{border-color:var(--zhu)}
+.arch-bar .cnt{font-family:var(--sans);font-size:12px;color:var(--ink3);white-space:nowrap}
+.arch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(292px,1fr));gap:16px}
+.arch-card{background:var(--card);border:1px solid var(--line);padding:20px 22px;border-left:3px solid var(--ink4)}
+.arch-card.ok{border-left-color:var(--lv)}
+.arch-card.warn{border-left-color:var(--jin)}
+.arch-card.ext{border-left-color:var(--zi)}
+.arch-card h5{font-size:15.5px;margin-bottom:8px;font-weight:700;line-height:1.6}
+.arch-card .body{font-size:13.6px;color:var(--ink2);line-height:1.85}
+.arch-card .foot{font-family:var(--sans);font-size:11.5px;color:var(--ink4);margin-top:12px;padding-top:10px;border-top:1px dotted var(--line);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.arch-card.hide{display:none}
+
+/* ── 信源分级图例 ── */
+.arch-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(236px,1fr));gap:14px;margin:28px 0 0}
+.al-card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--ink4);padding:16px 18px 15px}
+.al-card.ok{border-top-color:var(--lv)}
+.al-card.warn{border-top-color:var(--jin)}
+.al-card.add{border-top-color:var(--dai)}
+.al-card.img{border-top-color:#0f766e}
+.al-card .al-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+.al-card .al-n{font-family:var(--sans);font-size:25px;font-weight:700;line-height:1;color:var(--ink);white-space:nowrap}
+.al-card .al-n i{font-style:normal;font-size:11.5px;color:var(--ink4);margin-left:3px;font-weight:400}
+.al-card p{margin:0;font-size:12.5px;color:var(--ink3);line-height:1.75}
+.al-card p b{color:var(--ink2);font-weight:600}
+
+/* ── 档案概览指标条 ── */
+.arch-stat{display:grid;grid-template-columns:repeat(auto-fit,minmax(146px,1fr));background:var(--card);border:1px solid var(--line);margin:16px 0 0}
+.arch-stat .as-i{padding:16px 20px 15px;border-right:1px solid var(--line2)}
+.arch-stat .as-i:last-child{border-right:0}
+.arch-stat .as-n{font-family:var(--sans);font-size:23px;font-weight:700;color:var(--zhu);line-height:1.1}
+.arch-stat .as-n i{font-style:normal;font-size:11.5px;color:var(--ink3);margin-left:3px;font-weight:400}
+.arch-stat .as-l{font-size:12.1px;color:var(--ink3);margin-top:5px;line-height:1.6}
+
+/* ── 馆藏与征引说明（可折叠）── */
+.arch-note{background:#f2efe8;border:1px solid var(--line);border-left:3px solid var(--ink4);margin:18px 0 0}
+.arch-note summary{cursor:pointer;padding:12px 18px;font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--ink2);letter-spacing:.04em;list-style:none}
+.arch-note summary::-webkit-details-marker{display:none}
+.arch-note summary::before{content:"▸";display:inline-block;width:16px;color:var(--zhu)}
+.arch-note[open] summary::before{content:"▾"}
+.arch-note .an-body{padding:2px 20px 16px 34px;font-size:13px;color:var(--ink3);line-height:1.9}
+.arch-note .an-body p{margin:0 0 10px}
+.arch-note .an-body p:last-child{margin-bottom:0}
+
+/* ── 分类说明脚注 ── */
+.arch-keys{margin:10px 0 0;font-size:12.2px;color:var(--ink4);line-height:1.8;font-family:var(--sans)}
+.arch-keys b{color:var(--ink3);font-weight:700}
+
+footer.foot{margin-top:80px;border-top:3px double var(--line);padding:40px 0 70px;font-size:13px;color:var(--ink3);line-height:2}
+footer.foot b{color:var(--ink2)}
+
+@media(max-width:900px){
+  .scroll-wrap{grid-template-columns:1fr}
+  .sticky{position:relative;top:0}
+  .wrap{padding:0 18px}
+  .nav-in{padding:10px 18px}
+  .chain .arw{display:none}
+  .chain .node{width:100%}
+}
+
+/* ===== 真图佐证（v1.1 新增） ===== */
+.evd-block{margin:34px 0 6px}
+.evd-h{font-size:15px;color:#5b4a32;letter-spacing:.04em;margin:0 0 14px;border-left:3px solid #c0392b;padding-left:10px;font-weight:700}
+.evd-row{display:flex;flex-wrap:wrap;gap:14px}
+figure.evd{flex:1 1 250px;margin:0;background:#fff;border:1px solid #e7e2d6;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(60,40,20,.06);cursor:zoom-in;transition:.22s;position:relative}
+figure.evd:hover{box-shadow:0 6px 20px rgba(60,40,20,.14);border-color:#d9cfbb}
+figure.evd::after{content:"⤢ 点图放大";position:absolute;top:8px;right:8px;font-family:var(--sans);font-size:10.5px;letter-spacing:.05em;color:#6b6155;background:rgba(255,255,255,.9);border:1px solid #e2dac9;border-radius:3px;padding:2px 7px;opacity:0;transition:.22s;pointer-events:none}
+figure.evd:hover::after{opacity:1}
+figure.evd img{width:100%;height:200px;object-fit:contain;background:#f5f2ea;display:block}
+figure.evd figcaption{font-size:12.5px;color:#6b6155;padding:10px 12px;line-height:1.5}
+.t-img{background:#0f766e!important;color:#fff!important}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:18px}
+.gal-card{background:#fff;border:1px solid #e7e2d6;border-radius:10px;overflow:hidden;cursor:zoom-in;transition:.2s}
+.gal-card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(60,40,20,.12)}
+.gal-card img{width:100%;height:168px;object-fit:contain;background:#f5f2ea}
+.gal-card .gc-cap{padding:8px 10px;line-height:1.45}
+.gal-card .gc-t{font-weight:600;color:#4a3d28;font-size:12.5px;margin-bottom:2px}
+.gal-card .gc-m{font-size:11.5px;color:#8a7f70}
+.lightbox{position:fixed;inset:0;background:rgba(20,15,10,.94);display:none;z-index:9999;padding:66px 30px 84px;overflow:auto}
+.lightbox.on{display:flex;align-items:center;justify-content:center}
+.lightbox img{flex:0 0 auto;margin:auto;max-width:94vw;max-height:78vh;box-shadow:0 10px 40px rgba(0,0,0,.5);background:#fff;cursor:zoom-in;transition:max-width .18s,max-height .18s}
+.lightbox img.raw{max-width:none;max-height:none;cursor:zoom-out}
+.lightbox .lb-cap{position:absolute;bottom:20px;left:0;right:0;text-align:center;padding:0 90px;pointer-events:none}
+.lightbox .lb-cap .c1{font-size:14.5px;font-weight:600;color:#f4ede1;text-shadow:0 1px 6px rgba(0,0,0,.8)}
+.lightbox .lb-cap .c2{font-size:12px;color:#bdb2a0;margin-top:5px;line-height:1.7;font-family:var(--sans);text-shadow:0 1px 6px rgba(0,0,0,.8)}
+.lightbox .lb-x{position:absolute;top:14px;right:22px;color:#fff;font-size:30px;cursor:pointer;line-height:1;z-index:3;opacity:.85}
+.lightbox .lb-x:hover{opacity:1}
+.lightbox .lb-idx{position:absolute;top:20px;left:26px;color:#c9bfae;font-family:var(--sans);font-size:12.5px;letter-spacing:.1em}
+.lightbox .lb-tools{position:absolute;top:15px;right:66px;display:flex;gap:7px;z-index:3}
+.lightbox .lb-btn{font-family:var(--sans);font-size:12px;color:#f3ece0;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.24);padding:5px 11px;border-radius:3px;cursor:pointer;user-select:none;white-space:nowrap}
+.lightbox .lb-btn:hover{background:rgba(255,255,255,.24)}
+.lightbox .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:96px;display:flex;align-items:center;justify-content:center;color:#f0e8db;font-size:30px;cursor:pointer;background:rgba(255,255,255,.06);border-radius:4px;user-select:none;transition:.18s;z-index:3}
+.lightbox .lb-nav:hover{background:rgba(255,255,255,.2)}
+.lightbox .lb-prev{left:16px}
+.lightbox .lb-next{right:16px}
+.lightbox .lb-nav.off{opacity:.18;pointer-events:none}
+
+/* ── v1.5 新增：工程地质编年 / 地租梯度 / 法权转轨 / 海洋跃迁链 ── */
+.engtl{display:grid;gap:10px;margin:18px 0}
+.engtl .row{display:grid;grid-template-columns:138px 1fr;gap:14px;background:#fff;border:1px solid #e6dfd2;border-left:4px solid #a8302a;border-radius:8px;padding:12px 16px}
+.engtl .era{font-weight:700;color:#a8302a;font-size:13.4px;line-height:1.75;letter-spacing:.3px}
+.engtl .txt{font-size:14px;line-height:1.9;color:#2b2b2b}
+.engtl .txt b{color:#1a1a1a}
+.thesis{margin:16px 0;padding:15px 18px;background:#f6f2e9;border-left:4px solid #2f6b6b;border-radius:8px;font-size:14.2px;line-height:1.95;color:#26302f}
+.thesis b{color:#1f2b2a}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:16px 0}
+.chain .node{background:#fff;border:1px solid #ddd4c4;border-radius:20px;padding:7px 14px;font-size:13.2px;color:#333}
+.chain .node.hi{border-color:#a8302a;color:#a8302a;font-weight:700}
+.chain .arw{color:#a8302a;font-weight:700}
+.rentfig{margin:18px 0;background:#fff;border:1px solid #e6dfd2;border-radius:10px;padding:14px 16px}
+.rentfig figcaption{font-size:12.8px;color:#666;line-height:1.8;margin-top:6px}
+.lead2{font-size:15px;line-height:2;color:#333;margin:10px 0 4px}
+@media (max-width:720px){.engtl .row{grid-template-columns:1fr}.engtl .era{font-size:12.8px}}
+
+/* ── v1.6 新增：模块六 · 城脉共创 ── */
+.co-wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;margin:20px 0;align-items:start}
+.co-map{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;box-shadow:0 2px 10px rgba(60,40,20,.05)}
+.co-map svg{width:100%;height:auto;display:block}
+.co-note{font-family:var(--sans);font-size:11.5px;color:var(--ink4);line-height:1.7;padding:9px 4px 2px;border-top:1px dotted var(--line);margin-top:8px}
+.co-pin{cursor:pointer}
+.co-pin circle{fill:#fff;stroke:#a8302a;stroke-width:2;transition:.25s}
+.co-pin text{font-family:var(--sans);font-size:11.5px;font-weight:700;fill:#a8302a;text-anchor:middle;pointer-events:none}
+.co-pin:hover circle{fill:#f7ecea;stroke-width:3}
+.co-pin.on circle{fill:#a8302a;stroke:#7d201c}
+.co-pin.on text{fill:#fff}
+.co-side{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.co-prog{font-family:var(--sans);font-size:14px;color:var(--ink2)}
+.co-prog b{font-size:23px;color:var(--zhu);margin:0 2px}
+.co-bar{height:7px;background:#efe9de;border-radius:4px;overflow:hidden;margin:9px 0 14px}
+.co-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#a8302a,#c25a52);transition:width .45s}
+.co-list{display:grid;gap:7px;max-height:330px;overflow:auto;padding-right:4px}
+.co-item{display:grid;grid-template-columns:22px 1fr;gap:9px;align-items:start;cursor:pointer;padding:7px 9px;border:1px solid var(--line2);border-radius:8px;transition:.18s}
+.co-item:hover{border-color:#d8cdb8;background:#fdfbf7}
+.co-item.on{background:#f7ecea;border-color:#e6c5c1}
+.co-item .no{font-family:var(--sans);font-size:11.5px;font-weight:700;color:#fff;background:#c3b9a7;width:19px;height:19px;line-height:19px;text-align:center;border-radius:50%;margin-top:2px}
+.co-item.on .no{background:var(--zhu)}
+.co-item .nm{display:block;font-size:13.4px;font-weight:700;color:var(--ink);line-height:1.5}
+.co-item .mt{display:block;font-size:11.6px;color:var(--ink4);font-family:var(--sans);line-height:1.6;margin-top:1px}
+.co-reset{margin-top:14px;font-family:var(--sans);font-size:12px;padding:7px 14px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--ink3);border-radius:6px}
+.co-reset:hover{border-color:var(--zhu);color:var(--zhu)}
+.co-hint{margin-top:12px;font-size:12.6px;color:var(--ink3);font-family:var(--sans);line-height:1.75}
+
+.quiz{display:grid;gap:14px;margin:18px 0}
+.qz{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 20px}
+.qz .q{font-size:15px;font-weight:700;margin-bottom:11px;line-height:1.7}
+.qz .q em{font-family:var(--sans);font-style:normal;font-size:12.5px;color:var(--zhu);margin-right:8px}
+.qz .opts{display:grid;gap:8px}
+.qz .op{font-size:14px;padding:9px 14px;border:1px solid var(--line);border-radius:7px;cursor:pointer;transition:.16s;color:var(--ink2);background:#fdfcfa}
+.qz .op:hover{border-color:#c9bda6}
+.qz .op.right{background:#eef4ec;border-color:#a9c79f;color:#2f5c26;font-weight:700}
+.qz .op.wrong{background:#f7ecea;border-color:#e0b6b1;color:#8e2620}
+.qz .op.dis{pointer-events:none;opacity:.74}
+.qz .exp{display:none;margin-top:11px;padding-top:10px;border-top:1px dotted var(--line);font-size:13px;color:var(--ink2);line-height:1.85}
+.qz .exp.on{display:block}
+.quiz-res{background:#f6f2e9;border-left:4px solid var(--dai);border-radius:8px;padding:16px 20px;font-size:14.2px;line-height:1.95;color:#26302f}
+.quiz-res b{font-size:20px;color:var(--dai)}
+
+.cardgen{display:grid;grid-template-columns:1fr 340px;gap:24px;margin:20px 0;align-items:start}
+.cg-form{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+.cg-form label{display:block;font-family:var(--sans);font-size:12.5px;color:var(--ink3);margin:0 0 6px;letter-spacing:.04em}
+.cg-form select,.cg-form input{width:100%;font-family:var(--sans);font-size:13.5px;padding:9px 12px;border:1px solid var(--line);border-radius:7px;background:#fdfcfa;color:var(--ink);outline:none;margin-bottom:14px}
+.cg-form select:focus,.cg-form input:focus{border-color:var(--zhu)}
+.cg-btns{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.cg-btns button,.cg-dl{font-family:var(--sans);font-size:13px;padding:9px 18px;border-radius:7px;cursor:pointer;border:1px solid var(--zhu);background:var(--zhu);color:#fff;text-decoration:none;display:inline-block;transition:.18s}
+.cg-btns button:hover{background:#8e2620}
+.cg-dl{background:#fff;color:var(--zhu)}
+.cg-dl:hover{background:#f7ecea}
+.cg-dl.off{opacity:.45;pointer-events:none}
+.cg-note{font-size:12px;color:var(--ink4);font-family:var(--sans);margin-top:13px;line-height:1.75}
+.cg-prev{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
+.cg-prev canvas{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 3px 14px rgba(60,40,20,.1)}
+@media(max-width:900px){.co-wrap,.cardgen{grid-template-columns:1fr}.co-list{max-height:none}}
+</style>
+<style>
+  .paper{max-width:900px;margin:0 auto;padding:40px 26px 90px}
+  .art-title{font-size:30px;line-height:1.45;font-weight:700;letter-spacing:.02em}
+  .art-sub{font-size:16px;color:var(--ink3);margin-top:10px;line-height:1.8}
+  .art-by{font-family:var(--sans);font-size:13px;color:var(--ink3);margin-top:14px;
+           padding-bottom:18px;border-bottom:1px solid var(--line)}
+  .absbox{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--zhu);
+           padding:20px 22px;margin:26px 0;font-size:14.5px;line-height:1.95;color:var(--ink2)}
+  .absbox b{color:var(--ink)}
+  .kw{font-family:var(--sans);font-size:13px;color:var(--ink3);margin-top:10px}
+  .toc{background:var(--card);border:1px solid var(--line);padding:18px 22px;margin:26px 0}
+  .toc a{display:block;font-size:14px;color:var(--ink2);text-decoration:none;padding:5px 0;
+          border-bottom:1px dotted var(--line)}
+  .toc a:hover{color:var(--zhu)}
+  .toc a b{font-family:var(--sans);font-size:11.5px;color:var(--ink4);margin-right:10px;letter-spacing:.06em}
+  .paper h2{font-size:21px;margin:52px 0 10px;font-weight:700;letter-spacing:.03em;line-height:1.6}
+  .paper h3{font-size:16.5px;margin:32px 0 8px;font-weight:700;color:var(--ink)}
+  .paper p{font-size:15.5px;line-height:2.05;color:var(--ink2);margin:13px 0}
+  .paper p.li{padding-left:18px;text-indent:-18px}
+  .fig{margin:30px 0 34px}
+  .fig figcaption{font-family:var(--sans);font-size:12px;color:var(--ink3);text-align:center;
+                   margin-top:10px;line-height:1.7}
+  .backbar{position:sticky;top:0;z-index:80;background:rgba(247,244,238,.94);backdrop-filter:blur(6px);
+            border-bottom:1px solid var(--line);padding:11px 0}
+  .backbar .in{max-width:900px;margin:0 auto;padding:0 26px;display:flex;justify-content:space-between;
+                gap:12px;font-family:var(--sans);font-size:12.5px}
+  .backbar a{color:var(--ink2);text-decoration:none}
+  .backbar a:hover{color:var(--zhu)}
+  .note-edge{font-family:var(--sans);font-size:12.5px;color:var(--ink3);background:var(--jin-l);
+              border-left:3px solid var(--jin);padding:12px 16px;margin:26px 0;line-height:1.85}
+</style>
+</head>
+<body>
+
+<div class="backbar"><div class="in">
+  <a href="./index.html">← 返回《城脉千年》</a>
+  <a href="./index.html#geo">地质底本</a>
+  <a href="./index.html#archive">考据档案</a>
+</div></div>
+
+<div class="paper">
+  <div class="art-title">地球科学对人类文明的贡献</div>
+  <div class="art-sub">——评判的三个标志 · 四个改变世界的地球故事 · 未来的四个担当</div>
+  <div class="art-by">徐义刚　·　中国科学院院士、中国科学院广州地球化学研究所研究员</div>
+
+  <div class="absbox"><b>内容提要（本站整理）</b>　人类文明有三个要素：认知、财富、规则；地球科学有三种能力：认识自然、利用自然、和谐自然。徐义刚院士以此立出评判一门学科对文明贡献的三个标志，再以四个经典案例——进化论、工业革命、板块构造理论、气候变化——梳理地球科学对人类文明的历史贡献，并提出未来地学的四个担当。本页按其报告主线整理为提要，供站内引证与延伸阅读之用。
+    <div class="kw"><b>关键词</b>　地球科学；人类文明；认知·财富·规则；板块构造；气候变化；地质学与工业革命；关键矿产；深海与深空</div>
+  </div>
+
+  <div class="note-edge"><b>本页为读书提要，不是原文转载。</b>报告原文为徐义刚院士在中国科学院学部第九届学术年会上所作，由中国科学院「科学大院」整理成文，中国科学院学部官网刊出报告全文。原文版权归原作者与首发平台所有：本站只按主线重述其框架与论点、不逐字转录，如需引用原句请回原出处（链接见文末）。凡本页与报告原文表述有出入处，以原文为准。</div>
+
+  <div class="toc"><a href="#s1"><b>01</b>一　评判的三个标志</a><a href="#s2"><b>02</b>二　四个改变世界的地球故事</a><a href="#s3"><b>03</b>三　故事之外的四点方法</a><a href="#s4"><b>04</b>四　未来社会发展中的地学担当</a><a href="#s5"><b>05</b>五　本站读法：把尺度接进「城脉千年」</a><a href="#src"><b>06</b>六　来源与说明</a></div>
+
+  <h2 id="s1">一　评判的三个标志</h2>
+  <p>报告要回答的问题很直接：一门学科对人类文明有多大贡献，能不能被衡量？办法是先把文明拆成三要素，再让地球科学的三种能力与之一一对应。</p>
+  <p class="li"><b>文明三要素</b>：认知、财富、规则。</p>
+  <p class="li"><b>地学三能力</b>：认识自然、利用自然、和谐自然。</p>
+  <p>对应关系一旦立住，评判就有了三个标志，也就是三问：</p>
+  <p class="li">这一研究是否<b>颠覆了人类的认知</b>？</p>
+  <p class="li">是否<b>提高了生产力、创造了财富</b>，改善了人的生存质量、改变了人的生活方式？</p>
+  <p class="li">是否<b>和谐了人际关系、促进了全球治理</b>？</p>
+  <p>报告特别指出，地球科学具有双重属性：一方面它是自然科学体系（数、理、化、天、地、生）中的一员，帮我们认识地球；另一方面它始终围绕人类的基本需求，解决生存问题、造福人类。研究对象则「横跨数万里、上下数亿年」——尺度之大，本学科自己也常被误解为「只是找矿的」。</p>
+
+  <h2 id="s2">二　四个改变世界的地球故事</h2>
+  <p>在基金委地球科学部学科梳理组、中国科学院地学部常委会与武汉文献情报中心的支撑下，报告梳理了大量经典案例，现场讲了其中四个。</p>
+
+  <h3>故事一　没有地质学，就没有进化论</h3>
+  <p>「我们是谁、从哪里来、要到哪里去」是人类的根本问题。通常人们把它归功于达尔文的《物种起源》，报告却从莱伊尔的《地质学原理》讲起：在神学支配地质知识的年代，地层被解释为诺亚洪水的产物、地球年龄只有 6000 年；莱伊尔主张地质作用是缓慢渐进的，地球的过去只能用现今仍在发生的地质作用去认识，据此推断地球年龄<b>至少 3 亿年</b>。</p>
+  <p>这个「3 亿年」不是细节：进化论需要足够长的时间，达尔文正是带着《地质学原理》第一册出海五年，考察归来与莱伊尔一见如故，此后书信往还皆在探讨地质与生物进化的原理。1875 年莱伊尔去世，达尔文说，自己在科学上所做的一切，几乎归功于对这部伟大著作的研究。</p>
+  <p>此后地球科学家一直在延长这条时间轴：上世纪 50 年代用同位素方法把地球年龄精确到 <b>45 亿年</b>；古生物学家在地层中发现最早的生命出现在 <b>38 亿年前</b>；在东非阿法尔洼地发现 <b>318 万年前</b>的直立人化石，奠定「人类走出非洲」学说；1979 年「阿尔文号」深潜海底发现<b>黑烟囱</b>，暗无天日的海底竟有生物群落——「万物生长靠太阳」并非绝对，地球内能同样可以支撑生命。</p>
+
+  <h3>故事二　没有地质学，就没有工业革命</h3>
+  <p>报告把能源更替与文明演替叠在一张图上：煤炭点燃第一次工业革命，石油是第二次工业革命的血液，铀、锗、硅、锂、稀土等是第三次工业革命的「维生素」，新型能源与能源金属则是第四次工业革命的基础物质。能源结构曲线的拐点，与人类文明的转换时间彼此吻合——<b>人类文明史，就是一部能源利用史</b>。</p>
+  <p>报告特别提醒看图上的另一组标记：背斜说、页岩气成藏等经典石油地质理论的提出时间，<b>都发生在能源更替之前</b>。基础研究对人类文明演替有促进作用，同时也说明——基础研究有时是无法预先规划的。</p>
+  <p>接下来是中国案例。全球九成油气储量发现于海相地层，学界一度认为陆相地层贫油，中国因此被打上「中国贫油」的标签。以潘钟祥为代表的我国科学家提出陆相沉积可以生油的认识，并系统论证了新华夏系沉降带的生油储油条件；正是在陆相生油理论指导下，大庆、胜利等油田相继发现，中国石油工业由此兴起。报告的话说得很重：没有陆相生油理论，就没有中国的现代化工业体系。这一理论的影响还远及海外——近年全球若干重大油气发现，正落在昔日海相生油理论认为「不可能有油」的地方。</p>
+  <p>文明史同样是资源史。报告用三个小故事说明找矿如何成为冲破封锁的突破口：五次反围剿期间，铁山垅钨矿产钨 7500 吨、收入 453 万大洋，占当时苏区财政收入约七成，养活了十万红军；「一五」期间国家重点建设项目有一半投在资源型城市，53 座城市因矿而兴；1954 年中央给时任地质部长李四光下达绝密任务寻找铀矿，八个月后在广西富钟找到，样品送到中南海，由此拍板研制自己的原子弹——后来的「两弹一星」，确保了一方平安。</p>
+
+  <h3>故事三　改变世界的地图与板块构造理论</h3>
+  <p>报告把地图誉为人类文明史上的伟大创想：它以科学的符号系统、精确的投影和综合方法，表达复杂地理世界的空间结构与关系。1495 年哥伦布带着托勒密世界地图西行，发现了美洲大陆，掀起人类迁移史上的又一次高潮。</p>
+  <p>地图也引出了地球科学的一次伟大发现。魏格纳从大西洋两岸大陆形态的吻合出发提出大陆漂移，但直到 1930 年他在格陵兰遇难，这一学说仍未获承认。二十多年后，玛丽·塔普用二战期间积累的海底声呐测深数据绘出全球第一张海底综合地图，人们才惊讶地发现：平静海面之下，卧着地球上最长的山脉——<b>长达 8 万公里的洋中脊</b>。赫斯据此提出海底扩张学说：地幔自洋中脊上涌、两侧对称生长，遇海沟则俯冲消减。地球从此不再因海陆固定而暮气沉沉，而因有「生」有「死」、周而复始而生机勃勃。</p>
+  <p>板块构造颠覆了固定论的地质思维，能预测火山与地震的分布、矿产资源的富集，也揭示了板块构造对地球宜居性与生命起源的意义。报告指出，它与量子力学、分子生物学、相对论并列为<b>20 世纪自然科学的四大成就</b>。而今天地图与人工智能、卫星导航融合为智能地图，背后仍是地球科学：地球参考系提供空间基准、板块运动监测提供坐标框架、重力模型参与轨道计算。</p>
+
+  <h3>故事四　气候变化改变了世界经济发展的范式</h3>
+  <p>报告以四位（组）科学家的故事串起这条线。洛伦茨 1963 年提出混沌理论、给出「蝴蝶效应」的著名比喻，引发非线性科学的革命；1985 年南极臭氧空洞被发现，克鲁岑等三人查明氟利昂是元凶，推动《蒙特利尔议定书》削减并最终禁用氟利昂，被视为 20 世纪最成功的全球环境治理案例之一（三人获诺贝尔化学奖）。</p>
+  <p>全球变暖同样出自地球科学：1975 年布洛克在《Science》发文，准确预测大气二氧化碳升高是全球变暖主因，关键证据是基林自 1958 年起在夏威夷观测的二氧化碳浓度曲线——后成为 20 世纪气候变化的标志图；1988 年汉森在美国国会听证会上发出警告，问题进入公众视野。气候学家真锅淑郎与哈塞尔曼建立了迄今最复杂的动力学系统——地球系统，奠定气候变异与人类影响的认知基础，获 2021 年诺贝尔物理学奖。</p>
+  <p>影响力随后从科学走向制度：1988 年 IPCC 成立，1992 年《联合国气候变化框架公约》签署，1997 年《京都议定书》、2015 年《巴黎协定》把升温幅度控制在工业化前 2℃ 以内。报告由此判断：气候变化研究引领全球迈向无碳经济，正在<b>重构工业革命以来全球经济发展的范式</b>。</p>
+
+  <h2 id="s3">三　故事之外的四点方法</h2>
+  <p>报告从四个故事里提炼了四条，与其说是结论，不如说是做法：</p>
+  <p class="li">始终保持<b>好奇心、想象力、全球观与整合力</b>；</p>
+  <p class="li"><b>重视观察和观测</b>——面对一个庞大的地球，基林、塔普这样长期而基础的观测工作尤其重要；</p>
+  <p class="li">以<b>相互欣赏</b>的态度进行跨学科交叉；</p>
+  <p class="li"><b>拥抱新技术、新事物</b>。</p>
+
+  <h2 id="s4">四　未来社会发展中的地学担当</h2>
+  <p>报告用一句时间的换算开场：若把 46 亿年的地球历史压缩成一天，人类出现只占一分多钟，出现文明只是这一天最后的几秒钟。而在这几秒里，人类创造了辉煌，也造成了不可逆转的改变——人口增长、环境退化、城市扩张、资源枯竭、全球变暖、灾害频发、生物多样性减少。未来地学的担当，报告分两层说：作为中国人，以科技强国为己任、维系中华文明永续发展；作为地球人，践行「地球—生命命运共同体」的理念。</p>
+
+  <h3>其一　敬畏自然，不断拓展认知边界</h3>
+  <p>整合地学分支学科与其他学科，打通不同时间尺度、耦合存在数量级差异的固体层圈与流体层圈动力过程，发展<b>地球系统科学</b>；并主动发起引领国际大科学计划——「深时数字地球」「海洋负排放」就是我国科学家的探索。</p>
+
+  <h3>其二　服务国家意志，保障国家安全</h3>
+  <p>关键矿产已成为大国博弈的重要领域：新能源汽车、锂电池、光伏产品是我国外贸「新三样」，而与之相关的锂、钴、镍等 <b>9 种金属对外依存度超过 50%</b>，因此必须关注新能源金属的成矿理论与找矿突破；低碳清洁能源是大势，创建成氢理论、寻找天然氢气资源，是「双碳」目标的重要途径。海洋方面，海洋科技的发展与大国的兴起息息相关，要突破核心装备与关键技术瓶颈，逐步实现<b>深海进入、深海探测、深海开发</b>三步走的国家深海战略。</p>
+
+  <h3>其三　提升和谐自然的能力，增进人民福祉</h3>
+  <p>统筹气候变化应对、生态保护与污染防治，促进人与自然一体化的健康，建设美丽中国与宜居地球。报告特意补了一句没来得及展开的话：水是生命之源、文明之本、生产之要、生态之基，水的安全保障是未来经济社会可持续发展的一个重要方向。同时要增强文明对自然灾害的抵御能力——莱伊尔说「现在是理解过去的钥匙」，今天更进一步：只有了解过去，才能预测未来。滑坡、地震、火山、磁暴等灾害的早期预测预警，复合巨灾的机理与风险防控、灾害性天气的精准预报，都落在这一条上。</p>
+
+  <h3>其四　拓展人类生存空间</h3>
+  <p>1957 年第一颗人造卫星升空，人类第一次从外部看地球；1969 年阿波罗 11 号登月，人类从地球物种走向跨星际物种。我国的嫦娥揽月、天问探火，正是这一进程的延续。报告强调地球科学家在此中不可替代：正是地球科学家提出月球演化史上「一老一新」的问题，嫦娥五号、六号才选择了相应的着陆区；对嫦娥五号月壤的研究改写了月球岩浆活动的历史，而嫦娥六号带回了人类第一份月背样品。阿波罗计划的成功秘诀是科学、技术、工程的融合——由地球科学与行星科学问题驱动的探测设计，因而十分必要。</p>
+  <p>报告以「旅行者号」在 64 亿公里外拍摄的地球作结：那只是一个淡蓝色的小点，其上住着我们认识与不认识的人、朋友与敌人。卡尔·萨根因此感慨，我们有责任更好地相处，并保护珍惜这颗蓝色星球。</p>
+
+  <h2 id="s5">五　本站读法：把尺度接进「城脉千年」</h2>
+  <p style="font-family:var(--sans);font-size:12.5px;color:var(--ink3)">以下为本站按自身框架所作的延伸，不代表报告原文观点。</p>
+  <p>本平台沿「地质地理底本为基 → 海洋商贸资本为动 → 上层建筑因应调整为法」的链条讲广州。这份报告正好出现在链条的第一节上：它给出的三个标志（认知、财富、规则），可以用来给「底本」这一层做一次方法上的自我校准——我们讲的不是宿命的地理决定论，而是<b>被认知不断改写、被生产力不断重写的长期条件</b>。</p>
+  <p>三个接口值得一提：其一，报告的第一个故事（进化论与地质学）与本站「地质底本」模块同源——地球年龄与生命起源的时间尺度，本就是地质学给文明的礼物；其二，报告讲海洋科技与大国的兴衰、讲深海三步走，与本站「通海达邦」一段两千年通海的历史互为今昔；其三，报告讲水安全与防灾减灾，正是广州每年汛期都要重答一遍的题（台风、暴雨、风暴潮、咸潮与地质条件的关系，见本站地质底本与面向 2049 两章）。</p>
+  <p>也正因为它讲的是「地球科学怎么改变文明」而非「广州怎么样」，本站只把它当作<b>尺度</b>，不当作结论：它给出的是判断一门学科贡献的坐标，广州的答案仍要由广州的材料来写。</p>
+
+  <h2 id="src">六　来源与说明</h2>
+  <p class="li">报告人：徐义刚，中国科学院院士、中国科学院广州地球化学研究所研究员；长期从事地幔岩石学与深地科学研究，发表论文 300 余篇。报告来源：<a href="https://academics.casad.cas.cn/xshd/xsnh/2024xsnh/xsbg/202406/t20240614_5021407.html" target="_blank" rel="noopener">中国科学院学部官网 · 学术引领 · 2024 年学术年会</a>（报告全文，2024 年 6 月发布）。</p>
+  <p class="li">整理与首发：本文由「科学大院」根据报告整理成文；<a href="https://www.kepuchina.cn/article/articleinfo?business_type=100&amp;classify=0&amp;ar_id=690682" target="_blank" rel="noopener">科普中国网转载本</a>。该转载本页面注明「本文已获授权，不允许二次转载」，故本站<b>不转载原文</b>，只作提要、引证与延伸，读者如需原文请循上列链接阅读。</p>
+  <p class="li">相关延伸讲座（同一报告，不同场合）：中国科学院广州分院（厦门大学群贤大讲堂、浙江大学求是大讲堂等）与相关高校多有其讲演报道，可作版本比对之用。</p>
+  <p class="li">本页提要由本站依据上述两源核对后整理；凡数据、年代、人名与专名，均以上述原文为准。整理日期：2026 年 9 月。</p>
+
+  <div class="note-edge">本站的引证口径：<b>◆ 当代研究</b> 指当代学者与研究机构的公开成果，经站内核验出处与时间后引用；此类内容与传世文献、馆藏古图分列，不作史料原文使用。</div>
+</div>
+
+</body>
+</html>
