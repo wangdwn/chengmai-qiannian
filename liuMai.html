@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>把脉城市 有机更新 —— 广州城市脉络与用地改革的六脉观察｜城脉千年</title>
+<meta name="description" content="以广州为样本，梳理地脉、水脉、村脉、文脉、商脉、精脉六条城市脉络，并逐条追问其对应的用地安排。">
+<style>
+/* ════════ 设计令牌 ════════ */
+:root{
+  --ink:#1c1b19; --ink2:#3d3a35; --ink3:#6f6a61; --ink4:#9a948a;
+  --paper:#f7f4ee; --card:#ffffff; --line:#e5dfd4; --line2:#f0ece4;
+  --zhu:#a8302a; --zhu-l:#f7ecea;
+  --dai:#2f6b6b; --dai-l:#eaf2f2;
+  --jin:#a8791b; --jin-l:#fbf3e0;
+  --lv:#4a7c3f; --lv-l:#eef4ec;
+  --zi:#7a5c9e; --zi-l:#f2edf8;
+  --serif:"Songti SC","SimSun","Source Han Serif SC","Noto Serif CJK SC",Georgia,serif;
+  --sans:ui-sans-serif,"PingFang SC","Microsoft YaHei",-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;padding:0 34px}
+.narrow{max-width:940px;margin:0 auto}
+
+/* ════════ 滚动进度 ════════ */
+#prog{position:fixed;top:var(--nav-h,56px);left:0;height:3px;background:var(--zhu);width:0;z-index:300;transition:width .1s linear}
+
+/* ════════ 导航 ════════ */
+header.nav{position:sticky;top:var(--nav-h,56px);z-index:150;background:rgba(247,244,238,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1240px;margin:0 auto;padding:12px 34px;display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.brand{font-size:17px;font-weight:700;letter-spacing:.06em;color:var(--zhu);white-space:nowrap}
+.brand em{font-style:normal;font-size:11px;letter-spacing:.24em;color:var(--ink3);display:block;font-family:var(--sans);margin-top:-2px}
+.nav-links{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.nav-links a{
+  font-family:var(--sans);font-size:12.8px;color:var(--ink2);text-decoration:none;
+  padding:6px 11px;border-radius:3px;transition:.18s;white-space:nowrap;letter-spacing:.02em;
+}
+.nav-links a:hover{background:#ece7dd;color:var(--zhu)}
+.nav-links a.on{background:var(--zhu);color:#fff}
+.nav-links a b{font-weight:600;opacity:.55;margin-right:4px;font-size:10.5px}
+
+/* ════════ HERO ════════ */
+.hero{padding:76px 0 54px;text-align:center;border-bottom:3px double var(--line);position:relative;overflow:hidden}
+.hero .kicker{font-family:var(--sans);font-size:11.5px;letter-spacing:.4em;color:var(--zhu);font-weight:700;margin-bottom:22px}
+.hero h1{font-size:clamp(38px,6.4vw,68px);line-height:1.16;letter-spacing:.1em;font-weight:700}
+.hero h1 span{color:var(--zhu)}
+.hero .sub{font-size:16px;color:var(--ink3);margin-top:20px;letter-spacing:.22em;font-family:var(--sans);font-size:13px}
+.hero .desc{max-width:800px;margin:26px auto 0;color:var(--ink2);font-size:15.5px;line-height:2}
+
+.big3{display:flex;justify-content:center;gap:0;margin:42px auto 8px;flex-wrap:wrap;max-width:820px}
+.big3 div{flex:1;min-width:170px;padding:0 22px;border-right:1px solid var(--line)}
+.big3 div:last-child{border:none}
+.big3 .n{font-size:44px;font-weight:700;color:var(--zhu);font-family:var(--sans);line-height:1}
+.big3 .n i{font-size:16px;font-style:normal;color:var(--ink3);margin-left:5px;font-weight:400}
+.big3 .l{font-size:13px;color:var(--ink3);margin-top:8px;letter-spacing:.1em}
+
+/* 方法论链条 */
+.chain{display:flex;align-items:stretch;justify-content:center;gap:0;margin:44px auto 0;flex-wrap:wrap;max-width:960px}
+.chain .node{
+  background:var(--card);border:1px solid var(--line);padding:16px 26px;min-width:210px;
+  position:relative;
+}
+.chain .node h5{font-size:15px;font-weight:700;margin-bottom:5px}
+.chain .node p{font-size:12.5px;color:var(--ink3);line-height:1.7;font-family:var(--sans)}
+.chain .arw{display:flex;align-items:center;padding:0 12px;color:var(--ink4);font-size:20px}
+.chain .node:nth-child(1) h5{color:var(--jin)}
+.chain .node:nth-child(3) h5{color:var(--dai)}
+.chain .node:nth-child(5) h5{color:var(--zhu)}
+
+/* 同期古城 */
+.worldcities{background:var(--card);border:1px solid var(--line);padding:26px 30px;margin:44px auto 0;max-width:1000px}
+.worldcities h4{font-size:14px;font-family:var(--sans);letter-spacing:.14em;color:var(--ink3);font-weight:700;margin-bottom:4px}
+.worldcities .note{font-size:12.5px;color:var(--ink4);margin-bottom:22px;font-family:var(--sans)}
+.wc-row{display:grid;grid-template-columns:112px 1fr;gap:14px;align-items:center;margin:9px 0}
+.wc-name{font-size:14px;font-weight:700;text-align:right;color:var(--ink2)}
+.wc-name em{font-style:normal;font-size:11px;color:var(--ink4);display:block;font-weight:400}
+.wc-bar{height:24px;background:#f0ece4;position:relative;border-radius:2px}
+.wc-bar i{position:absolute;top:0;bottom:0;border-radius:2px}
+.wc-bar b{position:absolute;right:8px;top:0;line-height:24px;font-size:11.5px;font-family:var(--sans);color:var(--ink2);font-weight:600}
+.wc-gz i{background:linear-gradient(90deg,#a8302a,#c25a52)}
+.wc-other i{background:linear-gradient(90deg,#9aa8a8,#c3cdcd)}
+
+/* ════════ 通用版块 ════════ */
+section.mod{padding:80px 0 20px;border-top:1px solid var(--line)}
+section.mod:first-of-type{border-top:none}
+.mod-head{margin-bottom:38px}
+.mod-tag{font-family:var(--sans);font-size:11.5px;letter-spacing:.3em;color:var(--zhu);font-weight:700}
+.mod-head h2{font-size:31px;letter-spacing:.05em;margin:8px 0 0;font-weight:700}
+.mod-head .en{font-family:var(--sans);font-size:11px;letter-spacing:.24em;color:var(--ink4);margin-top:6px}
+.mod-head .abs{max-width:860px;margin-top:16px;color:var(--ink2);font-size:15.5px;border-left:3px solid var(--zhu);padding-left:16px;line-height:1.95}
+h3.sec{font-size:20px;margin:44px 0 6px;font-weight:700;letter-spacing:.03em}
+h3.sec .sub{font-size:13px;color:var(--ink3);font-weight:400;margin-left:10px;font-family:var(--sans);letter-spacing:.06em}
+p.para{color:var(--ink2);font-size:15.5px;margin:14px 0;line-height:2}
+p.para b{color:var(--ink)}
+
+/* 徽章 */
+.tag{display:inline-block;font-family:var(--sans);font-size:11px;padding:2px 8px;border-radius:2px;font-weight:700;letter-spacing:.03em;vertical-align:1px;white-space:nowrap}
+.t-ok{background:var(--lv-l);color:var(--lv);border:1px solid #cfe0c9}
+.t-warn{background:var(--jin-l);color:#8a6500;border:1px solid #ecd9a6}
+.t-add{background:var(--dai-l);color:var(--dai);border:1px solid #c5dcdc}
+.t-ext{background:var(--zi-l);color:var(--zi);border:1px solid #ddd0ec}
+.t-err{background:var(--zhu-l);color:var(--zhu);border:1px solid #e6c5c1}
+.src{display:inline-block;font-family:var(--sans);font-size:11px;color:var(--ink3);background:#f2efe8;padding:0 6px;border-radius:2px;margin-left:5px}
+
+/* 卡片网格 */
+.grid{display:grid;gap:18px;margin:22px 0}
+.g2{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(258px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(196px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);padding:24px 26px;position:relative}
+.card h4{font-size:17px;margin-bottom:10px;font-weight:700;letter-spacing:.02em}
+.card p{font-size:14.2px;color:var(--ink2);line-height:1.9}
+.card .yr{font-family:var(--sans);font-size:11.5px;letter-spacing:.14em;color:var(--zhu);font-weight:700;margin-bottom:6px}
+.card.k-geo{border-top:3px solid var(--jin)}
+.card.k-pow{border-top:3px solid var(--zhu)}
+.card.k-tr{border-top:3px solid var(--dai)}
+.card.k-mod{border-top:3px solid var(--zi)}
+.card.k-fut{border-top:3px solid var(--lv)}
+
+/* 引文 */
+.quote{
+  background:#fdfbf7;border:1px solid var(--line);border-left:4px solid var(--zhu);
+  padding:20px 26px;margin:20px 0;
+}
+.quote .txt{font-size:19px;line-height:2;letter-spacing:.06em;color:var(--ink)}
+.quote .by{font-size:12.5px;color:var(--ink3);margin-top:10px;font-family:var(--sans);letter-spacing:.06em}
+
+/* 表格 */
+table{width:100%;border-collapse:collapse;margin:18px 0;background:var(--card);font-size:14px}
+th{background:#f4f0e8;text-align:left;padding:11px 14px;font-weight:700;border:1px solid var(--line);font-size:13px;white-space:nowrap}
+td{padding:10px 14px;border:1px solid var(--line);color:var(--ink2);line-height:1.75;vertical-align:top}
+td.k{font-weight:700;color:var(--ink);white-space:nowrap}
+tbody tr:nth-child(even){background:#fdfcfa}
+
+/* ════════ 时空卷轴 ════════ */
+.scroll-wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;position:relative}
+.steps{position:relative;padding-left:30px}
+.steps::before{content:"";position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:var(--line)}
+.step{padding:0 0 46px 0;position:relative;opacity:.34;transition:opacity .45s,transform .45s}
+.step .dot{position:absolute;left:-28px;top:9px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--ink4);transition:.35s}
+.step.on{opacity:1}
+.step.on .dot{background:var(--zhu);border-color:var(--zhu);box-shadow:0 0 0 5px rgba(168,48,42,.13)}
+.step .y{font-family:var(--sans);font-size:12px;letter-spacing:.16em;color:var(--zhu);font-weight:700}
+.step h4{font-size:19px;margin:4px 0 6px;font-weight:700}
+.step p{font-size:14.2px;color:var(--ink2);line-height:1.9}
+.step .mini{font-family:var(--sans);font-size:11.5px;color:var(--ink4);margin-top:8px;letter-spacing:.04em}
+.sticky{position:sticky;top:88px}
+.mapbox{background:var(--card);border:1px solid var(--line);padding:14px}
+.mapbox svg{width:100%;height:auto;display:block}
+.maplegend{display:flex;flex-wrap:wrap;gap:12px;font-family:var(--sans);font-size:11.5px;color:var(--ink3);margin-top:12px;padding-top:12px;border-top:1px solid var(--line2)}
+.maplegend span i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.layer{transition:opacity .6s}
+.era{opacity:0;transition:opacity .7s, stroke-dashoffset 1.2s}
+.era.on{opacity:1}
+.harbor{opacity:.16;transition:opacity .5s}
+.harbor.on{opacity:1}
+
+/* ════════ 图层对比滑块 ════════ */
+.compare{background:var(--card);border:1px solid var(--line);overflow:hidden;position:relative;user-select:none}
+.compare .cv{position:relative;width:100%;aspect-ratio:16/10;background:#f3efe6;overflow:hidden}
+.compare .cv>.base,.compare .cv>.top{position:absolute;inset:0}
+.compare .cv>.base{z-index:1}
+.compare .cv>.top{z-index:2}
+.compare .cv svg{width:100%;height:100%;display:block}
+.compare .clip{clip-path:inset(0 0 0 50%)}
+.compare .handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--zhu);cursor:ew-resize;z-index:5}
+.compare .handle::after{content:"◀ ▶";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--zhu);color:#fff;font-size:11px;padding:9px 6px;border-radius:3px;letter-spacing:-1px;font-family:var(--sans);white-space:nowrap}
+.compare .lbl{position:absolute;top:12px;font-family:var(--sans);font-size:11.5px;background:rgba(255,255,255,.92);padding:5px 11px;border:1px solid var(--line);letter-spacing:.08em;font-weight:700;z-index:4}
+.compare .lbl.l{left:12px;color:var(--dai)}
+.compare .lbl.r{right:12px;color:var(--zhu)}
+.compare-legend{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:12px;
+  padding:11px 14px;background:var(--card);border:1px solid var(--line);
+  font-family:var(--sans);font-size:12.5px;color:var(--ink3)}
+.compare-legend .hint{color:var(--ink4)}
+.compare-legend .sw{display:inline-flex;align-items:center;gap:5px}
+.compare-legend .sw i{display:inline-block;width:15px;height:10px;border:2px solid;border-radius:50%}
+
+/* ════════ 控件 ════════ */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:20px 0 16px}
+.tab{font-family:var(--sans);font-size:13px;padding:8px 17px;border:1px solid var(--line);background:var(--card);cursor:pointer;transition:.18s;color:var(--ink2);letter-spacing:.04em}
+.tab:hover{border-color:var(--zhu);color:var(--zhu)}
+.tab.on{background:var(--zhu);color:#fff;border-color:var(--zhu)}
+.panel{display:none}
+.panel.on{display:block;animation:fade .4s}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* 时间轴播放 */
+.tlbar{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);padding:14px 20px;margin:18px 0;flex-wrap:wrap}
+.tlbar button{font-family:var(--sans);font-size:12.5px;padding:7px 16px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--ink2);transition:.18s}
+.tlbar button:hover{border-color:var(--dai);color:var(--dai)}
+.tlbar .track{flex:1;min-width:180px;height:4px;background:#eae5da;position:relative;border-radius:2px}
+.tlbar .track i{position:absolute;left:0;top:0;bottom:0;background:var(--dai);border-radius:2px;transition:width .35s}
+.tlbar .cur{font-family:var(--sans);font-size:13px;font-weight:700;color:var(--dai);min-width:150px}
+
+/* 八景轮盘 */
+.bajing{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:10px;margin-top:18px}
+.bj{background:var(--card);border:1px solid var(--line);padding:14px 12px;text-align:center;transition:.3s}
+.bj:hover{border-color:var(--jin);transform:translateY(-2px)}
+.bj .nm{font-size:16px;font-weight:700;letter-spacing:.08em}
+.bj .pl{font-size:11.5px;color:var(--ink3);margin-top:6px;font-family:var(--sans);line-height:1.6}
+
+/* 数据条 */
+.datalist{background:var(--card);border:1px solid var(--line)}
+.dl-row{display:grid;grid-template-columns:1fr auto;gap:14px;padding:11px 20px;border-bottom:1px solid var(--line2);align-items:baseline}
+.dl-row:last-child{border:none}
+.dl-row .lb{font-size:14.2px;color:var(--ink2)}
+.dl-row .vl{font-family:var(--sans);font-size:15px;font-weight:700;color:var(--dai);white-space:nowrap}
+
+/* 档案馆 */
+.arch-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);padding:14px 18px;margin:20px 0;position:sticky;top:60px;z-index:60}
+.arch-bar input{flex:1;min-width:180px;font-family:var(--sans);font-size:13.5px;padding:8px 13px;border:1px solid var(--line);background:#fdfcfa;color:var(--ink);outline:none}
+.arch-bar input:focus{border-color:var(--zhu)}
+.arch-bar .cnt{font-family:var(--sans);font-size:12px;color:var(--ink3);white-space:nowrap}
+.arch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(292px,1fr));gap:16px}
+.arch-card{background:var(--card);border:1px solid var(--line);padding:20px 22px;border-left:3px solid var(--ink4)}
+.arch-card.ok{border-left-color:var(--lv)}
+.arch-card.warn{border-left-color:var(--jin)}
+.arch-card.ext{border-left-color:var(--zi)}
+.arch-card h5{font-size:15.5px;margin-bottom:8px;font-weight:700;line-height:1.6}
+.arch-card .body{font-size:13.6px;color:var(--ink2);line-height:1.85}
+.arch-card .foot{font-family:var(--sans);font-size:11.5px;color:var(--ink4);margin-top:12px;padding-top:10px;border-top:1px dotted var(--line);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.arch-card.hide{display:none}
+
+/* ── 信源分级图例 ── */
+.arch-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(236px,1fr));gap:14px;margin:28px 0 0}
+.al-card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--ink4);padding:16px 18px 15px}
+.al-card.ok{border-top-color:var(--lv)}
+.al-card.warn{border-top-color:var(--jin)}
+.al-card.add{border-top-color:var(--dai)}
+.al-card.img{border-top-color:#0f766e}
+.al-card .al-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+.al-card .al-n{font-family:var(--sans);font-size:25px;font-weight:700;line-height:1;color:var(--ink);white-space:nowrap}
+.al-card .al-n i{font-style:normal;font-size:11.5px;color:var(--ink4);margin-left:3px;font-weight:400}
+.al-card p{margin:0;font-size:12.5px;color:var(--ink3);line-height:1.75}
+.al-card p b{color:var(--ink2);font-weight:600}
+
+/* ── 档案概览指标条 ── */
+.arch-stat{display:grid;grid-template-columns:repeat(auto-fit,minmax(146px,1fr));background:var(--card);border:1px solid var(--line);margin:16px 0 0}
+.arch-stat .as-i{padding:16px 20px 15px;border-right:1px solid var(--line2)}
+.arch-stat .as-i:last-child{border-right:0}
+.arch-stat .as-n{font-family:var(--sans);font-size:23px;font-weight:700;color:var(--zhu);line-height:1.1}
+.arch-stat .as-n i{font-style:normal;font-size:11.5px;color:var(--ink3);margin-left:3px;font-weight:400}
+.arch-stat .as-l{font-size:12.1px;color:var(--ink3);margin-top:5px;line-height:1.6}
+
+/* ── 馆藏与征引说明（可折叠）── */
+.arch-note{background:#f2efe8;border:1px solid var(--line);border-left:3px solid var(--ink4);margin:18px 0 0}
+.arch-note summary{cursor:pointer;padding:12px 18px;font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--ink2);letter-spacing:.04em;list-style:none}
+.arch-note summary::-webkit-details-marker{display:none}
+.arch-note summary::before{content:"▸";display:inline-block;width:16px;color:var(--zhu)}
+.arch-note[open] summary::before{content:"▾"}
+.arch-note .an-body{padding:2px 20px 16px 34px;font-size:13px;color:var(--ink3);line-height:1.9}
+.arch-note .an-body p{margin:0 0 10px}
+.arch-note .an-body p:last-child{margin-bottom:0}
+
+/* ── 分类说明脚注 ── */
+.arch-keys{margin:10px 0 0;font-size:12.2px;color:var(--ink4);line-height:1.8;font-family:var(--sans)}
+.arch-keys b{color:var(--ink3);font-weight:700}
+
+footer.foot{margin-top:80px;border-top:3px double var(--line);padding:40px 0 70px;font-size:13px;color:var(--ink3);line-height:2}
+footer.foot b{color:var(--ink2)}
+
+@media(max-width:900px){
+  .scroll-wrap{grid-template-columns:1fr}
+  .sticky{position:relative;top:0}
+  .wrap{padding:0 18px}
+  .nav-in{padding:10px 18px}
+  .chain .arw{display:none}
+  .chain .node{width:100%}
+}
+
+/* ===== 真图佐证（v1.1 新增） ===== */
+.evd-block{margin:34px 0 6px}
+.evd-h{font-size:15px;color:#5b4a32;letter-spacing:.04em;margin:0 0 14px;border-left:3px solid #c0392b;padding-left:10px;font-weight:700}
+.evd-row{display:flex;flex-wrap:wrap;gap:14px}
+figure.evd{flex:1 1 250px;margin:0;background:#fff;border:1px solid #e7e2d6;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(60,40,20,.06);cursor:zoom-in;transition:.22s;position:relative}
+figure.evd:hover{box-shadow:0 6px 20px rgba(60,40,20,.14);border-color:#d9cfbb}
+figure.evd::after{content:"⤢ 点图放大";position:absolute;top:8px;right:8px;font-family:var(--sans);font-size:10.5px;letter-spacing:.05em;color:#6b6155;background:rgba(255,255,255,.9);border:1px solid #e2dac9;border-radius:3px;padding:2px 7px;opacity:0;transition:.22s;pointer-events:none}
+figure.evd:hover::after{opacity:1}
+figure.evd img{width:100%;height:200px;object-fit:contain;background:#f5f2ea;display:block}
+figure.evd figcaption{font-size:12.5px;color:#6b6155;padding:10px 12px;line-height:1.5}
+.t-img{background:#0f766e!important;color:#fff!important}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:18px}
+.gal-card{background:#fff;border:1px solid #e7e2d6;border-radius:10px;overflow:hidden;cursor:zoom-in;transition:.2s}
+.gal-card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(60,40,20,.12)}
+.gal-card img{width:100%;height:168px;object-fit:contain;background:#f5f2ea}
+.gal-card .gc-cap{padding:8px 10px;line-height:1.45}
+.gal-card .gc-t{font-weight:600;color:#4a3d28;font-size:12.5px;margin-bottom:2px}
+.gal-card .gc-m{font-size:11.5px;color:#8a7f70}
+.lightbox{position:fixed;inset:0;background:rgba(20,15,10,.94);display:none;z-index:9999;padding:66px 30px 84px;overflow:auto}
+.lightbox.on{display:flex;align-items:center;justify-content:center}
+.lightbox img{flex:0 0 auto;margin:auto;max-width:94vw;max-height:78vh;box-shadow:0 10px 40px rgba(0,0,0,.5);background:#fff;cursor:zoom-in;transition:max-width .18s,max-height .18s}
+.lightbox img.raw{max-width:none;max-height:none;cursor:zoom-out}
+.lightbox .lb-cap{position:absolute;bottom:20px;left:0;right:0;text-align:center;padding:0 90px;pointer-events:none}
+.lightbox .lb-cap .c1{font-size:14.5px;font-weight:600;color:#f4ede1;text-shadow:0 1px 6px rgba(0,0,0,.8)}
+.lightbox .lb-cap .c2{font-size:12px;color:#bdb2a0;margin-top:5px;line-height:1.7;font-family:var(--sans);text-shadow:0 1px 6px rgba(0,0,0,.8)}
+.lightbox .lb-x{position:absolute;top:14px;right:22px;color:#fff;font-size:30px;cursor:pointer;line-height:1;z-index:3;opacity:.85}
+.lightbox .lb-x:hover{opacity:1}
+.lightbox .lb-idx{position:absolute;top:20px;left:26px;color:#c9bfae;font-family:var(--sans);font-size:12.5px;letter-spacing:.1em}
+.lightbox .lb-tools{position:absolute;top:15px;right:66px;display:flex;gap:7px;z-index:3}
+.lightbox .lb-btn{font-family:var(--sans);font-size:12px;color:#f3ece0;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.24);padding:5px 11px;border-radius:3px;cursor:pointer;user-select:none;white-space:nowrap}
+.lightbox .lb-btn:hover{background:rgba(255,255,255,.24)}
+.lightbox .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:96px;display:flex;align-items:center;justify-content:center;color:#f0e8db;font-size:30px;cursor:pointer;background:rgba(255,255,255,.06);border-radius:4px;user-select:none;transition:.18s;z-index:3}
+.lightbox .lb-nav:hover{background:rgba(255,255,255,.2)}
+.lightbox .lb-prev{left:16px}
+.lightbox .lb-next{right:16px}
+.lightbox .lb-nav.off{opacity:.18;pointer-events:none}
+
+/* ── v1.5 新增：工程地质编年 / 地租梯度 / 法权转轨 / 海洋跃迁链 ── */
+.engtl{display:grid;gap:10px;margin:18px 0}
+.engtl .row{display:grid;grid-template-columns:138px 1fr;gap:14px;background:#fff;border:1px solid #e6dfd2;border-left:4px solid #a8302a;border-radius:8px;padding:12px 16px}
+.engtl .era{font-weight:700;color:#a8302a;font-size:13.4px;line-height:1.75;letter-spacing:.3px}
+.engtl .txt{font-size:14px;line-height:1.9;color:#2b2b2b}
+.engtl .txt b{color:#1a1a1a}
+.thesis{margin:16px 0;padding:15px 18px;background:#f6f2e9;border-left:4px solid #2f6b6b;border-radius:8px;font-size:14.2px;line-height:1.95;color:#26302f}
+.thesis b{color:#1f2b2a}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:16px 0}
+.chain .node{background:#fff;border:1px solid #ddd4c4;border-radius:20px;padding:7px 14px;font-size:13.2px;color:#333}
+.chain .node.hi{border-color:#a8302a;color:#a8302a;font-weight:700}
+.chain .arw{color:#a8302a;font-weight:700}
+.rentfig{margin:18px 0;background:#fff;border:1px solid #e6dfd2;border-radius:10px;padding:14px 16px}
+.rentfig figcaption{font-size:12.8px;color:#666;line-height:1.8;margin-top:6px}
+.lead2{font-size:15px;line-height:2;color:#333;margin:10px 0 4px}
+@media (max-width:720px){.engtl .row{grid-template-columns:1fr}.engtl .era{font-size:12.8px}}
+
+/* ── v1.6 新增：模块六 · 城脉共创 ── */
+.co-wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;margin:20px 0;align-items:start}
+.co-map{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;box-shadow:0 2px 10px rgba(60,40,20,.05)}
+.co-map svg{width:100%;height:auto;display:block}
+.co-note{font-family:var(--sans);font-size:11.5px;color:var(--ink4);line-height:1.7;padding:9px 4px 2px;border-top:1px dotted var(--line);margin-top:8px}
+.co-pin{cursor:pointer}
+.co-pin circle{fill:#fff;stroke:#a8302a;stroke-width:2;transition:.25s}
+.co-pin text{font-family:var(--sans);font-size:11.5px;font-weight:700;fill:#a8302a;text-anchor:middle;pointer-events:none}
+.co-pin:hover circle{fill:#f7ecea;stroke-width:3}
+.co-pin.on circle{fill:#a8302a;stroke:#7d201c}
+.co-pin.on text{fill:#fff}
+.co-side{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.co-prog{font-family:var(--sans);font-size:14px;color:var(--ink2)}
+.co-prog b{font-size:23px;color:var(--zhu);margin:0 2px}
+.co-bar{height:7px;background:#efe9de;border-radius:4px;overflow:hidden;margin:9px 0 14px}
+.co-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#a8302a,#c25a52);transition:width .45s}
+.co-list{display:grid;gap:7px;max-height:330px;overflow:auto;padding-right:4px}
+.co-item{display:grid;grid-template-columns:22px 1fr;gap:9px;align-items:start;cursor:pointer;padding:7px 9px;border:1px solid var(--line2);border-radius:8px;transition:.18s}
+.co-item:hover{border-color:#d8cdb8;background:#fdfbf7}
+.co-item.on{background:#f7ecea;border-color:#e6c5c1}
+.co-item .no{font-family:var(--sans);font-size:11.5px;font-weight:700;color:#fff;background:#c3b9a7;width:19px;height:19px;line-height:19px;text-align:center;border-radius:50%;margin-top:2px}
+.co-item.on .no{background:var(--zhu)}
+.co-item .nm{display:block;font-size:13.4px;font-weight:700;color:var(--ink);line-height:1.5}
+.co-item .mt{display:block;font-size:11.6px;color:var(--ink4);font-family:var(--sans);line-height:1.6;margin-top:1px}
+.co-reset{margin-top:14px;font-family:var(--sans);font-size:12px;padding:7px 14px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--ink3);border-radius:6px}
+.co-reset:hover{border-color:var(--zhu);color:var(--zhu)}
+.co-hint{margin-top:12px;font-size:12.6px;color:var(--ink3);font-family:var(--sans);line-height:1.75}
+
+.quiz{display:grid;gap:14px;margin:18px 0}
+.qz{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 20px}
+.qz .q{font-size:15px;font-weight:700;margin-bottom:11px;line-height:1.7}
+.qz .q em{font-family:var(--sans);font-style:normal;font-size:12.5px;color:var(--zhu);margin-right:8px}
+.qz .opts{display:grid;gap:8px}
+.qz .op{font-size:14px;padding:9px 14px;border:1px solid var(--line);border-radius:7px;cursor:pointer;transition:.16s;color:var(--ink2);background:#fdfcfa}
+.qz .op:hover{border-color:#c9bda6}
+.qz .op.right{background:#eef4ec;border-color:#a9c79f;color:#2f5c26;font-weight:700}
+.qz .op.wrong{background:#f7ecea;border-color:#e0b6b1;color:#8e2620}
+.qz .op.dis{pointer-events:none;opacity:.74}
+.qz .exp{display:none;margin-top:11px;padding-top:10px;border-top:1px dotted var(--line);font-size:13px;color:var(--ink2);line-height:1.85}
+.qz .exp.on{display:block}
+.quiz-res{background:#f6f2e9;border-left:4px solid var(--dai);border-radius:8px;padding:16px 20px;font-size:14.2px;line-height:1.95;color:#26302f}
+.quiz-res b{font-size:20px;color:var(--dai)}
+
+.cardgen{display:grid;grid-template-columns:1fr 340px;gap:24px;margin:20px 0;align-items:start}
+.cg-form{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+.cg-form label{display:block;font-family:var(--sans);font-size:12.5px;color:var(--ink3);margin:0 0 6px;letter-spacing:.04em}
+.cg-form select,.cg-form input{width:100%;font-family:var(--sans);font-size:13.5px;padding:9px 12px;border:1px solid var(--line);border-radius:7px;background:#fdfcfa;color:var(--ink);outline:none;margin-bottom:14px}
+.cg-form select:focus,.cg-form input:focus{border-color:var(--zhu)}
+.cg-btns{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.cg-btns button,.cg-dl{font-family:var(--sans);font-size:13px;padding:9px 18px;border-radius:7px;cursor:pointer;border:1px solid var(--zhu);background:var(--zhu);color:#fff;text-decoration:none;display:inline-block;transition:.18s}
+.cg-btns button:hover{background:#8e2620}
+.cg-dl{background:#fff;color:var(--zhu)}
+.cg-dl:hover{background:#f7ecea}
+.cg-dl.off{opacity:.45;pointer-events:none}
+.cg-note{font-size:12px;color:var(--ink4);font-family:var(--sans);margin-top:13px;line-height:1.75}
+.cg-prev{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
+.cg-prev canvas{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 3px 14px rgba(60,40,20,.1)}
+@media(max-width:900px){.co-wrap,.cardgen{grid-template-columns:1fr}.co-list{max-height:none}}
+</style>
+<style>
+  .paper{max-width:900px;margin:0 auto;padding:40px 26px 90px}
+  .art-title{font-size:30px;line-height:1.45;font-weight:700;letter-spacing:.02em}
+  .art-sub{font-size:16px;color:var(--ink3);margin-top:10px;line-height:1.8}
+  .art-by{font-family:var(--sans);font-size:13px;color:var(--ink3);margin-top:14px;
+           padding-bottom:18px;border-bottom:1px solid var(--line)}
+  .absbox{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--zhu);
+           padding:20px 22px;margin:26px 0;font-size:14.5px;line-height:1.95;color:var(--ink2)}
+  .absbox b{color:var(--ink)}
+  .kw{font-family:var(--sans);font-size:13px;color:var(--ink3);margin-top:10px}
+  .toc{background:var(--card);border:1px solid var(--line);padding:18px 22px;margin:26px 0}
+  .toc a{display:block;font-size:14px;color:var(--ink2);text-decoration:none;padding:5px 0;
+          border-bottom:1px dotted var(--line)}
+  .toc a:hover{color:var(--zhu)}
+  .toc a b{font-family:var(--sans);font-size:11.5px;color:var(--ink4);margin-right:10px;letter-spacing:.06em}
+  .paper h2{font-size:21px;margin:52px 0 10px;font-weight:700;letter-spacing:.03em;line-height:1.6}
+  .paper h3{font-size:16.5px;margin:32px 0 8px;font-weight:700;color:var(--ink)}
+  .paper p{font-size:15.5px;line-height:2.05;color:var(--ink2);margin:13px 0}
+  .paper p.li{padding-left:18px;text-indent:-18px}
+  .fig{margin:30px 0 34px}
+  .fig figcaption{font-family:var(--sans);font-size:12px;color:var(--ink3);text-align:center;
+                   margin-top:10px;line-height:1.7}
+  .backbar{position:sticky;top:0;z-index:80;background:rgba(247,244,238,.94);backdrop-filter:blur(6px);
+            border-bottom:1px solid var(--line);padding:11px 0}
+  .backbar .in{max-width:900px;margin:0 auto;padding:0 26px;display:flex;justify-content:space-between;
+                gap:12px;font-family:var(--sans);font-size:12.5px}
+  .backbar a{color:var(--ink2);text-decoration:none}
+  .backbar a:hover{color:var(--zhu)}
+  .note-edge{font-family:var(--sans);font-size:12.5px;color:var(--ink3);background:var(--jin-l);
+              border-left:3px solid var(--jin);padding:12px 16px;margin:26px 0;line-height:1.85}
+</style>
+</head>
+<body>
+<div class="backbar"><div class="in">
+  <a href="./index.html">← 返回《城脉千年》</a>
+  <a href="./index.html#archive">考据档案</a>
+</div></div>
+<div class="paper">
+  <div class="art-title">把脉城市　有机更新</div>
+  <div class="art-sub">——广州城市脉络与用地改革的六脉观察</div>
+  <div class="art-by">王德文　·　广州市城市更新土地整备中心</div>
+
+  <div class="absbox"><b>内容提要</b>　城市是有机体，自有其成长规律与脉络。本文以广州为样本，梳理地脉、水脉、村脉、文脉、商脉、精脉六条城市脉络，并逐条追问其对应的用地安排：从存量里面求增量，需要建立新的土地供应核算指标与激励措施；从增量里面求质量，需要建立新的土地供应品质标准与税收核算办法。文章结合党的二十大关于实施城市更新行动的部署、党的二十届三中全会关于建立可持续的城市更新模式和政策法规的要求，以及2025年中央城市工作会议精神和《关于持续推进城市更新行动的意见》，探讨超大特大城市在存量提质增效阶段推进有机更新的实施路径。
+    <div class="kw"><b>关键词</b>　城市更新；有机更新；存量提质增效；土地供应；人民城市</div>
+  </div>
+
+  <div class="note-edge">本页据作者定稿排版，全文与六张示意图同步呈现。<b>文中数据均以主管部门最新公布名录为准</b>；示意图为本站绘制，仅示相对方位，非精确测绘边界。</div>
+
+  <div class="toc"><a href="#pre"><b>01</b>前言</a><a href="#s1"><b>02</b>一　地脉：城市的骨架与硬底座</a><a href="#s2"><b>03</b>二　水脉：城市的筋络与发动机</a><a href="#s3"><b>04</b>三　村脉：城市的脏腑与滋养</a><a href="#s4"><b>05</b>四　文脉：城市的品质与记忆</a><a href="#s5"><b>06</b>五　商脉：城市的血液与活力</a><a href="#s6"><b>07</b>六　精脉：城市的魂魄与秉性</a><a href="#end"><b>08</b>结语：从&quot;六脉&quot;回到&quot;两套核算办法&quot;</a><a href="#notes"><b>09</b>附注：主要政策与文献依据</a><a href="#post"><b>10</b>附记</a></div>
+
+  <p>【内容提要】城市是有机体，自有其成长规律与脉络。本文以广州为样本，梳理地脉、水脉、村脉、文脉、商脉、精脉六条城市脉络，并逐条追问其对应的用地安排：从存量里面求增量，需要建立新的土地供应核算指标与激励措施；从增量里面求质量，需要建立新的土地供应品质标准与税收核算办法。文章结合党的二十大关于实施城市更新行动的部署、党的二十届三中全会关于建立可持续的城市更新模式和政策法规的要求，以及2025年中央城市工作会议精神和《关于持续推进城市更新行动的意见》，探讨超大特大城市在存量提质增效阶段推进有机更新的实施路径。</p><p>【关键词】城市更新；有机更新；存量提质增效；土地供应；人民城市</p><h2 id="pre">前　言</h2><p>城市是人口聚集的产物，也是现代社会资源利用效率最高的组织形式。不同的自然资源、文化背景与经济技术水平，决定了不同的城市规模、格局与现状。现代城市群日渐成为庞大有机体，城市因此有了自身的成长规律与脉络；建设与更新城市，必须遵循这一规律与脉络，资源配置才能最有效。</p><p>马克思主义基本原理指出，生产力决定生产关系、经济基础决定上层建筑，而二者又相互反作用。城市正是这些矛盾的集中统一体——这里有大规模聚居的人口，有大体量的经济社会活动，矛盾的表现形式也最为集中。&quot;人以市聚，城以市兴，市以城新&quot;，人、市、城之间相互依存、相互影响。党的二十大报告提出：&quot;坚持人民城市人民建、人民城市为人民，提高城市规划、建设、治理水平，加快转变超大特大城市发展方式，实施城市更新行动，加强城市基础设施建设，打造宜居、韧性、智慧城市。&quot;在新时代，城市发展建设要回应的，正是人民对美好生活的向往与发展不平衡不充分之间的矛盾。</p><p>问题首先落在土地上。2025年7月，时隔十年再次召开的中央城市工作会议作出重大判断：我国城镇化正从快速增长期转向稳定发展期，城市发展正从大规模增量扩张阶段转向存量提质增效为主的阶段。宏观空间规模有限，而人口居住、商业活动、经济建设对土地的需求持续增长，存量用地与增量用地的矛盾因此凸显。如何提高存量用地的利用效率、提升增量用地的综合效益，成为城市有机更新的主要课题。城市有机更新的用地改革，应当体现&quot;从存量里面求增量，增量里面求质量&quot;的递增原则：</p><p class="li">其一，从存量里面求增量——需要建立新的土地供应核算指标与激励措施；</p><p class="li">其二，从增量里面求质量——需要建立新的土地供应品质标准与税收核算办法。</p><p>这两句话是本文的落点。党的二十届三中全会提出&quot;建立可持续的城市更新模式和政策法规&quot;，把城市更新从项目实践上升为制度安排；要让制度立得住，先要回到城市自身的成长机理。改革开放以来，广州从骑楼街巷到珠江新城、从工业岸线到总部楼宇，几十年间完成了城市形态的大跨越，也积累了大量低效存量用地与结构性失调片区。本文要做的，是梳理出这座城市赖以发育的六条脉络，再逐条追问：它们各自对应怎样的用地安排。</p><p>在中国传统观念里，人口聚居的理想是&quot;天人合一&quot;，讲求天时地利人和：个体层面依山傍水、顺风顺水，群体层面有序、便利、规整。这一观念落到营城上，就是中国古代都城的形制传统——秦都咸阳&quot;法天象地&quot;，形成&quot;渭水贯都，以象天汉；横桥南渡，以法牵牛&quot;的格局；北京以&quot;天下一统、天圆地方&quot;立内外两城，形成&quot;凸&quot;形轮廓与南北中轴；西安、洛阳、南京、杭州诸都，以及哈尔滨、长春、青岛、厦门等近代融合东西方规划思想的城市样本，都是这一传统在不同阶段的呈现。</p><p>所谓天时地利，既包括农业生产的自然需要，也包括人际关系的&quot;礼&quot;的实践，还包括天文地理现象与居住关系的应用——由此引申出中国古代的堪舆学。今天我们要吸取的不是其中的吉凶之说，而是它背后的朴素自然哲学：营城必须顺应山水形势，才能以最低代价换取最稳定的空间秩序。</p><p>在这一点上，广州得天独厚。它的山水格局纯出天然，山、江、海三要素齐备且俱在城区之内，这在省会城市中并不多见。山脉为骨、水脉为筋、村脉为腑、文脉为质、商脉为血、精脉为魂——六脉俱在，是广州城市有机更新的天然底本，也是本文的分析框架。</p><h2 id="s1">一　地脉：城市的骨架与硬底座</h2><h3>1.1　天然山水，是广州最贵的家底</h3><p>广州建城悠久，秦前据《禹贡》&quot;扬州南境，春秋时为扬越地&quot;；《旧图经》载&quot;广州州城始筑自越人公师隅，号曰南武&quot;。秦统一后，赵佗扩筑为任嚣城、五羊城、越城，定型于番禺城，此后历代扩建，终成今日规模。</p><p>建城之初所依托的山势：北有越秀山、粤五台山、马鞍山、白云山、石门山；西有双女山（凤山）、灵洲山；西南有抱旗山、西樵山；南有莲花山——形成&quot;北枕山阜，三面环濠&quot;的山水格局，成就了广州&quot;连山北峙，距海东环，所谓包山带海，险阻之地也。封域绵邈，田壤沃饶，五岭以南，此为都会&quot;的大都会地位。</p><h3>1.2　从&quot;山&quot;到&quot;地脉&quot;：看不见的骨架</h3><p>今天我们对城市地理的认知早已超越目力所及。地质学研究表明，广州城区的地质演化可追溯到中元古代十几亿年前的深变质杂岩与片麻岩基底，历经早震旦世冰期与间冰期、加里东运动、晚古生代地台运动、燕山运动、地洼发展、第四纪古海岸变迁与三角洲平原演化，最终形成山地、丘陵、盆地、平原并存的独特地貌。</p><p>2015年，广州地质工作者历时三年多完成地质遗迹调查，发现了一条贯穿城区的地貌主轴：自广州最高峰天堂顶（海拔约1210米）起，沿山势一路南下——绕大尖山、托银龙顶、越帽峰山、俯身白云山、盘踞越秀山、饮水珠江，再经龙头山、莲花山、黄山鲁，直入龙穴岛（海拔0米），全长约156公里，幅宽约5—10公里。沿此主轴，海拔顺势而下，地貌单元依次为中低山区、山间盆地、丘陵、江河、海洋，几乎涵盖全部类型。</p><p>这条主轴上分布着54个地质遗迹区、139个地质遗迹点，其中2个国家级、7个省级、45个市级，相关调查成果见《广州市地质遗迹研究》（地质出版社，2008）。这些地质遗迹按联合国《保护世界文化和自然遗产公约》，属于自然遗产。</p><p>这条主轴在民间习称&quot;地质龙脉&quot;。本文正式表述采用&quot;广州地貌主轴&quot;（天堂顶—龙穴岛地质遗迹廊道），理由有二：一是&quot;龙脉&quot;属堪舆术语，用于正式材料易生歧义；二是地质遗迹的第一属性是保护，而不是开发。至于省市行政中心恰在主轴中段的山地平原衔接处这一点，其实是选址常识的印证——台地边缘、近江、地势适中、免于洪水，是防洪、取水与交通三重条件共同作用的结果，《广州历史地理》称之为&quot;台地面选址最优解&quot;。这是人顺应自然条件的结果，不必另外添一层神秘解释。</p><h3>1.3　地脉·用地接口</h3><p>分级管控，与遗迹级别挂钩。国家级地质遗迹区只做保护与科普，禁止开发性建设；省级限定为科普与低强度游憩；市级方可考虑适度利用。分级而不分策，是保护失效的常见原因。</p><p>纳入国土空间&quot;一张图&quot;。把地貌主轴作为结构性生态廊道落图，与生态保护红线、历史文化保护线等控制线相互衔接；沿线存量用地在出让前增设地质遗迹影响评价，与地质灾害危险性评估、文物影响评估串联为一道前置，落实&quot;先调查后建设、先考古后出让&quot;的要求。</p><p>廊道周边土地品质分级。以主轴为轴心分三圈——核心保护圈（禁建）、协调圈（限高限强度、控风貌）、利用圈（可结合地质公园、科普场馆、运动休闲），三圈对应三档用地品质与供应标准。</p><p>把自然遗产做成公共品。遗址公园、观光点、科普线路属公共产品，其用地与建设应以财政与专项投入为主，不宜以&quot;核心优质用地&quot;之名行高强度开发之实；可结合全域土地综合整治，把廊道沿线的零星低效用地一并盘活。</p><figure class="fig"><svg viewBox="0 0 820 380" role="img" aria-label="广州地貌主轴纵剖面示意图" style="width:100%;height:auto;display:block;background:#fdfcf8"><rect x="0" y="0" width="820" height="380" fill="#fdfcf8" stroke="#e5dfd4"/><text x="18" y="26" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="12.5" fill="#a8302a" font-weight="700" letter-spacing=".16em">图 1 ｜ 广州地貌主轴（天堂顶—龙穴岛）与地质遗迹分布</text><polyline points="60.0,95.0 162.9,147.5 237.8,178.0 317.4,209.5 396.9,235.3 453.1,288.1 490.5,300.0 546.7,269.5 630.9,282.2 705.8,250.0 790.0,300.0" fill="none" stroke="#2f6b6b" stroke-width="2.6"/><line x1="60" y1="300.0" x2="790" y2="300.0" stroke="#9a948a" stroke-width="1" stroke-dasharray="4 4"/><text x="18" y="304.0" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="10.5" fill="#6f6a61">0 m</text><text x="18" y="99.0" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="10.5" fill="#6f6a61">1210 m</text><rect x="387.6" y="306.0" width="140.4" height="34" fill="#a8302a" opacity=".10"/><text x="457.8" y="328.0" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="10.5" fill="#a8302a">建成区（越秀—天河—海珠）</text><circle cx="60.0" cy="95.0" r="4.6" fill="#2f6b6b"/><text x="60.0" y="83.0" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#1c1b19">天堂顶</text><circle cx="162.9" cy="147.5" r="4.6" fill="#2f6b6b"/><text x="162.9" y="167.5" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#1c1b19">大尖山</text><circle cx="237.8" cy="178.0" r="4.6" fill="#2f6b6b"/><text x="237.8" y="166.0" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#1c1b19">银龙顶</text><circle cx="317.4" cy="209.5" r="4.6" fill="#2f6b6b"/><text x="317.4" y="229.5" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#1c1b19">帽峰山</text><circle cx="396.9" cy="235.3" r="4.6" fill="#2f6b6b"/><text x="396.9" y="223.3" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#1c1b19">白云山</text><circle cx="453.1" cy="288.1" r="4.6" fill="#2f6b6b"/><text x="453.1" y="308.1" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#1c1b19">越秀山</text><circle cx="490.5" cy="300.0" r="4.6" fill="#a8302a"/><text x="490.5" y="288.0" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#1c1b19">珠江</text><circle cx="546.7" cy="269.5" r="4.6" fill="#2f6b6b"/><text x="546.7" y="289.5" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#1c1b19">龙头山</text><circle cx="630.9" cy="282.2" r="4.6" fill="#2f6b6b"/><text x="630.9" y="270.2" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#1c1b19">莲花山</text><circle cx="705.8" cy="250.0" r="4.6" fill="#2f6b6b"/><text x="705.8" y="270.0" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#1c1b19">黄山鲁</text><circle cx="790.0" cy="300.0" r="4.6" fill="#2f6b6b"/><text x="790.0" y="288.0" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#1c1b19">龙穴岛</text><line x1="60.0" y1="336" x2="60.0" y2="342" stroke="#9a948a"/><text x="60.0" y="356" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="10" fill="#6f6a61">0 km</text><line x1="247.2" y1="336" x2="247.2" y2="342" stroke="#9a948a"/><text x="247.2" y="356" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="10" fill="#6f6a61">40 km</text><line x1="434.4" y1="336" x2="434.4" y2="342" stroke="#9a948a"/><text x="434.4" y="356" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="10" fill="#6f6a61">80 km</text><line x1="621.5" y1="336" x2="621.5" y2="342" stroke="#9a948a"/><text x="621.5" y="356" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="10" fill="#6f6a61">120 km</text><line x1="790.0" y1="336" x2="790.0" y2="342" stroke="#9a948a"/><text x="790.0" y="356" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="10" fill="#6f6a61">156 km</text><text x="790" y="200" text-anchor="end" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#3d3a35">全长约 156 km　幅宽 5—10 km</text><text x="790" y="218" text-anchor="end" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#a8302a" font-weight="700">地质遗迹 54 区 / 139 点（国家级 2 · 省级 7 · 市级 45）</text></svg><figcaption>图1　广州山脉脉络与地质遗迹分布示意图（本站绘制，示意性；非精确测绘边界）</figcaption></figure><h2 id="s2">二　水脉：城市的筋络与发动机</h2><h3>2.1　因水而生，水城早于威尼斯</h3><p>广州地处珠江三角洲平原，是典型的河口港城市，因水而生、以水为荣，按&quot;上善若水、水孕文明&quot;的模式成长。城周水系发达，城区水网密集、互联互通，孕育出&quot;六脉皆通海、青山半入城&quot;的格局。古地名中的州、江、滨、涌、濠、潭，多是水系的遗痕。</p><p>据《天下郡国利病书》&quot;广东三面皆濒海地也&quot;，《禹贡》&quot;三江，皆从会稽入于南海……&quot;。在陆路不发达的年代，连通南北的主要动脉就是东江、西江汇入珠江、抵达广州城区。据《读史方舆纪要》记载，府东八十里出古斗村，东南经南海卫、虎头门抵南头城，皆切近海洋；西江、北江、东江在城南会合，江中有海珠石，是曰珠江。城内旧有六渠，廻环贯通，皆汇流于西澳，亦谓之南濠；又有清水濠（古东澳）、东濠，东南二濠与西濠曾分流入江，嘉庆五年（1800）引东南二濠之水汇于西濠，合流入海。江中则有琵琶洲、荔支洲（荔支湾）、拾翠洲等洲渚。</p><p>就建城年代论，广州建城2200余年，早于约公元5世纪始建的威尼斯；但两者水城类型不同——广州是河口港城，威尼斯是潟湖岛城，直接比较并不严谨。准确的表述是：广州的河口港城形态，早于威尼斯。</p><h3>2.2　水系演变就是城市发展史</h3><p>现状看，全市河流属珠江水系，南部为三角洲河网区，由西、北、东江下游水道与前、后航道交织而成，河网区主要水道总长416公里，前、后航道纵贯城区；珠江入海八个口门中，虎门、蕉门、洪奇沥三口在市境内注入伶仃洋；珠江口海岸线522公里，浅海水域约4000平方公里。湖泊多为人工湖，20世纪50年代后陆续修建东山湖、麓湖、流花湖、荔湾湖、白云湖等20余处，兼有调洪与观光功能，其中五湖总面积5.79平方公里、水面2.26平方公里。相关系统研究见《广州古城水系与城市发展关系研究》（华南理工大学出版社，2016）。</p><p>水系对广州的城址抉择、空间布局、交通经济、水利防御、环境生态均起决定性作用。城市扩张的过程，也是内城水系变迁的过程；从水运交通主导，到商业主导，到经济策略主导，再到社会规划思想与人文因素主导，广州的水脉联通着城市建设的经脉，并推动城市形态不断优化。在生态文明建设的新阶段，水脉理应再次成为带动城市有机更新与空间拓展的新引擎。</p><h3>2.3　水脉·用地接口</h3><p>以水定容。把防洪排涝能力作为片区开发容量的硬上限，纳入控制性详细规划的强制性内容，先算水账、后定强度——这是&quot;韧性城市&quot;在用地端的第一道闸门。</p><p>滨水退让与首排功能。按前航道、后航道、河涌三级设定退让距离；首排建筑公共功能优先（公共服务、文化、商业开放界面），住宅退后。</p><p>岸线纳入出让条件。把&quot;岸线公共可达率&quot;&quot;滨水公共空间配比&quot;写进土地出让合同，同步核算。</p><p>历史水系遗存前置。六脉渠、濠涌、古澳等遗存的分布区，地下空间开发须做水系遗存考古前置调查，与文物影响评估并联。</p><p>人工湖与调蓄空间不轻易变更用途。调蓄功能与景观功能一体，改用途须做流域补偿；结合海绵城市建设，把源头减排、过程控制、系统治理的要求落到地块开发强度与绿地配比指标上，统筹城区水系与江河湖海的联排联调。</p><figure class="fig"><svg viewBox="0 0 820 520" role="img" aria-label="图 2 ｜ 广州水脉格局示意图" style="width:100%;height:auto;display:block;background:#fdfcf8"><rect x="0" y="0" width="820" height="520" fill="#fdfcf8" stroke="#e5dfd4"/><text x="18" y="26" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="12.5" fill="#a8302a" font-weight="700" letter-spacing=".16em">图 2 ｜ 广州水脉格局示意图</text><path d="M-10,300 C150,330 260,352 380,368 C500,384 620,398 830,412" fill="none" stroke="#cfe3e6" stroke-width="26" stroke-linecap="round"/><path d="M-10,300 C150,330 260,352 380,368 C500,384 620,398 830,412" fill="none" stroke="#9dc4ca" stroke-width="1.4"/><text x="120" y="352" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#2f6b6b" transform="rotate(9 120 352)">珠 江</text><rect x="250" y="150" width="190" height="150" fill="none" stroke="#9a948a" stroke-dasharray="5 4"/><text x="258" y="168" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="10.5" fill="#9a948a">老城范围（示意）</text><circle cx="150" cy="250" r="6" fill="#2f6b6b" opacity=".92"/><text x="150" y="236" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">六脉渠 · 濠涌体系（示意）</text><circle cx="330" cy="265" r="6" fill="#2f6b6b" opacity=".92"/><text x="330" y="251" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">玉带濠 · 西澳</text><circle cx="430" cy="300" r="6" fill="#2f6b6b" opacity=".92"/><text x="430" y="326" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">前航道</text><circle cx="600" cy="350" r="6" fill="#2f6b6b" opacity=".92"/><text x="600" y="376" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">后航道</text><circle cx="250" cy="200" r="6" fill="#2f6b6b" opacity=".92"/><text x="250" y="188" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">兰湖（今流花湖）</text><circle cx="520" cy="210" r="6" fill="#2f6b6b" opacity=".92"/><text x="520" y="198" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">东山湖 · 麓湖 · 荔湾湖</text><circle cx="700" cy="250" r="6" fill="#a8302a" opacity=".92"/><text x="700" y="238" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">虎门 · 蕉门 · 洪奇沥 出海口门</text><circle cx="40" cy="466" r="5" fill="#2f6b6b"/><text x="52" y="470" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#3d3a35">历史水系／濠渠 · 湖涌</text><circle cx="40" cy="485" r="5" fill="#a8302a"/><text x="52" y="489" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#3d3a35">入海口门 · 珠江口</text><text x="790" y="470" text-anchor="end" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="10.5" fill="#9a948a">示意：非精确测绘边界</text></svg><figcaption>图2　广州水脉格局示意图（本站绘制，示意性；非精确测绘边界）</figcaption></figure><h2 id="s3">三　村脉：城市的脏腑与滋养</h2><h3>3.1　物产与聚落，广州的乡土底色</h3><p>城市的发展离不开乡村，土地是乡村赖以生存的根本。广州地处亚热带沿海，北回归线从中南部穿过，温暖多雨、光热充足、长夏短霜，年均气温20—22℃，是中国年平均温差最小的大城市之一；地势东北高、西南低，背山面海，北部丘陵山区、中部丘陵盆地、南部沿海冲积平原，三角洲土地肥沃，两千年前已有水稻种植记载。泮塘五秀、岭南四大佳果等物产享有盛名。</p><p>广州的乡村不仅物产丰富，更因历代人口迁移而沉淀出独特风土：古南越人、广府人、客家人、潮汕人与新客家人交汇，形成别具一格的岭南乡土气息，多以古村落形式保留，构成广州的村脉。</p><p>随着城市建设推进，村脉大致呈现三种状态：</p><p>远郊传统村落：农用地与集体土地完整，仍以农业生产与传统生活为主，古村落面貌完整（如黄埔古村、小谷围村、塱头村、大岭村）；</p><p>城乡结合部村落：土地部分转化，兼有传统生活与工商业活动，祠堂、古桥、碑刻、牌坊、庙宇、塔阁部分保留；</p><p>城中村：已无农业生产，身份与结构仍保留农村形态，靠集体用地发展集体经济，代表性标识多剩牌坊、祠堂或纪念场馆（如三元里村、猎德村）。</p><p>习近平总书记指出：&quot;要突出地方特色，注重人居环境改善……注重文明传承、文化延续，让城市留下记忆，让人们记住乡愁。&quot;古村落正是最好的参照系——祠堂、古庙、碑刻、塔阁犹如珠江两岸的明珠，串联着广州的乡愁。</p><h3>3.2　城中村更新：程序比口号重要</h3><p>面对城中村更新矛盾，两种倾向都要避免：一种是单纯以&quot;拔钉子&quot;推动更新的急功近利，另一种是放任个别利益主体绑架集体意愿。正确的做法是把更新方案的形成放到法定程序里：以村民集体意愿为基础，经法定程序确认形成更新方案，同时切实保障每一户村民的合法权益，坚决打击涉黑涉恶势力，把村民的集体意愿统一到发展区域产业、壮大集体经济上来——这是真民主，不是泛民主。</p><p>制度供给已经跟上。2024年5月1日施行的《广州市城中村改造条例》，是全国首部专门针对城中村改造的地方性法规，把&quot;政府主导、依法征收&quot;的改造全过程纳入法治轨道，确立&quot;依法征收、净地出让&quot;的实施模式，统一公布执行征收补偿标准，并要求按一定比例配建保障性住房。地方立法的先行先试，为&quot;程序比口号重要&quot;提供了制度注脚。</p><p>城乡二元土地结构是历史形成的现实，统筹城市居民的住房投资需求与&quot;农业人口&quot;的集体经济发展需求，需要解放思想、自我革新。具体而言：容积率不应继续作为单一调控手段，规划控制指标要体现多样性与强制性相结合；城市集体土地供应要从承担历史责任的高度出发，以&quot;政府主导、统一标准、多方参与、方式多样&quot;建立城市用地供应模式2.0。</p><h3>3.3　村脉·用地接口</h3><p>三类村，三套政策。远郊传统村落以保护与活化为主（不搞整村搬迁）；城乡结合部以调整与提升为主（集体土地部分转性与整治）；城中村以改造与融合为主，按&quot;一村一策&quot;采取拆除新建、整治提升、拆整结合等方式分类施策。</p><p>集体土地供应2.0的适用清单。明确哪类走征收、哪类走集体经营性建设用地入市、哪类走统租统管与整治提升——三者的边界一旦清晰，基层才有可操作的抓手。</p><p>方案形成程序化。更新意愿以村民集体决策形成、经法定程序确认；防止个别主体绑架集体意愿；收益分配规则前置公示。</p><p>容积率从&quot;单一杠杆&quot;改为&quot;组合指标&quot;。由&quot;容积率＋品质＋配套＋产业&quot;组合控制，避免以加容积率作为唯一交换条件；对承担保护责任的主体，可用容积率转移或奖励予以补偿。</p><p>利益保障与秩序维护并重。每一户的合法权益是底线；涉黑涉恶是打击对象——两件事并列写，不能只写一头。</p><figure class="fig"><svg viewBox="0 0 820 520" role="img" aria-label="图 3 ｜ 广州村脉空间分布示意图" style="width:100%;height:auto;display:block;background:#fdfcf8"><rect x="0" y="0" width="820" height="520" fill="#fdfcf8" stroke="#e5dfd4"/><text x="18" y="26" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="12.5" fill="#a8302a" font-weight="700" letter-spacing=".16em">图 3 ｜ 广州村脉空间分布示意图</text><path d="M-10,300 C150,330 260,352 380,368 C500,384 620,398 830,412" fill="none" stroke="#cfe3e6" stroke-width="26" stroke-linecap="round"/><path d="M-10,300 C150,330 260,352 380,368 C500,384 620,398 830,412" fill="none" stroke="#9dc4ca" stroke-width="1.4"/><text x="120" y="352" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#2f6b6b" transform="rotate(9 120 352)">珠 江</text><rect x="250" y="150" width="190" height="150" fill="none" stroke="#9a948a" stroke-dasharray="5 4"/><text x="258" y="168" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="10.5" fill="#9a948a">老城范围（示意）</text><circle cx="180" cy="180" r="6" fill="#4a7c3f" opacity=".92"/><text x="180" y="166" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">塱头村 · 大岭村（远郊传统村落）</text><circle cx="360" cy="200" r="6" fill="#a8791b" opacity=".92"/><text x="360" y="186" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">小谷围村（城乡结合部）</text><circle cx="300" cy="260" r="6" fill="#a8302a" opacity=".92"/><text x="300" y="246" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">三元里村（城中村）</text><circle cx="470" cy="250" r="6" fill="#a8302a" opacity=".92"/><text x="470" y="236" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">猎德村（城中村）</text><circle cx="560" cy="210" r="6" fill="#4a7c3f" opacity=".92"/><text x="560" y="196" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">黄埔古村</text><circle cx="40" cy="466" r="5" fill="#4a7c3f"/><text x="52" y="470" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#3d3a35">远郊传统村落 · 保护与活化</text><circle cx="40" cy="485" r="5" fill="#a8791b"/><text x="52" y="489" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#3d3a35">城乡结合部 · 调整与提升</text><circle cx="40" cy="504" r="5" fill="#a8302a"/><text x="52" y="508" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#3d3a35">城中村 · 改造与融合</text><text x="790" y="470" text-anchor="end" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="10.5" fill="#9a948a">示意：非精确测绘边界</text></svg><figcaption>图3　广州村脉空间分布示意图（本站绘制，示意性；非精确测绘边界）</figcaption></figure><h2 id="s4">四　文脉：城市的品质与记忆</h2><h3>4.1　千年交融的文化肌理</h3><p>广州是最早的通商口岸之一，人口、语言、生活习俗交互并举，形成广府文化、客家文化、潮汕文化与海外文化的交集。文化以生态与物态两种形式深入城市肌理：</p><p>生态上，从&quot;岭南三秀&quot;（粤剧、广东音乐、岭南画派）到迎春花市、&quot;三雕一彩一绣&quot;，从星海音乐厅、广州歌剧院到骑楼群里的粤剧博物馆，从佛道信众的氤氲香火到基督堂的礼拜与穆斯林的祈祷——这些既是市民的日常，也成为外地人前来感受的必需。</p><p>物态上，从沙面西方建筑群，到东山新河浦、华侨新村别墅洋楼群，从大东门、西门口、小北路的古城门遗址，到遍布老城的骑楼、南越王宫苑、大小马站古书院群、西关大屋，再到广东省博物馆等博物馆群与大佛寺、六榕寺、怀圣寺、石室圣心大教堂等宗教建筑群，直至天河、越秀的现代高层——构成一座鲜活的&quot;广州城区建筑博物馆&quot;。</p><p>现状数据（以文物、宗教部门最新公布名录为准）：沙面岛上被列为全国重点文物保护单位的建筑共54处；北京路大小马站一带约2万平方米范围内现存书院12间；西关大屋民居集中区已划为&quot;西关大屋建筑保护区&quot;；五大宗教各有至少一座建筑列入全国重点文物保护单位名录，合计9项，另有省级5处、市级21处、登记保护12处；宗教活动场所67处。石室圣心大教堂是全球四座全石构哥德式教堂之一。</p><p>2018年10月，习近平总书记在广州永庆坊考察时指出：&quot;城市规划和建设要高度重视历史文化保护，不急功近利，不大拆大建。要突出地方特色，注重人居环境改善，更多采用微改造这种‘绣花’功夫，注重文明传承、文化延续，让城市留下记忆，让人们记住乡愁。&quot;</p><p>这为广州的文脉保护与更新定下了方法论。此后，制度安排层层递进：2021年中办、国办印发《关于在城乡建设中加强历史文化保护传承的意见》；2025年《关于持续推进城市更新行动的意见》进一步要求&quot;坚持保护第一、应保尽保、以用促保&quot;，落实&quot;老城不能再拆&quot;，建立健全&quot;先调查后建设、先考古后出让&quot;的保护前置机制。从永庆坊的&quot;绣花&quot;功夫到全国层面的制度安排，一脉相承：绣花，而不是推平。</p><h3>4.2　文脉·用地接口</h3><p>先建库，再定名单。历史建筑&quot;留改拆&quot;的前提是普查建库与分级名录；没有名录，判定就只能靠个案博弈。</p><p>容积率转移。把&quot;保护责任&quot;与&quot;开发权益&quot;分离——保护主体承担的修缮成本，可通过容积率跨地块转移获得补偿，这是让保护在经济上可持续的关键工具。</p><p>微改造的用地手续简化。不改变产权主体、不改变建筑主体结构的功能置换，简化用途变更手续，让&quot;绣花&quot;有制度通道；推动土地混合开发利用和用途依法合理转换。</p><p>成片文化用地打包管理。古书院群、骑楼群、宗教建筑群等，按&quot;打包服务、分门别类、控制使用&quot;管理——按类别定使用强度，而不是按项目定。</p><p>公共文化设施用地与街道级设施统筹。博物馆、艺术馆、长者服务站、文化站的用地与布局，与完整社区建设、社区生活圈一并核算。</p><figure class="fig"><svg viewBox="0 0 820 520" role="img" aria-label="图 4 ｜ 广州文脉空间分布示意图" style="width:100%;height:auto;display:block;background:#fdfcf8"><rect x="0" y="0" width="820" height="520" fill="#fdfcf8" stroke="#e5dfd4"/><text x="18" y="26" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="12.5" fill="#a8302a" font-weight="700" letter-spacing=".16em">图 4 ｜ 广州文脉空间分布示意图</text><path d="M-10,300 C150,330 260,352 380,368 C500,384 620,398 830,412" fill="none" stroke="#cfe3e6" stroke-width="26" stroke-linecap="round"/><path d="M-10,300 C150,330 260,352 380,368 C500,384 620,398 830,412" fill="none" stroke="#9dc4ca" stroke-width="1.4"/><text x="120" y="352" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#2f6b6b" transform="rotate(9 120 352)">珠 江</text><rect x="250" y="150" width="190" height="150" fill="none" stroke="#9a948a" stroke-dasharray="5 4"/><text x="258" y="168" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="10.5" fill="#9a948a">老城范围（示意）</text><circle cx="200" cy="220" r="6" fill="#7a5c9e" opacity=".92"/><text x="200" y="206" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">沙面西方建筑群</text><circle cx="270" cy="250" r="6" fill="#7a5c9e" opacity=".92"/><text x="270" y="236" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">西关大屋保护区</text><circle cx="330" cy="230" r="6" fill="#7a5c9e" opacity=".92"/><text x="330" y="216" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">大小马站古书院群</text><circle cx="380" cy="200" r="6" fill="#7a5c9e" opacity=".92"/><text x="380" y="186" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">大东门 · 西门口 城门遗址</text><circle cx="430" cy="255" r="6" fill="#7a5c9e" opacity=".92"/><text x="430" y="241" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">南越王宫苑遗址</text><circle cx="520" cy="240" r="6" fill="#7a5c9e" opacity=".92"/><text x="520" y="226" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">东山新河浦 · 华侨新村</text><circle cx="600" cy="200" r="6" fill="#a8302a" opacity=".92"/><text x="600" y="186" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">五大宗教重点寺观教堂群</text><circle cx="40" cy="466" r="5" fill="#7a5c9e"/><text x="52" y="470" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#3d3a35">文脉物态载体 · 建筑与街区</text><circle cx="40" cy="485" r="5" fill="#a8302a"/><text x="52" y="489" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#3d3a35">宗教建筑群 · 全国重点文保</text><text x="790" y="470" text-anchor="end" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="10.5" fill="#9a948a">示意：非精确测绘边界</text></svg><figcaption>图4　广州文脉空间分布示意图（本站绘制，示意性；非精确测绘边界）</figcaption></figure><h2 id="s5">五　商脉：城市的血液与活力</h2><h3>5.1　千年商都的空间足迹</h3><p>广州的建城史，在相当意义上也是一部近现代工商业活动史。自六朝&quot;外商久停广州，往来求利&quot;，到隋唐对外贸易登顶（外国人一度占全城人口三成以上），经元代短暂沉寂，明清再度崛起，清朝一口通商时期成为具垄断地位的全国商业中心，其代表即十三行。改革开放后，友谊商店、西湖路灯光夜市、南方大厦（曾创立中国大陆第一家24小时便利店）、新大新、广州百货大厦，到1996年万客隆、吉之岛开出中国大陆首店，再到21世纪天河路商圈（天河城、正佳广场、太古汇等）成为城市中心商圈；自1957年起每年春秋两届广交会，现每届吸引全球逾20万客商，随着琶洲展馆落成，办展能力居世界前列。据联合国《2016年中国城市可持续发展报告》，广州人类发展指数在中国大陆35个主要城市中位居第一。</p><p>商脉的空间规律，起初是人与自然环境、社会环境相互选择的结果，带有鲜明的地方经济特色；其后，&quot;城市中轴线&quot;逐渐成为城市更新的主导思想——其学术来源见《中国建筑史》，指中国古代大建筑群平面中统率全局的轴线。广州有两条中轴线：</p><p>传统中轴线：镇海楼、中山纪念碑、中山纪念堂、市人大常委会办公大楼、市人民政府办公大楼、人民公园、城市原点标志、广州解放纪念碑、海珠桥等，其中镇海层楼、越秀远眺、珠海丹心、珠江秋月曾入选羊城八景；</p><p>现代中轴线：北起燕岭公园，南经广州东站、天河体育中心、珠江新城至珠江，再经广州塔、万亩果园保护区，经新客运港达珠江外航道沙丘岛。需要说明的是，现代中轴线的长度存在不同统计口径（早期资料记为12公里），与近年&quot;南中轴南拓&quot;的口径并非同一测量对象，引用时应注明起止地点与统计年份。</p><h3>5.2　单一轴线之外：大商脉与微循环</h3><p>城市中轴线在提升城市品质上发挥了重要作用，也代表了广州商脉的主干。但城市的空间维度与历史维度是多元的：随着规模扩张，单一轴线已无法满足发展需要，过度集中的资源与商贸结构会带来结构性失调——如同人体，除动脉静脉之外，还有毛细血管与神经末梢。</p><p>新时代的城市有机更新，应在完善两条中轴线的基础上，结合山、水自然特征布局产业，规整土地使用品级与标准，形成&quot;大商脉—小商脉—微商脉&quot;的蜂巢结构：沙面至黄埔的红色商脉、南方大厦至上下九的传统商脉、天河珠江新城的现代商脉、白云空港产业群商脉、宗教文化产业群商脉……各区域围绕典型文脉形成自身特色的商业群团，构建去中心化、扁平型的产业空间格局。2021年，广州获批率先培育建设国际消费中心城市，这一蜂巢结构正是其空间底座。</p><p>必须同时正视现实约束：商办市场的去化能力，是商业用地供给的前置条件，而非事后结果。新的商业供应规模，应与空置率、去化周期、人口与就业导入速度挂钩核算。</p><h3>5.3　商脉·用地接口</h3><p>商圈分级配置。按中心商圈、区域商圈、社区商业三级设定用地规模与混合比例，防止同质过量。</p><p>供应与去化挂钩。以空置率与去化周期作为新增商办用地供应的前置指标——市场不接的地，先不出。</p><p>混合用地的适用条件。明确商住混合、新型产业用地（M0）的准入条件与配套比例，防止以&quot;混合&quot;之名行变性之实。</p><p>主脉与微循环并重。在两条中轴线之外，结合完整社区建设与城市一刻钟便民生活圈，为社区商业、街巷经济留出制度空间（如统租统管、临时经营空间），让&quot;毛细血管&quot;活起来。</p><p>会展与商贸用地的功能协同。广交会与琶洲展馆的用地与交通、住宿、商务配套一并规划，避免&quot;孤岛式&quot;办展。</p><figure class="fig"><svg viewBox="0 0 820 520" role="img" aria-label="图 5 ｜ 广州商脉空间分布示意图" style="width:100%;height:auto;display:block;background:#fdfcf8"><rect x="0" y="0" width="820" height="520" fill="#fdfcf8" stroke="#e5dfd4"/><text x="18" y="26" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="12.5" fill="#a8302a" font-weight="700" letter-spacing=".16em">图 5 ｜ 广州商脉空间分布示意图</text><path d="M-10,300 C150,330 260,352 380,368 C500,384 620,398 830,412" fill="none" stroke="#cfe3e6" stroke-width="26" stroke-linecap="round"/><path d="M-10,300 C150,330 260,352 380,368 C500,384 620,398 830,412" fill="none" stroke="#9dc4ca" stroke-width="1.4"/><text x="120" y="352" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#2f6b6b" transform="rotate(9 120 352)">珠 江</text><rect x="250" y="150" width="190" height="150" fill="none" stroke="#9a948a" stroke-dasharray="5 4"/><text x="258" y="168" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="10.5" fill="#9a948a">老城范围（示意）</text><circle cx="250" cy="235" r="6" fill="#a8791b" opacity=".92"/><text x="250" y="221" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">南方大厦 · 人民南商圈</text><circle cx="275" cy="275" r="6" fill="#a8791b" opacity=".92"/><text x="275" y="299" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">上下九传统商圈</text><circle cx="340" cy="240" r="6" fill="#a8791b" opacity=".92"/><text x="340" y="226" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">北京路商圈</text><circle cx="480" cy="220" r="6" fill="#a8302a" opacity=".92"/><text x="480" y="206" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">天河路商圈 · 珠江新城</text><circle cx="560" cy="240" r="6" fill="#a8302a" opacity=".92"/><text x="560" y="226" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">琶洲会展 · 广交会展馆</text><circle cx="180" cy="210" r="6" fill="#2f6b6b" opacity=".92"/><text x="180" y="196" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">沙面—黄埔 红色商脉</text><circle cx="660" cy="230" r="6" fill="#2f6b6b" opacity=".92"/><text x="660" y="216" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">白云空港产业群商脉</text><circle cx="40" cy="466" r="5" fill="#a8302a"/><text x="52" y="470" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#3d3a35">现代中轴主脉</text><circle cx="40" cy="485" r="5" fill="#a8791b"/><text x="52" y="489" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#3d3a35">传统商脉</text><circle cx="40" cy="504" r="5" fill="#2f6b6b"/><text x="52" y="508" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#3d3a35">特色商脉组团</text><text x="790" y="470" text-anchor="end" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="10.5" fill="#9a948a">示意：非精确测绘边界</text></svg><figcaption>图5　广州商脉空间分布示意图（本站绘制，示意性；非精确测绘边界）</figcaption></figure><h2 id="s6">六　精脉：城市的魂魄与秉性</h2><h3>6.1　英雄城市的红色记忆</h3><p>木棉是广州市花，树形挺拔、木质坚韧，花开时火红热烈，无绿叶衬托；花期一过绝然落土，花朵入食又能清热解毒——故称英雄树，恰如其分地代表了这座英雄城市。</p><p>广州始终处在历史洪流的潮头：三元里民众自发抗英，林则徐禁烟与虎门销烟，反映了民众革命意识的觉醒。近代以来，广州是革命的策源地——19世纪末新式学堂的兴办催生了革命创新精神，为辛亥革命积蓄力量，先有1910年燕塘起义与1911年黄花岗起义，成为推翻清王朝、实现民主共和的起点。民国时期，广州多次成为政治焦点：1912年成立军政府、设大元帅府；1918年广州市政厅成立，成为中国首个建制市；1924年国民党一大召开，同年创办黄埔军校；1925年省港大罢工历时16个月；1926年国民革命军在东较场誓师北伐。1927年广州起义建立了短暂而震惊世界的广州苏维埃政府。毛泽东、彭湃等共产党人在此举办农民运动讲习所，为革命培养骨干。</p><p>广州的革命遗迹遍布城区：中共三大会址、中华全国总工会旧址、共青团一大旧址、中国劳动组合书记部第一次全国劳动大会旧址（广州机电工会大楼）、八路军驻广州办事处旧址等；还有邓世昌、康有为、詹天佑、周恩来、鲁迅等历史名人活动旧址。新中国成立后，革命精神升华为建设热情与&quot;敢为天下先&quot;的改革精神：从滨江路中国第一艘远洋巨轮启航，到新中国第一个对外贸易窗口广交会；从第九届全运会的天河体育中心，到第十六届亚运会的海心沙；从大气磅礴的领风气之先，到恩宁路—永庆坊&quot;绣花&quot;式的精细功夫。</p><p>广州&quot;敢为人先、团结友爱、奋发向上、自强不息&quot;的精神，与英模群体和他们战斗生活的场所合而为一，构成城市的精脉——这是宝贵的精神财富，也是新时代城市有机更新的核心。</p><h3>6.2　精脉·用地接口</h3><p>红色遗址周边用地品质标准。对革命史迹周边设定高度、风貌与公共空间配套标准，使&quot;纪念场所&quot;成为城市公共生活的正面界面；文物保护对象按&quot;一屋一策&quot;提出改造方案，严禁以改造之名拆除历史文化街区与传统村落。</p><p>史迹串联为空间线索。以步道、绿道把分散的史迹点串成线，让精神记忆在空间中可被行走。</p><p>用地品质与干部作风同构。以城市有机更新的品质化、标准化、信息化为抓手，搭建行政决策与产业布局的执行平台、现代经济体系的服务平台、共建共享共治的协作平台，形成&quot;城市优选土地、土地优选行业、行业优选企业、土地优选人口&quot;的四优选机制。</p><p>精细化管理，落到人的感受。正确处理人与自然、人与社会、人与人以及人的自身内在关系，使居、业、游环境高度协调。&quot;人民城市人民建、人民城市为人民&quot;&quot;城市不仅要有高度，更要有温度&quot;——让更新成果落到群众的获得感、幸福感、安全感上。</p><figure class="fig"><svg viewBox="0 0 820 520" role="img" aria-label="图 6 ｜ 广州精脉空间分布示意图" style="width:100%;height:auto;display:block;background:#fdfcf8"><rect x="0" y="0" width="820" height="520" fill="#fdfcf8" stroke="#e5dfd4"/><text x="18" y="26" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="12.5" fill="#a8302a" font-weight="700" letter-spacing=".16em">图 6 ｜ 广州精脉空间分布示意图</text><path d="M-10,300 C150,330 260,352 380,368 C500,384 620,398 830,412" fill="none" stroke="#cfe3e6" stroke-width="26" stroke-linecap="round"/><path d="M-10,300 C150,330 260,352 380,368 C500,384 620,398 830,412" fill="none" stroke="#9dc4ca" stroke-width="1.4"/><text x="120" y="352" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#2f6b6b" transform="rotate(9 120 352)">珠 江</text><rect x="250" y="150" width="190" height="150" fill="none" stroke="#9a948a" stroke-dasharray="5 4"/><text x="258" y="168" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="10.5" fill="#9a948a">老城范围（示意）</text><circle cx="300" cy="250" r="6" fill="#a8302a" opacity=".92"/><text x="300" y="236" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">中共三大会址</text><circle cx="335" cy="225" r="6" fill="#a8302a" opacity=".92"/><text x="335" y="211" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">中华全国总工会旧址</text><circle cx="365" cy="255" r="6" fill="#a8302a" opacity=".92"/><text x="365" y="241" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">共青团一大旧址</text><circle cx="400" cy="230" r="6" fill="#a8302a" opacity=".92"/><text x="400" y="216" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">第一次全国劳动大会旧址</text><circle cx="440" cy="260" r="6" fill="#a8302a" opacity=".92"/><text x="440" y="246" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">农民运动讲习所旧址</text><circle cx="480" cy="240" r="6" fill="#a8302a" opacity=".92"/><text x="480" y="226" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">广州起义纪念馆</text><circle cx="520" cy="265" r="6" fill="#a8302a" opacity=".92"/><text x="520" y="251" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">黄埔军校旧址</text><circle cx="590" cy="250" r="6" fill="#a8302a" opacity=".92"/><text x="590" y="236" text-anchor="middle" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11.5" fill="#1c1b19">黄花岗七十二烈士墓园</text><circle cx="40" cy="466" r="5" fill="#a8302a"/><text x="52" y="470" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#3d3a35">革命史迹 · 红色遗址</text><circle cx="40" cy="485" r="5" fill="#2f6b6b"/><text x="52" y="489" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#3d3a35">步道 · 绿道串联（示意）</text><text x="790" y="470" text-anchor="end" font-family="ui-sans-serif,'PingFang SC','Microsoft YaHei',-apple-system,'Segoe UI',sans-serif" font-size="10.5" fill="#9a948a">示意：非精确测绘边界</text></svg><figcaption>图6　广州精脉空间分布示意图（本站绘制，示意性；非精确测绘边界）</figcaption></figure><h2 id="end">结语：从&quot;六脉&quot;回到&quot;两套核算办法&quot;</h2><p>城市建设的六脉，是自然资源选择与人的意识抉择、行为共同作用的结果，也是城市有机体的主体结构：地脉为骨，支撑城市的体形；水脉为筋，赋予城市的灵性；村脉为腑，提供城市的滋养；文脉为质，增添城市的风采；商脉为血，给予城市的活力；精脉为魂，决定城市的秉性。所谓&quot;山水村、文商精，英雄城市，有机更新，焕发青春&quot;。</p><p>六脉梳理完，落点仍要回到前言提出的两条原则。中医强调治里，西医强调治表，前者系统寻根、后者靶向打击，各有长短；城市更新同样需要两面兼顾、辩证施治，主要矛盾与矛盾的主要方面，都要看清。</p><p class="li">其一，从存量里面求增量——对象是核算指标与激励措施。</p><p>存量更新最容易犯的错误，是把&quot;拆除重建的面积&quot;当作&quot;增量&quot;。真正应当核算的，是存量用地的实际提升量：</p><p class="li">——以单位用地的增加值与就业岗位计分；</p><p class="li">——以公共空间、公共服务、公共绿地的增量计分；</p><p class="li">——以历史文化保护、生态修复的实际成效计分；</p><p class="li">——计分结果与出让收益分配、专项奖励、后续指标倾斜挂钩。</p><p>这样，&quot;增量&quot;才是真实的、可衡量的，而不只是纸面上的容积率。</p><p class="li">其二，从增量里面求质量——对象是品质标准与税收核算办法。</p><p>新增供应必须带条件：</p><p class="li">——出让要件化——公共空间配比、绿色建筑等级、产业准入目录、就业与税收贡献，写进出让条件，让&quot;好房子、好小区、好社区、好城区&quot;有用地标准可依；</p><p class="li">——税收核算联动——把品质评分与税收政策衔接，品质越高、政策越优；</p><p class="li">——分级适配——核心保护圈、协调圈、利用圈三种管控强度，对应三档品质标准。</p><p>如此，增量才不只是&quot;多了一块地&quot;，而是&quot;城市多了一块好东西&quot;。</p><p>至于实施路径，则要以品质化、标准化、信息化为抓手，以&quot;政府主导、统一标准、多方参与、方式多样&quot;为原则，把资源优化、打包服务、分门别类、控制使用落到具体地块与具体项目上，让个体精细灵巧、整体美观大方、自成体系。</p><p>城市的有机更新，是把城市发展与建设作为一件艺术品来打造，也是把人民对美好生活的向往，落实到城市的每一个角落。中央城市工作会议提出，以建设创新、宜居、美丽、韧性、文明、智慧的现代化人民城市为目标，以推动城市高质量发展为主题，以坚持城市内涵式发展为主线，以推进城市更新为重要抓手。广州的城市建设和谐发展两千余年，城市作为有机体自有其生命力与内在成长规律；尊重这一规律，发挥土地资源有机增长的空间与活力，以两套核算办法支撑可持续的城市更新模式，便是这座英雄城市走向现代化人民城市的有机更新之路。</p><h2 id="notes">附注：主要政策与文献依据</h2><p class="li">1. 习近平总书记在中央城市工作会议上的重要讲话（2025年7月14日至15日）；《中共中央办公厅　国务院办公厅关于持续推进城市更新行动的意见》（2025年5月）。</p><p class="li">2. 党的二十大报告；党的二十届三中全会《中共中央关于进一步全面深化改革、推进中国式现代化的决定》。</p><p class="li">3. 国务院办公厅《关于在超大特大城市积极稳步推进城中村改造的指导意见》（2023年）；《广州市城中村改造条例》（2024年5月1日施行）。</p><p class="li">4. 中共中央办公厅、国务院办公厅《关于在城乡建设中加强历史文化保护传承的意见》（2021年）。</p><p class="li">5. 《广州市地质遗迹研究》（地质出版社，2008年）；《广州古城水系与城市发展关系研究》（华南理工大学出版社，2016年）；《广州历史地理》。</p><p class="li">6. 联合国《2016年中国城市可持续发展报告》；《禹贡》《天下郡国利病书》《读史方舆纪要》等古籍引文以通行整理本为据。</p><p class="li">7. 文中文物保护单位、宗教活动场所、地质遗迹等数据，均以主管部门最新公布名录为准；水库及蓄水工程数据以市水务部门最新口径为准。</p><h2 id="post">附记</h2><p>把脉城市，有机更新，必将焕发广州城市新的青春。《沁园春·夜色羊城》以为记：</p><p>万果飘香，越秀天河，灯光照应。望云山黛影，潋滟重现；海珠黄埔，五彩游汀。珠水之间，花红树绿，锦绣南国如紫晶。转乘骑，已千年岁月，聚市攒英。山蜿蜒水婷娉，引商华、改革处处应。又地心相称，起牛头嶂，隐龙穴岛，鬼斧神形。南越王宫，荔枝湾涌，犹是天宫闪亮星。广州塔，幻彩浮云映，画点龙睛。</p><p>（作者：王德文）</p>
+</div>
+</body>
+</html>
