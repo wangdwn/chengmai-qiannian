@@ -1103,5 +1103,70 @@
   "title": "清 · 广东（《中国历史地图集》第8册）",
   "era": "清（嘉庆二十五年，1820）",
   "src": "谭其骧主编《中国历史地图集》第8册，中国地图出版社，1982；比例尺 1:350万"
+ },
+ {
+  "key": "admiralty_1740",
+  "file": "assets/admiralty_1740_canton_river_sheet3.webp",
+  "w": 1630,
+  "h": 2400,
+  "bytes": 472090,
+  "ratio": 0.679,
+  "quality": 82,
+  "format": "webp",
+  "title": "英国海军部《珠江口海图》No.1740 第 3 幅（1930）",
+  "era": "1930（实测谱系：Belcher 1840 年）",
+  "src": "United Kingdom Hydrographic Office；Wikimedia Commons（公有领域）"
+ },
+ {
+  "key": "admiralty_1741",
+  "file": "assets/admiralty_1741_canton_river_sheet1.webp",
+  "w": 1632,
+  "h": 2400,
+  "bytes": 407834,
+  "ratio": 0.68,
+  "quality": 82,
+  "format": "webp",
+  "title": "英国海军部《珠江口海图》No.1741 第 1 幅（1908／1950 新版）",
+  "era": "1908（1950 年新版；实测谱系：Belcher 1840 年）",
+  "src": "United Kingdom Hydrographic Office；Wikimedia Commons（公有领域）"
+ },
+ {
+  "key": "colton_canton_1865",
+  "file": "assets/colton_canton_1865.webp",
+  "w": 1536,
+  "h": 1337,
+  "bytes": 406236,
+  "ratio": 1.149,
+  "quality": 82,
+  "format": "webp",
+  "title": "Colton《中国》地图所附广州插图（1865）",
+  "era": "1865",
+  "src": "J.H. Colton & Co., New York；David Rumsey 地图收藏（扫描件 CC BY-NC-SA 3.0，原图 1865 年，公有领域）"
+ },
+ {
+  "key": "ams_verso",
+  "file": "assets/ams_verso_canton_vicinity.webp",
+  "w": 2400,
+  "h": 1802,
+  "bytes": 237384,
+  "ratio": 1.332,
+  "quality": 82,
+  "format": "webp",
+  "title": "AMS《广州（Kuang-chou）及邻近地区》城市详图（1956，1:25 万图背面）",
+  "era": "1956",
+  "src": "U.S. Army Map Service, Series L500, Sheet NF 49-4 背面；德克萨斯大学图书馆藏扫描（公有领域）"
+ },
+ {
+  "key": "nla_m8se",
+  "file": "assets/nla_kwangtung_50k_m8se.webp",
+  "w": 2400,
+  "h": 2056,
+  "bytes": 1086308,
+  "ratio": 1.167,
+  "quality": 82,
+  "format": "webp",
+  "title": "《Kwangtung》1:50,000 地形图 M8 SE 分幅「Kuang-Chou」（1949）",
+  "era": "1949",
+  "src": "英国陆军部 War Office 1949 年刊；澳大利亚国家图书馆藏（Out of Copyright）"
  }
 ]
