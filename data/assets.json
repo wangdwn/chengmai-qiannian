@@ -1168,5 +1168,18 @@
   "title": "《Kwangtung》1:50,000 地形图 M8 SE 分幅「Kuang-Chou」（1949）",
   "era": "1949",
   "src": "英国陆军部 War Office 1949 年刊；澳大利亚国家图书馆藏（Out of Copyright）"
+ },
+ {
+  "key": "corona_1971_gz",
+  "file": "assets/corona_1971_guangzhou_browse.webp",
+  "w": 1480,
+  "h": 115,
+  "bytes": 49054,
+  "ratio": 12.87,
+  "quality": 90,
+  "format": "webp",
+  "title": "CORONA KH-4B 卫星影像条带（1971，广州）",
+  "era": "1971",
+  "src": "美国地质调查局（USGS）EarthExplorer，Declass 1（1996）解密影像（公有领域）"
  }
 ]
