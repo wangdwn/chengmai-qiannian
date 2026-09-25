@@ -104,6 +104,32 @@
   "src": "Gallica / BnF"
  },
  {
+  "key": "yz1731_gz_jiangyu",
+  "file": "assets/yz1731_guangzhoufu_jiangyu.webp",
+  "w": 1500,
+  "h": 1230,
+  "bytes": 284032,
+  "ratio": 1.0,
+  "quality": 80,
+  "format": "webp",
+  "title": "《广州府疆域图》（雍正《广东通志》，1731）",
+  "era": "清·雍正九年（1731）",
+  "src": "郝玉麟修《广东通志》卷二；Harvard-Yenching Library 藏本数字化（Wikimedia Commons，公有领域）"
+ },
+ {
+  "key": "yz1731_gz_chengguo",
+  "file": "assets/yz1731_guangzhoufu_chengguo.webp",
+  "w": 1500,
+  "h": 1230,
+  "bytes": 269308,
+  "ratio": 1.0,
+  "quality": 80,
+  "format": "webp",
+  "title": "《广州府城郭图》（雍正《广东通志》，1731）",
+  "era": "清·雍正九年（1731）",
+  "src": "郝玉麟修《广东通志》卷二；Harvard-Yenching Library 藏本数字化（Wikimedia Commons，公有领域）"
+ },
+ {
   "key": "m1700liebautP",
   "file": "assets/m1700liebautP.jpg",
   "w": 925,
