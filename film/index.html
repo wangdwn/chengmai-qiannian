@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a1428">
+<title>城脉千年 · 影片 | 数字广州</title>
+<style>
+:root{color-scheme:dark}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a1020;color:#e8ecf4;font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",serif;line-height:1.8}
+.wrap{max-width:960px;margin:0 auto;padding:48px 20px 80px}
+.hd{text-align:center;margin-bottom:36px}
+.hd .kicker{letter-spacing:.5em;font-size:13px;color:#d8b56a;margin-bottom:10px}
+.hd h1{font-size:34px;font-weight:700;letter-spacing:.12em}
+.hd p{color:#8fa3c0;font-size:15px;margin-top:10px}
+.player{border:1px solid #23345a;border-radius:10px;overflow:hidden;background:#05080f;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.player video{display:block;width:100%;height:auto;background:#05080f}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:center;margin-top:18px;color:#8fa3c0;font-size:13px}
+.meta b{color:#c9d4e8;font-weight:500}
+.sec{margin-top:48px}
+.sec h2{font-size:20px;color:#d8b56a;letter-spacing:.2em;margin-bottom:14px;font-weight:700}
+.treat{border-left:3px solid #d8b56a;padding:6px 0 6px 18px;margin-bottom:22px}
+.treat .t{color:#8fa3c0;font-size:13px;letter-spacing:.1em}
+.treat .d{font-size:15px;color:#e8ecf4;margin-top:2px}
+.note{background:#101a30;border:1px solid #23345a;border-radius:8px;padding:16px 20px;font-size:14px;color:#9fb0cc;margin-top:36px}
+.note b{color:#d8b56a}
+a.back{display:block;text-align:center;margin-top:44px;color:#5fa8d8;text-decoration:none;letter-spacing:.2em;font-size:14px}
+a.back:hover{color:#d8b56a}
+@media (max-width:600px){.hd h1{font-size:26px}.wrap{padding:32px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hd">
+    <div class="kicker">城脉千年 · 品牌影片</div>
+    <h1>三 十 秒 · 一 座 城</h1>
+    <p>海岸线南推两千二百年，城心原点从未迁移</p>
+  </div>
+
+  <div class="player">
+    <video controls playsinline preload="metadata" poster="poster.jpg">
+      <source src="chengmai-motion-vo.mp4" type="video/mp4">
+      您的浏览器不支持内嵌视频。
+      <a href="chengmai-motion-vo.mp4">直接下载影片文件</a>
+    </video>
+  </div>
+  <div class="meta">
+    <span><b>六镜</b> 30秒</span><span><b>1280×720</b> 24fps</span>
+    <span><b>画面</b> 代码绘制逐帧渲染</span><span><b>配乐</b> 逐样本合成 · 零采样</span>
+    <span><b>旁白</b> 六段定点混音</span>
+  </div>
+
+  <div class="sec">
+    <h2>节 奏 单 · TREATMENT</h2>
+    <div class="treat"><div class="t">00:00–00:03 · 悬念</div><div class="d">一条发光海岸线自绘而出，「广州」二字逐字显形——建城于公元前二百一十四年。</div></div>
+    <div class="treat"><div class="t">00:04–00:08 · 地质底本</div><div class="d">白垩纪红层台地从咸潮海里升起。城市的第一重约束，不是人的意志，是脚下的岩层。</div></div>
+    <div class="treat"><div class="t">00:08–00:13 · 岸线南推</div><div class="d">秦汉→南宋→明清→当代四期切换，码头跟着岸线南迁，金色城心纹丝不动。</div></div>
+    <div class="treat"><div class="t">00:13–00:19 · 商贸资本</div><div class="d">海丝航线以广州为枢纽向西展开，占城、三佛齐、故临、大食、层拔，瓷器与白银顺弧流入。</div></div>
+    <div class="treat"><div class="t">00:19–00:24 · 年代滚动</div><div class="d">同心城墙环一圈圈外扩，年份从公元前二百一十四滚动至公元二零二六——城址未变，城心不移。</div></div>
+    <div class="treat"><div class="t">00:24–00:30 · 落题</div><div class="d">「城脉千年」金字落定，海岸线回声收尾。</div></div>
+  </div>
+
+  <div class="note">
+    <b>制作说明</b>：本片全部画面由 JavaScript 在 canvas 上按帧绘制（无实拍素材、无三维软件、无 AI 生成影像），headless Chromium 逐帧截取 720 帧；配乐以 Python 逐样本合成（和声垫、五声琶音、低频心跳、节奏噪点均为数学函数直出，未使用任何采样）；旁白经定点混音嵌入，配乐自动让位。数据口径与正文站点一致：岸线四期、城龄、同期古城对照均取自「城脉千年」正文模块。
+  </div>
+
+  <a class="back" href="index.html">← 返回 城脉千年 · 数字人文交互平台</a>
+</div>
+</body>
+</html>
